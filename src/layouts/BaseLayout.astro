@@ -4,6 +4,11 @@ interface Props {
   description?: string;
 }
 
+import '../styles/variables.css';
+import '../styles/global.css';
+import '../styles/components.css';
+import '../styles/animations.css';
+
 const { title, description = 'Freelance software engineer specializing in Flutter mobile apps, NestJS backends, and AWS cloud infrastructure.' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -31,12 +36,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:description" content={description} />
 
     <title>{title}</title>
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="/src/styles/variables.css" />
-    <link rel="stylesheet" href="/src/styles/global.css" />
-    <link rel="stylesheet" href="/src/styles/components.css" />
-    <link rel="stylesheet" href="/src/styles/animations.css" />
 
     <!-- i18n: sync script to avoid flash -->
     <script is:inline>
