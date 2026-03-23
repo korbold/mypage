@@ -1,0 +1,153 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  client: string;
+  role: string;
+  period: string;
+  problem: string;
+  solution: string;
+  result: string;
+  tech: string[];
+}
+
+const { title, client, role, period, problem, solution, result, tech } = Astro.props;
+---
+
+<BaseLayout title={`${title} | Danny Barahona`} description={problem}>
+  <Navbar />
+  <main class="container" style={`padding-top: calc(var(--navbar-height) + var(--space-2xl)); padding-bottom: var(--space-4xl);`}>
+    <a href="/#cases" class="back-link" data-i18n="detail.back.cases">&larr; Back to work</a>
+
+    <article>
+      <header class="case-header">
+        <h1>{title}</h1>
+        <p class="case-client">{client}</p>
+        <div class="case-meta">
+          <div class="case-meta__item">
+            <span class="case-meta__label" data-i18n="detail.role">Role</span>
+            <span class="case-meta__value">{role}</span>
+          </div>
+          <div class="case-meta__item">
+            <span class="case-meta__label" data-i18n="detail.period">Period</span>
+            <span class="case-meta__value">{period}</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="case-summary">
+        <div class="case-summary__block">
+          <h3 data-i18n="detail.problem">The Problem</h3>
+          <p>{problem}</p>
+        </div>
+        <div class="case-summary__block">
+          <h3 data-i18n="detail.solution">The Solution</h3>
+          <p>{solution}</p>
+        </div>
+        <div class="case-summary__block case-summary__block--highlight">
+          <h3 data-i18n="detail.result">The Result</h3>
+          <p>{result}</p>
+        </div>
+      </div>
+
+      <div class="case-tech">
+        <h3 data-i18n="detail.tech">Technologies</h3>
+        <div class="tags">
+          {tech.map((t) => (
+            <span class="badge badge--accent">{t}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class="prose">
+        <slot />
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .case-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .case-header h1 {
+    margin-bottom: var(--space-xs);
+  }
+
+  .case-client {
+    font-size: var(--font-size-lg);
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
+  }
+
+  .case-meta {
+    display: flex;
+    gap: var(--space-2xl);
+    flex-wrap: wrap;
+  }
+
+  .case-meta__label {
+    display: block;
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xs);
+  }
+
+  .case-meta__value {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .case-summary {
+    display: grid;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+  }
+
+  @media (min-width: 768px) {
+    .case-summary {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .case-summary__block {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-xl);
+  }
+
+  .case-summary__block h3 {
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+  }
+
+  .case-summary__block p {
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+  }
+
+  .case-summary__block--highlight {
+    border-color: var(--color-accent);
+    background: rgba(124, 58, 237, 0.05);
+  }
+
+  .case-tech {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .case-tech h3 {
+    margin-bottom: var(--space-md);
+  }
+</style>

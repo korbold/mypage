@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import CaseStudyCard from './CaseStudyCard.astro';
+
+const cases = (await getCollection('case-studies')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section id="cases" class="section">
+  <div class="container">
+    <h2 class="section-title reveal" data-i18n="cases.title">Selected Work</h2>
+    <div class="grid-3">
+      {cases.map((c, i) => (
+        <div class={`reveal reveal-delay-${i + 1}`}>
+          <CaseStudyCard
+            title={c.data.title}
+            client={c.data.client}
+            role={c.data.role}
+            result={c.data.result}
+            tech={c.data.tech}
+            slug={c.id}
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+---
+---
+
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a href="/" class="navbar__brand">Danny Barahona</a>
+
+    <ul class="navbar__links">
+      <li><a href="/#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="/#cases" data-i18n="nav.work">Work</a></li>
+      <li><a href="/#tech" data-i18n="nav.tech">Tech</a></li>
+      <li><a href="/blog" data-i18n="nav.blog">Blog</a></li>
+      <li><a href="/#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+
+    <div class="navbar__right">
+      <div class="lang-toggle">
+        <button class="lang-toggle__btn lang-toggle__btn--active" data-lang="en" type="button">EN</button>
+        <button class="lang-toggle__btn" data-lang="es" type="button">ES</button>
+      </div>
+      <label for="nav-toggle" class="navbar__toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+  </div>
+
+  <input type="checkbox" id="nav-toggle" class="navbar__checkbox" />
+  <div class="navbar__mobile-menu">
+    <a href="/#services" data-i18n="nav.services" onclick="document.getElementById('nav-toggle').checked=false">Services</a>
+    <a href="/#cases" data-i18n="nav.work" onclick="document.getElementById('nav-toggle').checked=false">Work</a>
+    <a href="/#tech" data-i18n="nav.tech" onclick="document.getElementById('nav-toggle').checked=false">Tech</a>
+    <a href="/blog" data-i18n="nav.blog">Blog</a>
+    <a href="/#contact" data-i18n="nav.contact" onclick="document.getElementById('nav-toggle').checked=false">Contact</a>
+  </div>
+</nav>
+
+<script>
+  // Language toggle
+  document.querySelectorAll('.lang-toggle__btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('data-lang');
+      document.dispatchEvent(new CustomEvent('language-change', { detail: { lang } }));
+    });
+  });
+</script>

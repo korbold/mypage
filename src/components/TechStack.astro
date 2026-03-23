@@ -1,0 +1,63 @@
+---
+const categories = [
+  { key: 'tech.mobile', label: 'Mobile', items: ['Flutter', 'Dart', 'Firebase', 'Provider', 'Bloc'] },
+  { key: 'tech.backend', label: 'Backend', items: ['NestJS', 'Node.js', 'Spring Boot'] },
+  { key: 'tech.auth', label: 'Auth', items: ['Keycloak', 'OAuth2.0', 'JWT'] },
+  { key: 'tech.cloud', label: 'Cloud AWS', items: ['Lambda', 'ECS', 'EKS', 'EC2', 'Aurora', 'RDS', 'DynamoDB', 'S3', 'CloudFront', 'Route 53'] },
+  { key: 'tech.devops', label: 'DevOps', items: ['Docker', 'GitHub Actions', 'GitLab CI', 'Jenkins', 'Kubernetes', 'Helm', 'SonarQube'] },
+  { key: 'tech.frontend', label: 'Frontend', items: ['Angular', 'Vue.js'] },
+  { key: 'tech.databases', label: 'Databases', items: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'OpenSearch'] },
+];
+---
+
+<section id="tech" class="section">
+  <div class="container">
+    <h2 class="section-title reveal" data-i18n="tech.title">Tech Stack</h2>
+    <div class="tech-grid">
+      {categories.map((cat, i) => (
+        <div class={`tech-category reveal reveal-delay-${Math.min(i + 1, 4)}`}>
+          <h3 class="tech-category__label" data-i18n={cat.key}>{cat.label}</h3>
+          <div class="tags">
+            {cat.items.map((item) => (
+              <span class="badge badge--accent">{item}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tech-grid {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 640px) {
+    .tech-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .tech-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .tech-category {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-xl);
+  }
+
+  .tech-category__label {
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+</style>
