@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:docs.astro.build)",
+      "WebFetch(domain:devonstank.com)",
+      "Bash(npm install:*)",
+      "Bash(source ~/.nvm/nvm.sh)",
+      "Bash(nvm ls:*)",
+      "Bash(nvm use:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(curl -s http://localhost:4321/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/blog/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/blog/flutter-keycloak-oidc/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/case-studies/beez-delivery/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/case-studies/kruger-corp/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/case-studies/aws-backend/)",
+      "Bash(npx astro:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
