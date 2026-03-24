@@ -11,7 +11,7 @@ export const translations: Record<Lang, Record<string, string>> = {
 
     // Hero
     'hero.headline': 'I build mobile apps & cloud backends that ship fast and scale.',
-    'hero.subheadline': 'Flutter \u00b7 NestJS \u00b7 AWS \u2014 From idea to App Store in weeks, not months.',
+    'hero.subheadline': 'Mobile apps, backends & cloud for startups and enterprises.',
     'hero.cta.work': 'See my work',
     'hero.cta.contact': "Let's talk",
 
@@ -86,7 +86,7 @@ export const translations: Record<Lang, Record<string, string>> = {
 
     // Hero
     'hero.headline': 'Construyo apps m\u00f3viles y backends en la nube que llegan a producci\u00f3n y escalan.',
-    'hero.subheadline': 'Flutter \u00b7 NestJS \u00b7 AWS \u2014 De la idea al App Store en semanas, no meses.',
+    'hero.subheadline': 'Apps m\u00f3viles, backends y cloud para startups y empresas.',
     'hero.cta.work': 'Ver mi trabajo',
     'hero.cta.contact': 'Hablemos',
 
