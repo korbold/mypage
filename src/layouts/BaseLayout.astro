@@ -68,6 +68,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         document.documentElement.lang = lang;
         localStorage.setItem('lang', lang);
 
+        // Toggle lang-en / lang-es elements
+        document.querySelectorAll('.lang-en').forEach(el => {
+          (el as HTMLElement).style.display = lang === 'en' ? '' : 'none';
+        });
+        document.querySelectorAll('.lang-es').forEach(el => {
+          (el as HTMLElement).style.display = lang === 'es' ? '' : 'none';
+        });
+
         // Update active state on toggle buttons
         document.querySelectorAll('.lang-toggle__btn').forEach((btn) => {
           const btnLang = btn.getAttribute('data-lang');

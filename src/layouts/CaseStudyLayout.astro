@@ -5,16 +5,22 @@ import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
+  titleEs?: string;
   client: string;
   role: string;
+  roleEs?: string;
   period: string;
   problem: string;
+  problemEs?: string;
   solution: string;
+  solutionEs?: string;
   result: string;
+  resultEs?: string;
   tech: string[];
+  bodyEs?: string;
 }
 
-const { title, client, role, period, problem, solution, result, tech } = Astro.props;
+const { title, titleEs, client, role, roleEs, period, problem, problemEs, solution, solutionEs, result, resultEs, tech, bodyEs } = Astro.props;
 ---
 
 <BaseLayout title={`${title} | Danny Barahona`} description={problem}>
@@ -24,12 +30,14 @@ const { title, client, role, period, problem, solution, result, tech } = Astro.p
 
     <article>
       <header class="case-header">
-        <h1>{title}</h1>
+        <h1 class="lang-en">{title}</h1>
+        {titleEs && <h1 class="lang-es" style="display:none;">{titleEs}</h1>}
         <p class="case-client">{client}</p>
         <div class="case-meta">
           <div class="case-meta__item">
             <span class="case-meta__label" data-i18n="detail.role">Role</span>
-            <span class="case-meta__value">{role}</span>
+            <span class="case-meta__value lang-en">{role}</span>
+            {roleEs && <span class="case-meta__value lang-es" style="display:none;">{roleEs}</span>}
           </div>
           <div class="case-meta__item">
             <span class="case-meta__label" data-i18n="detail.period">Period</span>
@@ -41,15 +49,18 @@ const { title, client, role, period, problem, solution, result, tech } = Astro.p
       <div class="case-summary">
         <div class="case-summary__block">
           <h3 data-i18n="detail.problem">The Problem</h3>
-          <p>{problem}</p>
+          <p class="lang-en">{problem}</p>
+          {problemEs && <p class="lang-es" style="display:none;">{problemEs}</p>}
         </div>
         <div class="case-summary__block">
           <h3 data-i18n="detail.solution">The Solution</h3>
-          <p>{solution}</p>
+          <p class="lang-en">{solution}</p>
+          {solutionEs && <p class="lang-es" style="display:none;">{solutionEs}</p>}
         </div>
         <div class="case-summary__block case-summary__block--highlight">
           <h3 data-i18n="detail.result">The Result</h3>
-          <p>{result}</p>
+          <p class="lang-en">{result}</p>
+          {resultEs && <p class="lang-es" style="display:none;">{resultEs}</p>}
         </div>
       </div>
 
@@ -62,12 +73,30 @@ const { title, client, role, period, problem, solution, result, tech } = Astro.p
         </div>
       </div>
 
-      <div class="prose">
+      <div class="prose lang-en">
         <slot />
       </div>
+      {bodyEs && (
+        <div class="prose lang-es" style="display:none;" set:html={bodyEs} />
+      )}
     </article>
   </main>
   <Footer />
+
+  <script>
+    function applyCaseStudyLang() {
+      const lang = localStorage.getItem('lang') || (navigator.language?.slice(0, 2) === 'es' ? 'es' : 'en');
+      document.querySelectorAll('.lang-en').forEach(el => {
+        (el as HTMLElement).style.display = lang === 'en' ? '' : 'none';
+      });
+      document.querySelectorAll('.lang-es').forEach(el => {
+        (el as HTMLElement).style.display = lang === 'es' ? '' : 'none';
+      });
+    }
+
+    applyCaseStudyLang();
+    document.addEventListener('language-change', applyCaseStudyLang);
+  </script>
 </BaseLayout>
 
 <style>

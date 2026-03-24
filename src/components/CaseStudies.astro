@@ -13,9 +13,12 @@ const cases = (await getCollection('case-studies')).sort((a, b) => a.data.order 
         <div class={`reveal reveal-delay-${i + 1}`}>
           <CaseStudyCard
             title={c.data.title}
+            titleEs={c.data.titleEs}
             client={c.data.client}
             role={c.data.role}
+            roleEs={c.data.roleEs}
             result={c.data.result}
+            resultEs={c.data.resultEs}
             tech={c.data.tech}
             slug={c.id}
             logo={c.data.logo}

@@ -12,17 +12,36 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+
+// Simple markdown to HTML for Spanish body
+function mdToHtml(md: string): string {
+  return md
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^- \*\*(.+?)\*\*(.*)$/gm, '<li><strong>$1</strong>$2</li>')
+    .replace(/^- (.+)$/gm, '<li>$1</li>')
+    .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
+    .replace(/^(?!<[hul])((?!^\s*$).+)$/gm, '<p>$1</p>')
+    .replace(/\n{2,}/g, '\n');
+}
+
+const bodyEsHtml = entry.data.bodyEs ? mdToHtml(entry.data.bodyEs) : '';
 ---
 
 <CaseStudyLayout
   title={entry.data.title}
+  titleEs={entry.data.titleEs}
   client={entry.data.client}
   role={entry.data.role}
+  roleEs={entry.data.roleEs}
   period={entry.data.period}
   problem={entry.data.problem}
+  problemEs={entry.data.problemEs}
   solution={entry.data.solution}
+  solutionEs={entry.data.solutionEs}
   result={entry.data.result}
+  resultEs={entry.data.resultEs}
   tech={entry.data.tech}
+  bodyEs={bodyEsHtml}
 >
   <Content />
 </CaseStudyLayout>
