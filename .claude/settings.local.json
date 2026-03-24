@@ -18,7 +18,16 @@
       "Bash(npx astro:*)",
       "Bash(git init:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(gh repo:*)",
+      "Bash(git push:*)",
+      "WebFetch(domain:mypage-hej7vmgw0-dannys-projects-0b2c619a.vercel.app)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(curl -sL \"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cc/10/16/cc1016df-6a3f-2145-6a1d-45bf5c24ebfb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/400x400ia-75.jpg\" -o revo.jpg)",
+      "Bash(curl -sL \"https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ee/5c/ef/ee5cef96-c989-aa1b-92cb-e15bc2430eea/Placeholder.mill/400x400bb-75.jpg\" -o spectrum.jpg)",
+      "Bash(curl -sL \"https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/76/26/7c/76267cde-3f2a-6554-bc71-cc48b6621fe7/Placeholder.mill/400x400bb-75.jpg\" -o 360io.jpg)",
+      "Bash(curl -sL \"https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/c1/66/67/c1666745-7437-b4ea-90ff-d1d5e24bdba3/Placeholder.mill/400x400bb-75.jpg\" -o sportyeah.jpg)",
+      "Bash(curl -sL \"https://play-lh.googleusercontent.com/hv3e-Y0PWIPzTS7lCXp71swQUXvZBOAMkwPUYivP-OdJf2DcQdc0D64bVPcw8aAPe-M=w480-h480-rw\" -o sicmer.png)"
     ]
   }
 }

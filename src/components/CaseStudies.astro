@@ -7,7 +7,7 @@ const cases = (await getCollection('case-studies')).sort((a, b) => a.data.order 
 
 <section id="cases" class="section">
   <div class="container">
-    <h2 class="section-title reveal" data-i18n="cases.title">Selected Work</h2>
+    <h2 class="section-title reveal" data-i18n="cases.title">Completed Work</h2>
     <div class="grid-3">
       {cases.map((c, i) => (
         <div class={`reveal reveal-delay-${i + 1}`}>
@@ -18,6 +18,7 @@ const cases = (await getCollection('case-studies')).sort((a, b) => a.data.order 
             result={c.data.result}
             tech={c.data.tech}
             slug={c.id}
+            logo={c.data.logo}
           />
         </div>
       ))}

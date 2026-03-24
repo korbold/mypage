@@ -25,8 +25,15 @@ export const translations: Record<Lang, Record<string, string>> = {
     'services.cloud.desc': 'Production-grade AWS infrastructure: ECS, EKS, Lambda, Aurora, RDS. High availability by default.',
 
     // Case Studies
-    'cases.title': 'Selected Work',
+    'cases.title': 'Completed Work',
     'cases.view': 'View case study',
+
+    // Current Projects
+    'current.title': 'Current Projects',
+    'current.mobile': 'Mobile Support',
+    'current.web': 'Web Development',
+    'current.mydessk.desc': 'Electronic invoicing & sales management platform',
+    'current.reventi.desc': 'Online marketplace for buying & selling locally',
 
     // Tech Stack
     'tech.title': 'Tech Stack',
@@ -93,8 +100,15 @@ export const translations: Record<Lang, Record<string, string>> = {
     'services.cloud.desc': 'Infraestructura AWS lista para producci\u00f3n: ECS, EKS, Lambda, Aurora, RDS. Alta disponibilidad por defecto.',
 
     // Case Studies
-    'cases.title': 'Trabajo Seleccionado',
+    'cases.title': 'Trabajos Realizados',
     'cases.view': 'Ver caso de estudio',
+
+    // Current Projects
+    'current.title': 'Proyectos Actuales',
+    'current.mobile': 'Soporte M\u00f3vil',
+    'current.web': 'Desarrollo Web',
+    'current.mydessk.desc': 'Plataforma de facturaci\u00f3n electr\u00f3nica y gesti\u00f3n de ventas',
+    'current.reventi.desc': 'Marketplace de compra y venta local',
 
     // Tech Stack
     'tech.title': 'Stack Tecnol\u00f3gico',

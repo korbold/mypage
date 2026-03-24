@@ -40,8 +40,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- i18n: sync script to avoid flash -->
     <script is:inline>
       (function() {
-        var lang = localStorage.getItem('lang') || 'en';
-        document.documentElement.lang = lang;
+        var saved = localStorage.getItem('lang');
+        if (!saved) {
+          var browserLang = (navigator.language || '').slice(0, 2);
+          saved = browserLang === 'es' ? 'es' : 'en';
+        }
+        document.documentElement.lang = saved;
       })();
     </script>
   </head>
@@ -72,7 +76,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
 
       // Apply on load
-      const savedLang = (localStorage.getItem('lang') || 'en') as Lang;
+      const stored = localStorage.getItem('lang');
+      const browserLang = navigator.language?.slice(0, 2);
+      const savedLang = (stored || (browserLang === 'es' ? 'es' : 'en')) as Lang;
       applyLanguage(savedLang);
 
       // Listen for toggle events

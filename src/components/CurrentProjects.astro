@@ -1,0 +1,221 @@
+---
+const mobileProjects = [
+  {
+    name: 'Spectrum Aesthetics',
+    client: 'Spectrum Image, Inc.',
+    role: 'Mobile Developer (Flutter)',
+    logo: '/logos/spectrum.jpg',
+    tech: ['Flutter', 'Firebase'],
+    links: [
+      { label: 'App Store', url: 'https://apps.apple.com/us/app/spectrum-aesthetics/id6504781797' },
+      { label: 'Play Store', url: 'https://play.google.com/store/apps/details?id=com.spectrum_aesthetic.spectrumapp' },
+    ],
+  },
+  {
+    name: '360io',
+    client: '360 Integrations',
+    role: 'Mobile Developer (Flutter)',
+    logo: '/logos/360io.jpg',
+    tech: ['Flutter', 'Firebase'],
+    links: [
+      { label: 'App Store', url: 'https://apps.apple.com/in/app/360io/id6746419349' },
+    ],
+  },
+];
+
+const webProjects = [
+  {
+    name: 'Mydessk',
+    client: 'Lupio Dev',
+    clientUrl: 'https://www.lupio.dev/',
+    role: 'Full-Stack Developer',
+    logo: '/logos/mydessk.svg',
+    description: 'Electronic invoicing & sales management platform',
+    descriptionEs: 'Plataforma de facturación electrónica y gestión de ventas',
+    tech: ['Laravel', 'Vue.js'],
+    links: [
+      { label: 'Website', url: 'https://mydessk.com/' },
+    ],
+  },
+  {
+    name: 'Reventi',
+    client: 'Lupio Dev',
+    clientUrl: 'https://www.lupio.dev/',
+    role: 'Full-Stack Developer',
+    logo: '/logos/reventi.png',
+    description: 'Online marketplace for buying & selling locally',
+    descriptionEs: 'Marketplace de compra y venta local',
+    tech: ['Laravel', 'Vue.js'],
+    links: [
+      { label: 'Website', url: 'https://reventi.shop/' },
+    ],
+  },
+];
+---
+
+<section id="current" class="section">
+  <div class="container">
+    <h2 class="section-title reveal" data-i18n="current.title">Current Projects</h2>
+
+    <h3 class="current__subtitle reveal reveal-delay-1" data-i18n="current.mobile">Mobile Support</h3>
+    <div class="grid-2 current__grid">
+      {mobileProjects.map((p, i) => (
+        <div class={`reveal reveal-delay-${i + 2}`}>
+          <div class="current-card card">
+            <div class="current-card__header">
+              {p.logo && <img src={p.logo} alt={`${p.name} logo`} class="current-card__logo" />}
+              <div class="current-card__meta">
+                <span class="current-card__client">{p.client}</span>
+                <span class="current-card__role">{p.role}</span>
+              </div>
+            </div>
+            <h4 class="current-card__name">{p.name}</h4>
+            <div class="tags">
+              {p.tech.map((t) => (
+                <span class="badge">{t}</span>
+              ))}
+            </div>
+            <div class="current-card__links">
+              {p.links.map((link) => (
+                <a href={link.url} target="_blank" rel="noopener noreferrer" class="current-card__link">
+                  {link.label} &nearr;
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <h3 class="current__subtitle reveal reveal-delay-1" data-i18n="current.web">Web Development</h3>
+    <div class="grid-2 current__grid">
+      {webProjects.map((p, i) => (
+        <div class={`reveal reveal-delay-${i + 2}`}>
+          <div class="current-card card">
+            <div class="current-card__header">
+              {p.logo && <img src={p.logo} alt={`${p.name} logo`} class="current-card__logo" />}
+              <div class="current-card__meta">
+                <span class="current-card__client">
+                  {p.clientUrl ? (
+                    <a href={p.clientUrl} target="_blank" rel="noopener noreferrer" class="current-card__client-link">{p.client}</a>
+                  ) : p.client}
+                </span>
+                <span class="current-card__role">{p.role}</span>
+              </div>
+            </div>
+            <h4 class="current-card__name">{p.name}</h4>
+            <p class="current-card__desc" data-i18n={`current.${p.name.toLowerCase()}.desc`}>{p.description}</p>
+            <div class="tags">
+              {p.tech.map((t) => (
+                <span class="badge">{t}</span>
+              ))}
+            </div>
+            <div class="current-card__links">
+              {p.links.map((link) => (
+                <a href={link.url} target="_blank" rel="noopener noreferrer" class="current-card__link">
+                  {link.label} &nearr;
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .current__subtitle {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-bottom: var(--space-lg);
+    margin-top: var(--space-2xl);
+  }
+
+  .current__subtitle:first-of-type {
+    margin-top: 0;
+  }
+
+  .current__grid {
+    margin-bottom: var(--space-xl);
+  }
+
+  .current-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .current-card__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .current-card__logo {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .current-card__meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .current-card__client {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  .current-card__client-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .current-card__client-link:hover {
+    color: var(--color-secondary);
+  }
+
+  .current-card__role {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+  }
+
+  .current-card__name {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .current-card__desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  .current-card__links {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: auto;
+  }
+
+  .current-card__link {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .current-card__link:hover {
+    color: var(--color-secondary);
+  }
+</style>

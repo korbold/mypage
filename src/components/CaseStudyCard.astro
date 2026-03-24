@@ -6,15 +6,19 @@ interface Props {
   result: string;
   tech: string[];
   slug: string;
+  logo?: string;
 }
 
-const { title, client, role, result, tech, slug } = Astro.props;
+const { title, client, role, result, tech, slug, logo } = Astro.props;
 ---
 
 <a href={`/case-studies/${slug}`} class="case-card card">
   <div class="case-card__header">
-    <span class="case-card__client">{client}</span>
-    <span class="case-card__role">{role}</span>
+    {logo && <img src={logo} alt={`${client} logo`} class="case-card__logo" />}
+    <div class="case-card__meta">
+      <span class="case-card__client">{client}</span>
+      <span class="case-card__role">{role}</span>
+    </div>
   </div>
   <h3 class="case-card__title">{title}</h3>
   <p class="case-card__result">{result}</p>
@@ -37,6 +41,21 @@ const { title, client, role, result, tech, slug } = Astro.props;
   }
 
   .case-card__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .case-card__logo {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .case-card__meta {
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
