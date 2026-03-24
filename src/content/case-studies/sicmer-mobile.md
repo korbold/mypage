@@ -14,6 +14,9 @@ resultEs: "Optimización de operaciones de personal de entregas con flujos de tr
 tech: ["Flutter", "Firebase", "REST APIs"]
 order: 4
 logo: "/logos/sicmer.png"
+links:
+  - label: "Google Play"
+    url: "https://play.google.com/store/apps/details?id=ec.com.smx.sicmer"
 bodyEs: |
   ## Descripción General
 

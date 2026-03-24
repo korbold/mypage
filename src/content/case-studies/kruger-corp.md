@@ -13,6 +13,7 @@ result: "Reduced login failures, improved TTI, smaller .aab size via lazy loadin
 resultEs: "Reducción de fallos de login, mejora en TTI, menor tamaño .aab con lazy loading, ciclos de release más rápidos"
 tech: ["Flutter", "NestJS", "Keycloak", "Firebase", "Docker", "Angular", "Spring Boot", "Jenkins", "Kubernetes", "SonarQube"]
 order: 2
+links: []
 bodyEs: |
   ## Descripción General
 

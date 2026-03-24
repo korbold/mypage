@@ -13,6 +13,7 @@ result: "High-availability production environments, reduced operational overhead
 resultEs: "Entornos de producción de alta disponibilidad, reducción de carga operativa, operaciones sin SSH vía SSM"
 tech: ["AWS Lambda", "ECS", "EKS", "EC2", "Aurora", "DynamoDB", "ElastiCache", "Route 53", "ACM", "ALB", "ECR", "Secrets Manager"]
 order: 3
+links: []
 bodyEs: |
   ## Descripción General
 

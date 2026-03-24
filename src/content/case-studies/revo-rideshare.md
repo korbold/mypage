@@ -14,6 +14,15 @@ resultEs: "Plataforma de rideshare completa lanzada en App Store y Google Play c
 tech: ["Flutter", "Firebase", "Google Maps", "REST APIs"]
 order: 5
 logo: "/logos/revo.jpg"
+links:
+  - label: "App Store (Rider)"
+    url: "https://apps.apple.com/ni/app/revo-rideshare/id6476524112"
+  - label: "App Store (Driver)"
+    url: "https://apps.apple.com/ni/app/revo-rideshare-driver/id6476524424"
+  - label: "Google Play (Rider)"
+    url: "https://play.google.com/store/apps/details?id=com.revoride.rider"
+  - label: "Google Play (Driver)"
+    url: "https://play.google.com/store/apps/details?id=com.revoride.driver"
 bodyEs: |
   ## Descripción General
 

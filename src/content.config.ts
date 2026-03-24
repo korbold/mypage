@@ -21,6 +21,10 @@ const caseStudies = defineCollection({
     order: z.number(),
     logo: z.string().optional(),
     bodyEs: z.string().optional(),
+    links: z.array(z.object({
+      label: z.string(),
+      url: z.string(),
+    })).optional(),
   }),
 });
 

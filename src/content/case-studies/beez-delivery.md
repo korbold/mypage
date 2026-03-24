@@ -13,6 +13,7 @@ result: "Significant reduction in load times and improved release cadence"
 resultEs: "Reducción significativa en tiempos de carga y mejora en la cadencia de releases"
 tech: ["Flutter", "Laravel 8", "Firebase", "MySQL"]
 order: 1
+links: []
 bodyEs: |
   ## Descripción General
 

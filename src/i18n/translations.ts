@@ -75,6 +75,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'detail.solution': 'The Solution',
     'detail.result': 'The Result',
     'detail.tech': 'Technologies',
+    'detail.links': 'Links',
   },
   es: {
     // Nav
@@ -149,6 +150,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'detail.problem': 'El Problema',
     'detail.solution': 'La Soluci\u00f3n',
     'detail.result': 'El Resultado',
-    'detail.tech': 'Tecnolog\u00edas',
+    'detail.tech': 'Tecnologías',
+    'detail.links': 'Enlaces',
   },
 };
