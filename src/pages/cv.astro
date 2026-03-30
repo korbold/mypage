@@ -230,6 +230,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <li><strong>App Recaudaci&oacute;n</strong> (Flutter MVVM): geolocation, maps &amp; persistence &mdash; github.com/korbold/APPMovilGeoMAPS</li>
       </ul>
     </section>
+
+    <!-- Certificates -->
+    <section class="cv__section">
+      <h2 class="cv__section-title">
+        <span class="lang-es" style="display:none">Certificados</span>
+        <span class="lang-en">Certificates</span>
+      </h2>
+      <div class="cv__cert">
+        <div class="cv__cert-info">
+          <h3 class="cv__cert-title">
+            <span class="lang-en">Work Certificate &mdash; Kruger Corporation S.A.S</span>
+            <span class="lang-es" style="display:none">Certificado Laboral &mdash; Kruger Corporation S.A.S</span>
+          </h3>
+          <p class="cv__cert-detail">
+            <span class="lang-en">Technical Consultant &middot; May 2022 &ndash; Oct 2025 &middot; Issued Nov 24, 2025</span>
+            <span class="lang-es" style="display:none">Consultor T&eacute;cnico &middot; Mayo 2022 &ndash; Oct 2025 &middot; Expedido 24 Nov 2025</span>
+          </p>
+        </div>
+        <a href="/cv/Certificado_Laboral_Kruger.pdf" download class="cv__cert-download">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>PDF</span>
+        </a>
+      </div>
+    </section>
   </div>
 </BaseLayout>
 
@@ -434,6 +458,48 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 600;
   }
 
+  .cv__cert {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+  }
+
+  .cv__cert-title {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .cv__cert-detail {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin-top: 0.15rem;
+  }
+
+  .cv__cert-download {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0.35rem 0.75rem;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all var(--transition);
+  }
+
+  .cv__cert-download:hover {
+    background: var(--color-accent);
+    color: white;
+  }
+
   /* Print styles */
   @media print {
     .no-print {
@@ -529,6 +595,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     .cv__period--active {
       color: #444;
+    }
+
+    .cv__cert {
+      border-color: #ccc;
+    }
+
+    .cv__cert-title {
+      color: #111;
+    }
+
+    .cv__cert-detail {
+      color: #555;
+    }
+
+    .cv__cert-download {
+      color: #444;
+      border-color: #999;
     }
 
     @page {
