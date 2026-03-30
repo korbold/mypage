@@ -14,6 +14,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'hero.subheadline': 'Mobile apps, backends & cloud for startups and enterprises.',
     'hero.cta.work': 'See my work',
     'hero.cta.contact': "Let's talk",
+    'hero.cta.cv': 'Download CV',
 
     // Services
     'services.title': 'What I do',
@@ -66,6 +67,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     // Footer
     'footer.rights': 'All rights reserved.',
 
+    // CV
+    'cv.download': 'Download PDF',
+
     // Detail pages
     'detail.back.cases': 'Back to work',
     'detail.back.blog': 'Back to blog',
@@ -90,6 +94,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'hero.subheadline': 'Apps m\u00f3viles, backends y cloud para startups y empresas.',
     'hero.cta.work': 'Ver mi trabajo',
     'hero.cta.contact': 'Hablemos',
+    'hero.cta.cv': 'Descargar CV',
 
     // Services
     'services.title': 'Lo que hago',
@@ -141,6 +146,9 @@ export const translations: Record<Lang, Record<string, string>> = {
 
     // Footer
     'footer.rights': 'Todos los derechos reservados.',
+
+    // CV
+    'cv.download': 'Descargar PDF',
 
     // Detail pages
     'detail.back.cases': 'Volver al trabajo',

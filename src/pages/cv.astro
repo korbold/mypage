@@ -1,0 +1,486 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="CV — Danny Barahona" description="Curriculum Vitae de Danny Barahona — Flutter, NestJS, AWS">
+  <div class="cv">
+    <!-- Print button (hidden on print) -->
+    <div class="cv__actions no-print">
+      <a href="/" class="cv__back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        <span data-i18n="detail.back.cases">Back</span>
+      </a>
+      <button class="cv__print-btn" onclick="window.print()" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span data-i18n="cv.download">Download PDF</span>
+      </button>
+    </div>
+
+    <!-- Header -->
+    <header class="cv__header">
+      <h1 class="cv__name">Danny Barahona Galindo</h1>
+      <p class="cv__stack">Flutter | Angular | Spring Boot | NestJS | Firebase | AWS</p>
+      <div class="cv__contact">
+        <span>+593 999 280 376</span>
+        <span>dmmarketingads@gmail.com</span>
+        <a href="https://linkedin.com/in/korbold" target="_blank">linkedin.com/in/korbold</a>
+        <a href="https://github.com/korbold" target="_blank">github.com/korbold</a>
+      </div>
+    </header>
+
+    <!-- Summary -->
+    <section class="cv__section">
+      <p class="cv__summary lang-es" style="display:none">
+        Desarrollador m&oacute;vil con foco en Flutter (desde 2021) y APIs Node/NestJS. Integraciones con Firebase (Auth/FCM), autenticaci&oacute;n con OAuth2/Keycloak y entornos reproducibles con Docker. Experiencia llevando apps a producci&oacute;n, trabajo con producto/dise&ntilde;o y buenas pr&aacute;cticas (Clean, SOLID).
+        Experiencia en mantenimiento y mejoras de proyectos Flutter, optimizaci&oacute;n de integraciones mediante migraci&oacute;n de APIs y un s&oacute;lido background en Backend/Cloud con AWS (Lambda, ECS, EKS, RDS, Aurora, DynamoDB, CI/CD, seguridad y observabilidad).
+      </p>
+      <p class="cv__summary lang-en">
+        Mobile developer focused on Flutter (since 2021) and Node/NestJS APIs. Integrations with Firebase (Auth/FCM), OAuth2/Keycloak authentication, and reproducible environments with Docker. Experience shipping apps to production, working with product/design teams, and best practices (Clean Architecture, SOLID).
+        Strong Backend/Cloud background with AWS (Lambda, ECS, EKS, RDS, Aurora, DynamoDB, CI/CD, security, and observability).
+      </p>
+    </section>
+
+    <!-- Key Skills -->
+    <section class="cv__section">
+      <h2 class="cv__section-title">
+        <span class="lang-es" style="display:none">Competencias Clave</span>
+        <span class="lang-en">Key Skills</span>
+      </h2>
+      <ul class="cv__skills">
+        <li>Flutter (Dart) &middot; Clean Architecture &middot; Provider; Bloc/GetX/Riverpod</li>
+        <li>APIs: NestJS/Node.js; Spring Boot/Kotlin</li>
+        <li>
+          <span class="lang-en">Auth: OAuth2.0, Keycloak &middot; Firebase (Auth/FCM/Crashlytics)</span>
+          <span class="lang-es" style="display:none">Autenticaci&oacute;n: OAuth2.0, Keycloak &middot; Firebase (Auth/FCM/Crashlytics)</span>
+        </li>
+        <li>
+          <span class="lang-en">Databases: MySQL; PostgreSQL/MongoDB</span>
+          <span class="lang-es" style="display:none">Bases de datos: MySQL; PostgreSQL/MongoDB</span>
+        </li>
+        <li>DevOps: Docker; CI/CD (GitHub Actions/GitLab/Jenkins)</li>
+        <li>Cloud: Firebase/GCP; AWS (S3/EC2, DynamoDB, ECS, EKS, Lambda, Aurora)</li>
+        <li>Frontend: Angular, Vue.js, Laravel</li>
+      </ul>
+    </section>
+
+    <!-- Experience -->
+    <section class="cv__section">
+      <h2 class="cv__section-title">
+        <span class="lang-es" style="display:none">Experiencia</span>
+        <span class="lang-en">Experience</span>
+      </h2>
+
+      <!-- Kruger Corp -->
+      <div class="cv__job">
+        <div class="cv__job-header">
+          <h3>Kruger Corp / Corporaci&oacute;n Favorita — <em>Software Engineer</em></h3>
+          <span class="cv__period">May 2022 &ndash; Oct 2025</span>
+        </div>
+        <ul class="cv__list lang-es" style="display:none">
+          <li>Implement&eacute; autenticaci&oacute;n OIDC con Keycloak en apps Flutter, reduciendo fallos de inicio de sesi&oacute;n y centralizando roles y permisos.</li>
+          <li>Desarroll&eacute; m&oacute;dulos de negocio en Flutter (Dart) consumiendo APIs REST NestJS; arquitectura Clean y pruebas unitarias y de widgets.</li>
+          <li>Integr&eacute; Firebase Cloud Messaging para notificaciones segmentadas y Crashlytics con alta estabilidad (crash-free rate).</li>
+          <li>Optimic&eacute; rendimiento: menor tiempo de arranque (TTI) y menor tama&ntilde;o del .aab mediante lazy loading y optimizaci&oacute;n de assets.</li>
+          <li>Containerice servicios con Docker y configur&eacute; pipelines de CI/CD (GitHub Actions/GitLab) para builds firmados y despliegues a QA/UAT.</li>
+          <li>Proyecto SICMER: app Flutter para gesti&oacute;n de repartidores autorizados en Corporaci&oacute;n Favorita, con APIs REST y Firebase.</li>
+          <li>Proyecto actual en Corporaci&oacute;n Favorita: frontend Angular + backend Spring Boot; Jenkins, SonarQube y Kubernetes.</li>
+          <li>Colabor&eacute; con producto/dise&ntilde;o y QA; revisiones de c&oacute;digo y mentoring a nuevos integrantes.</li>
+        </ul>
+        <ul class="cv__list lang-en">
+          <li>Implemented OIDC authentication with Keycloak in Flutter apps, reducing login failures and centralizing roles/permissions.</li>
+          <li>Built business modules in Flutter (Dart) consuming NestJS REST APIs; Clean Architecture with unit and widget tests.</li>
+          <li>Integrated Firebase Cloud Messaging for segmented push notifications and Crashlytics with high crash-free rate.</li>
+          <li>Optimized performance: reduced TTI and .aab size through lazy loading and asset optimization.</li>
+          <li>Containerized services with Docker, configured CI/CD pipelines (GitHub Actions/GitLab) for signed builds and QA/UAT deployments.</li>
+          <li>SICMER project: Flutter app for authorized delivery personnel management at Corporaci&oacute;n Favorita, with REST APIs and Firebase.</li>
+          <li>Current project at Corporaci&oacute;n Favorita: Angular frontend + Spring Boot backend; Jenkins, SonarQube, and Kubernetes.</li>
+          <li>Collaborated with product/design and QA; code reviews and mentoring new team members.</li>
+        </ul>
+        <p class="cv__tech">Flutter, NestJS, Keycloak (OIDC), Firebase, Docker, Angular, Spring Boot, Jenkins, Kubernetes, SonarQube</p>
+      </div>
+
+      <!-- Freelance -->
+      <div class="cv__job">
+        <div class="cv__job-header">
+          <h3>Freelance — <em>Mobile & Full-Stack Developer</em></h3>
+          <span class="cv__period">2024 &ndash; <span class="lang-en">Present</span><span class="lang-es" style="display:none">Actual</span></span>
+        </div>
+        <ul class="cv__list lang-es" style="display:none">
+          <li><strong>REVO Rideshare</strong> (PNP Capital Ventures LLC): Dos apps Flutter (rider &amp; driver) con GPS en tiempo real, Google Maps, precios transparentes y funciones de seguridad. Publicadas en App Store y Google Play.</li>
+          <li><strong>SportYeah</strong>: App Flutter de red social deportiva con feed de noticias, scores en vivo, foros, chat, stories y monetizaci&oacute;n de creadores.</li>
+          <li><strong>Spectrum Aesthetics</strong> (Spectrum Image, Inc.): Soporte y mantenimiento de app Flutter m&oacute;vil con Firebase.</li>
+          <li><strong>360io</strong> (360 Integrations): Soporte y mantenimiento de app Flutter m&oacute;vil con Firebase.</li>
+          <li><strong>Mydessk</strong> (Lupio Dev): Plataforma web de facturaci&oacute;n electr&oacute;nica y gesti&oacute;n de ventas. Laravel + Vue.js.</li>
+          <li><strong>Reventi</strong> (Lupio Dev): Marketplace web de compra y venta local. Laravel + Vue.js.</li>
+        </ul>
+        <ul class="cv__list lang-en">
+          <li><strong>REVO Rideshare</strong> (PNP Capital Ventures LLC): Two Flutter apps (rider &amp; driver) with real-time GPS, Google Maps, transparent pricing, and safety features. Published on App Store and Google Play.</li>
+          <li><strong>SportYeah</strong>: Flutter sports social network app with news feed, live scores, forums, chat, stories, and creator monetization.</li>
+          <li><strong>Spectrum Aesthetics</strong> (Spectrum Image, Inc.): Flutter mobile app support and maintenance with Firebase.</li>
+          <li><strong>360io</strong> (360 Integrations): Flutter mobile app support and maintenance with Firebase.</li>
+          <li><strong>Mydessk</strong> (Lupio Dev): Electronic invoicing and sales management web platform. Laravel + Vue.js.</li>
+          <li><strong>Reventi</strong> (Lupio Dev): Online marketplace for buying &amp; selling locally. Laravel + Vue.js.</li>
+        </ul>
+        <p class="cv__tech">Flutter, Firebase, Google Maps, REST APIs, Laravel, Vue.js</p>
+      </div>
+
+      <!-- Lupio -->
+      <div class="cv__job">
+        <div class="cv__job-header">
+          <h3>Lupio Development — <em>Flutter Developer</em></h3>
+          <span class="cv__period">2021 &ndash; 2022</span>
+        </div>
+        <ul class="cv__list lang-es" style="display:none">
+          <li>Mantenimiento y mejoras en proyectos Flutter, aplicando buenas pr&aacute;cticas de arquitectura y optimizaci&oacute;n del c&oacute;digo.</li>
+          <li>Migraci&oacute;n de APIs a nuevas versiones, optimizando la integraci&oacute;n y reduciendo tiempos de desarrollo.</li>
+        </ul>
+        <ul class="cv__list lang-en">
+          <li>Maintained and improved Flutter projects, applying architecture best practices and code optimization.</li>
+          <li>Migrated APIs to new versions, optimizing integration and reducing development time.</li>
+        </ul>
+        <p class="cv__tech">Flutter (Dart)</p>
+      </div>
+
+      <!-- Beez -->
+      <div class="cv__job">
+        <div class="cv__job-header">
+          <h3>Beez Delivery — <em>Mobile Developer (Flutter)</em></h3>
+          <span class="cv__period">Dec 2021 &ndash; Apr 2022</span>
+        </div>
+        <ul class="cv__list lang-es" style="display:none">
+          <li>Mantuve y evolucion&eacute; cuatro apps Flutter (cliente, repartidor, administrador y tracking) consumiendo APIs Laravel 8.</li>
+          <li>Mejor&eacute; tiempos de carga aplicando caching HTTP, paginaci&oacute;n y memoizaci&oacute;n de vistas.</li>
+          <li>Instrument&eacute; anal&iacute;tica y manejo de errores con Firebase; soporte a releases internas en Play Console.</li>
+        </ul>
+        <ul class="cv__list lang-en">
+          <li>Maintained and evolved four Flutter apps (client, driver, admin, and tracking) consuming Laravel 8 APIs.</li>
+          <li>Improved load times with HTTP caching, pagination, and view memoization.</li>
+          <li>Instrumented analytics and error handling with Firebase; managed beta releases on Play Console.</li>
+        </ul>
+        <p class="cv__tech">Flutter, Laravel 8, REST, Firebase, Play Console, MySQL</p>
+      </div>
+
+      <!-- AWS Backend -->
+      <div class="cv__job">
+        <div class="cv__job-header">
+          <h3>Backend/Cloud (AWS) — <em>Backend & Cloud Engineer</em></h3>
+          <span class="cv__period">2021 &ndash; <span class="lang-en">Present</span><span class="lang-es" style="display:none">Actual</span></span>
+        </div>
+        <p class="cv__job-context"><em>Beez Delivery / Kruger Corp / Corporaci&oacute;n Favorita</em></p>
+        <ul class="cv__list lang-es" style="display:none">
+          <li>APIs serverless con API Gateway + AWS Lambda; permisos IAM y Secrets Manager/SSM.</li>
+          <li>Servicios contenizados en Amazon ECS (Fargate) con ALB, health checks y despliegues blue/green.</li>
+          <li>Microservicios en Amazon EKS (Kubernetes) con Helm, Ingress/ALB y HPA.</li>
+          <li>Amazon Aurora (Serverless v2), DynamoDB, ElastiCache (Redis), DocumentDB y OpenSearch.</li>
+          <li>VPCs con subredes p&uacute;blicas/privadas, NAT Gateways, IAM de m&iacute;nimo privilegio.</li>
+          <li>CI/CD automatizado hacia ECS/EKS/Beanstalk con artefactos Docker.</li>
+        </ul>
+        <ul class="cv__list lang-en">
+          <li>Serverless APIs with API Gateway + AWS Lambda; IAM permissions and Secrets Manager/SSM.</li>
+          <li>Containerized services on Amazon ECS (Fargate) with ALB, health checks, and blue/green deployments.</li>
+          <li>Microservices on Amazon EKS (Kubernetes) with Helm, Ingress/ALB, and HPA.</li>
+          <li>Amazon Aurora (Serverless v2), DynamoDB, ElastiCache (Redis), DocumentDB, and OpenSearch.</li>
+          <li>VPCs with public/private subnets, NAT Gateways, least-privilege IAM.</li>
+          <li>Automated CI/CD to ECS/EKS/Beanstalk with Docker artifacts.</li>
+        </ul>
+        <p class="cv__tech">AWS Lambda, ECS, EKS, EC2, Aurora, DynamoDB, ElastiCache, Route 53, ACM, ALB, ECR, Secrets Manager</p>
+      </div>
+    </section>
+
+    <!-- Personal Projects -->
+    <section class="cv__section">
+      <h2 class="cv__section-title">
+        <span class="lang-es" style="display:none">Proyectos Personales</span>
+        <span class="lang-en">Personal Projects</span>
+      </h2>
+      <ul class="cv__list">
+        <li><strong>News App</strong> (Flutter + API): Clean Architecture, Repository pattern, offline &amp; tests &mdash; github.com/korbold/NewsApp</li>
+        <li><strong>App Recaudaci&oacute;n</strong> (Flutter MVVM): geolocation, maps &amp; persistence &mdash; github.com/korbold/APPMovilGeoMAPS</li>
+      </ul>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Screen styles */
+  .cv {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: calc(var(--navbar-height) + var(--space-xl)) var(--space-lg) var(--space-2xl);
+    font-family: var(--font-family);
+  }
+
+  .cv__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-xl);
+  }
+
+  .cv__back {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+
+  .cv__back:hover {
+    color: var(--color-accent);
+  }
+
+  .cv__print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 0.5rem 1rem;
+    font-family: var(--font-family);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: white;
+    background: var(--color-accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background var(--transition);
+  }
+
+  .cv__print-btn:hover {
+    background: var(--color-accent-hover);
+  }
+
+  .cv__header {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .cv__name {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-xs);
+  }
+
+  .cv__stack {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .cv__contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-lg);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+
+  .cv__contact a {
+    color: var(--color-text-muted);
+  }
+
+  .cv__contact a:hover {
+    color: var(--color-accent);
+  }
+
+  .cv__section {
+    margin-bottom: var(--space-xl);
+  }
+
+  .cv__section-title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--space-lg);
+  }
+
+  .cv__summary {
+    font-size: var(--font-size-sm);
+    line-height: 1.7;
+    color: var(--color-text-muted);
+  }
+
+  .cv__skills {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+
+  @media (min-width: 640px) {
+    .cv__skills {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .cv__skills li::before {
+    content: "\2022 ";
+    color: var(--color-accent);
+    font-weight: bold;
+  }
+
+  .cv__job {
+    margin-bottom: var(--space-lg);
+  }
+
+  .cv__job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
+
+  .cv__job-header h3 {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .cv__job-header h3 em {
+    font-weight: 400;
+    color: var(--color-text-muted);
+  }
+
+  .cv__period {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
+  .cv__job-context {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-sm);
+  }
+
+  .cv__list {
+    list-style: none;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .cv__list li {
+    padding-left: 1rem;
+    position: relative;
+    margin-bottom: 0.25rem;
+  }
+
+  .cv__list li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  .cv__tech {
+    font-size: var(--font-size-xs);
+    color: var(--color-secondary);
+    font-style: italic;
+    margin-top: var(--space-sm);
+  }
+
+  /* Print styles */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+
+    :global(body) {
+      background: white !important;
+      color: #111 !important;
+    }
+
+    :global(.navbar) {
+      display: none !important;
+    }
+
+    .cv {
+      padding: 0;
+      max-width: 100%;
+      font-size: 11px;
+    }
+
+    .cv__header {
+      border-bottom-color: #333;
+    }
+
+    .cv__name {
+      font-size: 22px;
+      color: #111;
+    }
+
+    .cv__stack {
+      color: #444;
+    }
+
+    .cv__contact {
+      color: #444;
+    }
+
+    .cv__contact a {
+      color: #444;
+      text-decoration: none;
+    }
+
+    .cv__section-title {
+      font-size: 13px;
+      color: #111;
+      border-bottom-color: #ccc;
+    }
+
+    .cv__summary {
+      color: #333;
+    }
+
+    .cv__skills li {
+      color: #333;
+    }
+
+    .cv__skills li::before {
+      color: #444;
+    }
+
+    .cv__job-header h3 {
+      color: #111;
+    }
+
+    .cv__job-header h3 em {
+      color: #555;
+    }
+
+    .cv__period {
+      color: #555;
+    }
+
+    .cv__list li {
+      color: #333;
+    }
+
+    .cv__list li::before {
+      color: #444;
+    }
+
+    .cv__tech {
+      color: #555;
+    }
+
+    .cv__job-context {
+      color: #555;
+    }
+
+    @page {
+      margin: 1.5cm;
+      size: A4;
+    }
+  }
+</style>

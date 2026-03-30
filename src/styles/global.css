@@ -131,6 +131,21 @@ small {
   color: var(--color-accent);
 }
 
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-muted);
+  border-color: transparent;
+  padding: 0.75rem 1rem;
+}
+
+.btn-ghost:hover {
+  color: var(--color-accent);
+}
+
+.btn-ghost svg {
+  display: inline;
+}
+
 /* Prose (markdown content) */
 .prose {
   max-width: 72ch;
