@@ -99,29 +99,61 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p class="cv__tech">Flutter, NestJS, Keycloak (OIDC), Firebase, Docker, Angular, Spring Boot, Jenkins, Kubernetes, SonarQube</p>
       </div>
 
-      <!-- Freelance -->
+      <!-- Freelance - Completed -->
       <div class="cv__job">
         <div class="cv__job-header">
-          <h3>Freelance — <em>Mobile & Full-Stack Developer</em></h3>
-          <span class="cv__period">2024 &ndash; <span class="lang-en">Present</span><span class="lang-es" style="display:none">Actual</span></span>
+          <h3>Freelance — <em>Mobile Developer (Flutter)</em></h3>
+          <span class="cv__period">2023 &ndash; 2025</span>
         </div>
         <ul class="cv__list lang-es" style="display:none">
           <li><strong>REVO Rideshare</strong> (PNP Capital Ventures LLC): Dos apps Flutter (rider &amp; driver) con GPS en tiempo real, Google Maps, precios transparentes y funciones de seguridad. Publicadas en App Store y Google Play.</li>
           <li><strong>SportYeah</strong>: App Flutter de red social deportiva con feed de noticias, scores en vivo, foros, chat, stories y monetizaci&oacute;n de creadores.</li>
-          <li><strong>Spectrum Aesthetics</strong> (Spectrum Image, Inc.): Soporte y mantenimiento de app Flutter m&oacute;vil con Firebase.</li>
-          <li><strong>360io</strong> (360 Integrations): Soporte y mantenimiento de app Flutter m&oacute;vil con Firebase.</li>
-          <li><strong>Mydessk</strong> (Lupio Dev): Plataforma web de facturaci&oacute;n electr&oacute;nica y gesti&oacute;n de ventas. Laravel + Vue.js.</li>
-          <li><strong>Reventi</strong> (Lupio Dev): Marketplace web de compra y venta local. Laravel + Vue.js.</li>
         </ul>
         <ul class="cv__list lang-en">
           <li><strong>REVO Rideshare</strong> (PNP Capital Ventures LLC): Two Flutter apps (rider &amp; driver) with real-time GPS, Google Maps, transparent pricing, and safety features. Published on App Store and Google Play.</li>
           <li><strong>SportYeah</strong>: Flutter sports social network app with news feed, live scores, forums, chat, stories, and creator monetization.</li>
-          <li><strong>Spectrum Aesthetics</strong> (Spectrum Image, Inc.): Flutter mobile app support and maintenance with Firebase.</li>
-          <li><strong>360io</strong> (360 Integrations): Flutter mobile app support and maintenance with Firebase.</li>
+        </ul>
+        <p class="cv__tech">Flutter, Firebase, Google Maps, REST APIs</p>
+      </div>
+
+      <!-- Current Projects -->
+      <div class="cv__job cv__job--current">
+        <div class="cv__job-header">
+          <h3>
+            <span class="lang-en">Current Projects</span>
+            <span class="lang-es" style="display:none">Proyectos Actuales</span>
+            — <em>Freelance</em>
+          </h3>
+          <span class="cv__period cv__period--active">
+            <span class="lang-en">Active</span>
+            <span class="lang-es" style="display:none">En curso</span>
+          </span>
+        </div>
+        <h4 class="cv__job-subtitle">
+          <span class="lang-en">Mobile Support</span>
+          <span class="lang-es" style="display:none">Soporte M&oacute;vil</span>
+        </h4>
+        <ul class="cv__list lang-es" style="display:none">
+          <li><strong>Spectrum Aesthetics</strong> (Spectrum Image, Inc.): Soporte y mantenimiento de app Flutter m&oacute;vil con Firebase. Disponible en App Store y Google Play.</li>
+          <li><strong>360io</strong> (360 Integrations): Soporte y mantenimiento de app Flutter m&oacute;vil con Firebase. Disponible en App Store.</li>
+        </ul>
+        <ul class="cv__list lang-en">
+          <li><strong>Spectrum Aesthetics</strong> (Spectrum Image, Inc.): Flutter mobile app support and maintenance with Firebase. Available on App Store and Google Play.</li>
+          <li><strong>360io</strong> (360 Integrations): Flutter mobile app support and maintenance with Firebase. Available on App Store.</li>
+        </ul>
+        <h4 class="cv__job-subtitle">
+          <span class="lang-en">Web Development</span>
+          <span class="lang-es" style="display:none">Desarrollo Web</span>
+        </h4>
+        <ul class="cv__list lang-es" style="display:none">
+          <li><strong>Mydessk</strong> (Lupio Dev): Plataforma web de facturaci&oacute;n electr&oacute;nica y gesti&oacute;n de ventas. Laravel + Vue.js.</li>
+          <li><strong>Reventi</strong> (Lupio Dev): Marketplace web de compra y venta local. Laravel + Vue.js.</li>
+        </ul>
+        <ul class="cv__list lang-en">
           <li><strong>Mydessk</strong> (Lupio Dev): Electronic invoicing and sales management web platform. Laravel + Vue.js.</li>
           <li><strong>Reventi</strong> (Lupio Dev): Online marketplace for buying &amp; selling locally. Laravel + Vue.js.</li>
         </ul>
-        <p class="cv__tech">Flutter, Firebase, Google Maps, REST APIs, Laravel, Vue.js</p>
+        <p class="cv__tech">Flutter, Firebase, Laravel, Vue.js</p>
       </div>
 
       <!-- Lupio -->
@@ -389,6 +421,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-top: var(--space-sm);
   }
 
+  .cv__job-subtitle {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-bottom: var(--space-xs);
+    margin-top: var(--space-md);
+  }
+
+  .cv__period--active {
+    color: var(--color-secondary);
+    font-weight: 600;
+  }
+
   /* Print styles */
   @media print {
     .no-print {
@@ -476,6 +521,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     .cv__job-context {
       color: #555;
+    }
+
+    .cv__job-subtitle {
+      color: #444;
+    }
+
+    .cv__period--active {
+      color: #444;
     }
 
     @page {
