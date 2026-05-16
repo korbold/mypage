@@ -9,8 +9,53 @@ import '../styles/global.css';
 import '../styles/components.css';
 import '../styles/animations.css';
 
-const { title, description = 'Freelance software engineer specializing in Flutter mobile apps, NestJS backends, and AWS cloud infrastructure.' } = Astro.props;
+const { title, description = 'Senior Mobile Developer specializing in Flutter. Shipped 5 enterprise apps to 16K+ users for Corporación Favorita. Available for remote roles worldwide.' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/og-image.png', Astro.site).toString();
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Danny Barahona',
+  alternateName: 'korbold',
+  url: Astro.site?.toString(),
+  image: ogImage,
+  jobTitle: 'Senior Mobile Developer',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Lupio Development',
+  },
+  alumniOf: [
+    { '@type': 'Organization', name: 'Kruger Corp' },
+    { '@type': 'Organization', name: 'Corporación Favorita' },
+  ],
+  sameAs: [
+    'https://linkedin.com/in/korbold',
+    'https://github.com/korbold',
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Ibarra',
+    addressRegion: 'Imbabura',
+    addressCountry: 'EC',
+  },
+  email: 'danny@lupio.dev',
+  telephone: '+593-99-000-0000',
+  knowsAbout: [
+    'Flutter',
+    'Dart',
+    'React Native',
+    'NestJS',
+    'Laravel',
+    'Spring Boot',
+    'AWS',
+    'OAuth 2.0',
+    'Keycloak',
+    'Multi-tenant SaaS',
+    'Clean Architecture',
+    'Hexagonal Architecture',
+  ],
+};
 ---
 
 <!doctype html>
@@ -29,11 +74,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="Danny Barahona" />
+    <meta property="og:image" content={ogImage} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
     <title>{title}</title>
 

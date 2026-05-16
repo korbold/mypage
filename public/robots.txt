@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://korbold.vercel.app/sitemap-index.xml

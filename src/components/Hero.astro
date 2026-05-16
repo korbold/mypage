@@ -4,13 +4,17 @@
 <section class="hero">
   <div class="hero__glow"></div>
   <div class="container hero__inner">
-    <h1 class="hero__headline reveal" data-i18n="hero.headline">
-      I build mobile apps & cloud backends that ship fast and scale.
+    <div class="hero__badge reveal" data-i18n="hero.badge">
+      <span class="hero__badge-dot" aria-hidden="true"></span>
+      <span>Available for remote roles · US/EU timezone friendly</span>
+    </div>
+    <h1 class="hero__headline reveal reveal-delay-1" data-i18n="hero.headline">
+      I ship enterprise mobile apps to 16K+ users.
     </h1>
-    <p class="hero__subheadline reveal reveal-delay-1" data-i18n="hero.subheadline">
-      Mobile apps, backends &amp; cloud for startups and enterprises.
+    <p class="hero__subheadline reveal reveal-delay-2" data-i18n="hero.subheadline">
+      Senior Mobile Developer · 5 production Flutter apps · Latam &rarr; World.
     </p>
-    <div class="hero__ctas reveal reveal-delay-2">
+    <div class="hero__ctas reveal reveal-delay-3">
       <a href="#cases" class="btn btn-primary" data-i18n="hero.cta.work">See my work</a>
       <a href="#contact" class="btn btn-outline" data-i18n="hero.cta.contact">Let's talk</a>
       <a href="/cv" class="btn btn-ghost">
@@ -18,7 +22,7 @@
         <span data-i18n="hero.cta.cv">Download CV</span>
       </a>
     </div>
-    <div class="hero__social reveal reveal-delay-3">
+    <div class="hero__social reveal reveal-delay-4">
       <a href="https://github.com/korbold" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
       </a>
@@ -57,6 +61,50 @@
     position: relative;
     z-index: 1;
     max-width: 800px;
+  }
+
+  .hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 0.4rem 0.85rem;
+    margin-bottom: var(--space-lg);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-secondary);
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .hero__badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    animation: hero-badge-pulse 2s infinite;
+  }
+
+  @keyframes hero-badge-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__badge-dot {
+      animation: none;
+    }
   }
 
   .hero__headline {

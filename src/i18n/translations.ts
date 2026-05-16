@@ -10,11 +10,12 @@ export const translations: Record<Lang, Record<string, string>> = {
     'nav.contact': 'Contact',
 
     // Hero
-    'hero.headline': 'I build mobile apps & cloud backends that ship fast and scale.',
-    'hero.subheadline': 'Mobile apps, backends & cloud for startups and enterprises.',
+    'hero.headline': 'I ship enterprise mobile apps to 16K+ users.',
+    'hero.subheadline': 'Senior Mobile Developer · 5 production Flutter apps · Latam → World.',
     'hero.cta.work': 'See my work',
     'hero.cta.contact': "Let's talk",
     'hero.cta.cv': 'Download CV',
+    'hero.badge': 'Available for remote roles · US/EU timezone friendly',
 
     // Services
     'services.title': 'What I do',
@@ -40,11 +41,21 @@ export const translations: Record<Lang, Record<string, string>> = {
     'tech.title': 'Tech Stack',
     'tech.mobile': 'Mobile',
     'tech.backend': 'Backend',
-    'tech.auth': 'Auth',
+    'tech.frontend': 'Frontend',
+    'tech.architecture': 'Architecture',
+    'tech.auth': 'Auth & Security',
     'tech.cloud': 'Cloud AWS',
     'tech.devops': 'DevOps',
-    'tech.frontend': 'Frontend',
     'tech.databases': 'Databases',
+
+    // Stats
+    'stats.years': 'Years Flutter',
+    'stats.users': 'Active Users',
+    'stats.apps': 'Apps Shipped',
+    'stats.enterprise': 'Enterprise Apps',
+
+    // Companies
+    'companies.label': 'Worked with',
 
     // Blog
     'blog.title': 'Latest Posts',
@@ -90,11 +101,12 @@ export const translations: Record<Lang, Record<string, string>> = {
     'nav.contact': 'Contacto',
 
     // Hero
-    'hero.headline': 'Construyo apps m\u00f3viles y backends en la nube que llegan a producci\u00f3n y escalan.',
-    'hero.subheadline': 'Apps m\u00f3viles, backends y cloud para startups y empresas.',
+    'hero.headline': 'Construyo apps m\u00f3viles enterprise que llegan a 16K+ usuarios.',
+    'hero.subheadline': 'Senior Mobile Developer \u00b7 5 apps Flutter en producci\u00f3n \u00b7 Latam \u2192 Mundo.',
     'hero.cta.work': 'Ver mi trabajo',
     'hero.cta.contact': 'Hablemos',
     'hero.cta.cv': 'Descargar CV',
+    'hero.badge': 'Disponible para roles remotos \u00b7 Compatible US/EU',
 
     // Services
     'services.title': 'Lo que hago',
@@ -120,11 +132,21 @@ export const translations: Record<Lang, Record<string, string>> = {
     'tech.title': 'Stack Tecnol\u00f3gico',
     'tech.mobile': 'M\u00f3vil',
     'tech.backend': 'Backend',
-    'tech.auth': 'Auth',
+    'tech.frontend': 'Frontend',
+    'tech.architecture': 'Arquitectura',
+    'tech.auth': 'Auth y Seguridad',
     'tech.cloud': 'Cloud AWS',
     'tech.devops': 'DevOps',
-    'tech.frontend': 'Frontend',
     'tech.databases': 'Bases de Datos',
+
+    // Stats
+    'stats.years': 'A\u00f1os Flutter',
+    'stats.users': 'Usuarios Activos',
+    'stats.apps': 'Apps Publicadas',
+    'stats.enterprise': 'Apps Enterprise',
+
+    // Companies
+    'companies.label': 'He trabajado con',
 
     // Blog
     'blog.title': '\u00daltimos Posts',

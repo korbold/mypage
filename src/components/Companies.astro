@@ -1,0 +1,99 @@
+---
+const companies = [
+  { name: 'Corporación Favorita', short: 'CF' },
+  { name: 'Kruger Corp', short: 'KC' },
+  { name: 'PNP Capital Ventures', short: 'PNP' },
+  { name: 'Spectrum Image', short: 'SI' },
+  { name: 'Beez Delivery', short: 'BZ' },
+  { name: '360 Integrations', short: '360' },
+];
+---
+
+<section class="companies">
+  <div class="container">
+    <p class="companies__label">
+      <span class="lang-en">Worked with</span>
+      <span class="lang-es" style="display:none;">He trabajado con</span>
+    </p>
+    <div class="companies__grid">
+      {companies.map((company) => (
+        <div class="companies__item" title={company.name}>
+          <div class="companies__circle">{company.short}</div>
+          <div class="companies__name">{company.name}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .companies {
+    padding-block: var(--space-3xl);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .companies__label {
+    text-align: center;
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xl);
+    font-weight: 600;
+  }
+
+  .companies__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    align-items: center;
+    justify-items: center;
+  }
+
+  @media (min-width: 640px) {
+    .companies__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .companies__grid {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  .companies__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    opacity: 0.7;
+    transition: opacity var(--transition);
+  }
+
+  .companies__item:hover {
+    opacity: 1;
+  }
+
+  .companies__circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, var(--color-accent), var(--color-secondary));
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+  }
+
+  .companies__name {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    text-align: center;
+    font-weight: 500;
+  }
+</style>

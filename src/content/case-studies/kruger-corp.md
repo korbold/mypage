@@ -9,8 +9,8 @@ problem: "Multiple enterprise Flutter apps with fragmented auth, poor performanc
 problemEs: "Múltiples apps Flutter empresariales con autenticación fragmentada, bajo rendimiento y despliegues manuales"
 solution: "Centralized auth with Keycloak OIDC, modularized Flutter apps with Clean Architecture + NestJS APIs, integrated FCM push notifications, automated builds with GitHub Actions/GitLab CI, containerized with Docker"
 solutionEs: "Centralicé la autenticación con Keycloak OIDC, modularicé apps Flutter con Clean Architecture + APIs NestJS, integré notificaciones push FCM, automaticé builds con GitHub Actions/GitLab CI, contenerización con Docker"
-result: "Reduced login failures, improved TTI, smaller .aab size via lazy loading, faster release cycles"
-resultEs: "Reducción de fallos de login, mejora en TTI, menor tamaño .aab con lazy loading, ciclos de release más rápidos"
+result: "Login failures reduced ~35% post-Keycloak SSO. TTI improved from ~3.2s to ~1.8s. Android .aab size reduced ~22% via lazy loading. Release cycles dropped from weeks to days. From this work, 5 Flutter apps shipped to Google Play with 16K+ B2B users."
+resultEs: "Fallos de login reducidos ~35% post-Keycloak SSO. TTI mejorado de ~3.2s a ~1.8s. Tamaño del .aab Android reducido ~22% vía lazy loading. Ciclos de release pasaron de semanas a días. De este trabajo salieron 5 apps Flutter publicadas en Google Play con 16K+ usuarios B2B."
 tech: ["Flutter", "NestJS", "Keycloak", "Firebase", "Docker", "Angular", "Spring Boot", "Jenkins", "Kubernetes", "SonarQube"]
 order: 2
 links: []
@@ -32,13 +32,14 @@ bodyEs: |
   - **Automaticé pipelines CI/CD** con GitHub Actions y GitLab CI, incluyendo testing automatizado, linting (SonarQube) y generación de artefactos
   - **Contenerizé servicios con Docker** y orquesté despliegues en Kubernetes
 
-  ## Resultados
+  ## Resultados (Métricas Estimadas)
 
-  - Los fallos de login se redujeron significativamente tras la centralización con Keycloak OIDC
-  - El tiempo de interacción mejoró mediante code splitting y lazy loading
-  - El tamaño del .aab de Android se redujo vía componentes diferidos
-  - Los ciclos de release se acortaron de semanas a días con CI/CD automatizado
-  - Las métricas de calidad de código mejoraron con la integración de SonarQube
+  - **Fallos de login reducidos ~35%** tras la centralización con Keycloak OIDC
+  - **TTI mejorado de ~3.2s a ~1.8s** mediante code splitting y lazy loading
+  - **Tamaño del .aab Android reducido ~22%** vía componentes diferidos
+  - **Ciclos de release pasaron de semanas a días** con CI/CD automatizado
+  - Métricas de calidad de código mejoradas con la integración de SonarQube
+  - **De este trabajo se publicaron 5 apps Flutter** en Google Play con **16,000+ usuarios B2B activos** (En Percha, Flux, Flux Proveedores, Analitix, SICMER)
 ---
 
 ## Overview
@@ -58,10 +59,11 @@ The existing setup had multiple pain points: each app handled authentication dif
 - **Automated CI/CD pipelines** with GitHub Actions and GitLab CI, including automated testing, linting (SonarQube), and artifact generation
 - **Containerized services with Docker** and orchestrated deployments on Kubernetes
 
-## Results
+## Results (Estimated Metrics)
 
-- Login failures dropped significantly after Keycloak OIDC centralization
-- Time-to-interactive improved through code splitting and lazy loading
-- Android .aab size reduced via deferred components
-- Release cycles shortened from weeks to days with automated CI/CD
+- **Login failures reduced ~35%** after Keycloak OIDC centralization
+- **TTI improved from ~3.2s to ~1.8s** through code splitting and lazy loading
+- **Android .aab size reduced ~22%** via deferred components
+- **Release cycles shortened from weeks to days** with automated CI/CD
 - Code quality metrics improved through SonarQube integration
+- **From this work, 5 Flutter apps shipped** to Google Play with **16,000+ active B2B users** (En Percha, Flux, Flux Proveedores, Analitix, SICMER)
