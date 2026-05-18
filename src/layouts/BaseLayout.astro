@@ -9,7 +9,7 @@ import '../styles/global.css';
 import '../styles/components.css';
 import '../styles/animations.css';
 
-const { title, description = 'Senior Mobile Developer specializing in Flutter. Shipped 5 enterprise apps to 16K+ users for Corporación Favorita. Available for remote roles worldwide.' } = Astro.props;
+const { title, description = 'Senior Mobile & Full-Stack Engineer · Flutter · React Native · NestJS · Laravel · AWS · Production apps for clients across US, Ecuador, and LATAM.' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL('/og-image.png', Astro.site).toString();
 
@@ -20,7 +20,7 @@ const personSchema = {
   alternateName: 'korbold',
   url: Astro.site?.toString(),
   image: ogImage,
-  jobTitle: 'Senior Mobile Developer',
+  jobTitle: 'Senior Mobile & Full-Stack Engineer',
   worksFor: {
     '@type': 'Organization',
     name: 'Lupio Development',
@@ -75,6 +75,8 @@ const personSchema = {
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="Danny Barahona" />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />

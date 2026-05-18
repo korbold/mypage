@@ -19,7 +19,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <!-- Header -->
     <header class="cv__header">
       <h1 class="cv__name">Danny Barahona Galindo</h1>
-      <p class="cv__stack">Flutter | React Native | Angular | Spring Boot | NestJS | Firebase | AWS</p>
+      <p class="cv__stack">Senior Mobile &amp; Full-Stack Engineer &middot; Flutter &middot; React Native &middot; NestJS &middot; Laravel &middot; AWS</p>
+      <p class="cv__open-to">
+        <span class="lang-en">&#128233; Open to senior remote roles &amp; freelance projects</span>
+        <span class="lang-es" style="display:none">&#128233; Disponible para roles senior remotos &amp; proyectos freelance</span>
+      </p>
       <div class="cv__contact">
         <span>+593 999 280 376</span>
         <span>dmmarketingads@gmail.com</span>
@@ -30,14 +34,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <!-- Summary -->
     <section class="cv__section">
-      <p class="cv__summary lang-es" style="display:none">
-        Desarrollador m&oacute;vil con foco en Flutter (desde 2021) y APIs Node/NestJS. Integraciones con Firebase (Auth/FCM), autenticaci&oacute;n con OAuth2/Keycloak y entornos reproducibles con Docker. Experiencia llevando apps a producci&oacute;n, trabajo con producto/dise&ntilde;o y buenas pr&aacute;cticas (Clean, SOLID).
-        Experiencia en mantenimiento y mejoras de proyectos Flutter, optimizaci&oacute;n de integraciones mediante migraci&oacute;n de APIs y un s&oacute;lido background en Backend/Cloud con AWS (Lambda, ECS, EKS, RDS, Aurora, DynamoDB, CI/CD, seguridad y observabilidad).
-      </p>
-      <p class="cv__summary lang-en">
-        Mobile developer focused on Flutter (since 2021) and Node/NestJS APIs. Integrations with Firebase (Auth/FCM), OAuth2/Keycloak authentication, and reproducible environments with Docker. Experience shipping apps to production, working with product/design teams, and best practices (Clean Architecture, SOLID).
-        Strong Backend/Cloud background with AWS (Lambda, ECS, EKS, RDS, Aurora, DynamoDB, CI/CD, security, and observability).
-      </p>
+      <div class="cv__summary lang-es" style="display:none">
+        <p>Ingeniero Senior Mobile &amp; Full-Stack con 5+ a&ntilde;os especializando en Flutter, respaldado por amplia experiencia en backend (NestJS, Spring Boot) y AWS cloud (Lambda, ECS, EKS, Aurora, DynamoDB).</p>
+        <p>He publicado apps m&oacute;viles en producci&oacute;n para clientes en EE.UU., Ecuador y Latinoam&eacute;rica &mdash; desde rideshare (REVO, disponible en App Store y Google Play) hasta redes sociales deportivas (SportYeah), apps de delivery (Beez), gesti&oacute;n de workforce empresarial (SICMER para Corporaci&oacute;n Favorita) y bienestar (Spectrum Aesthetics).</p>
+        <p>100% remoto, equipos distribuidos. Espa&ntilde;ol nativo &middot; Ingl&eacute;s profesional.</p>
+      </div>
+      <div class="cv__summary lang-en">
+        <p>Senior Mobile &amp; Full-Stack Engineer with 5+ years specializing in Flutter, backed by strong experience in backend (NestJS, Spring Boot) and AWS cloud (Lambda, ECS, EKS, Aurora, DynamoDB).</p>
+        <p>I&rsquo;ve shipped production mobile apps for clients across the US, Ecuador, and Latin America &mdash; from rideshare (REVO, live on App Store and Google Play) to sports social networks (SportYeah), delivery apps (Beez), enterprise workforce management (SICMER for Corporaci&oacute;n Favorita), and wellness (Spectrum Aesthetics).</p>
+        <p>100% remote, distributed teams. Native Spanish &middot; Professional English.</p>
+      </div>
     </section>
 
     <!-- Key Skills -->
@@ -321,6 +327,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: var(--font-size-sm);
     font-weight: 600;
     color: var(--color-accent);
+    margin-bottom: var(--space-xs);
+  }
+
+  .cv__open-to {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
     margin-bottom: var(--space-md);
   }
 
@@ -359,6 +371,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: var(--font-size-sm);
     line-height: 1.7;
     color: var(--color-text-muted);
+  }
+
+  .cv__summary p {
+    margin-bottom: 0.6em;
+  }
+
+  .cv__summary p:last-child {
+    margin-bottom: 0;
   }
 
   .cv__skills {
