@@ -25,6 +25,19 @@ const mobileProjects = [
 
 const webProjects = [
   {
+    name: 'Taurus',
+    client: 'Lupio Dev',
+    clientUrl: 'https://www.lupio.dev/',
+    role: 'Full-Stack Developer',
+    logo: '/logos/taurus.png',
+    description: 'Corporate gym portal for billing, contracts & employee management',
+    descriptionEs: 'Portal corporativo gimnasio para facturación, contratos y gestión de colaboradores',
+    tech: ['Laravel', 'React', 'TypeScript', 'SQL Server'],
+    links: [
+      { label: 'Website', url: 'https://taurus.lupio.dev/' },
+    ],
+  },
+  {
     name: 'Mydessk',
     client: 'Lupio Dev',
     clientUrl: 'https://www.lupio.dev/',
@@ -46,6 +59,9 @@ const webProjects = [
     description: 'Online marketplace for buying & selling locally',
     descriptionEs: 'Marketplace de compra y venta local',
     tech: ['Laravel', 'Vue.js'],
+    completed: true,
+    endDate: 'May 2026',
+    endDateEs: 'Mayo 2026',
     links: [
       { label: 'Website', url: 'https://reventi.shop/' },
     ],
@@ -103,7 +119,15 @@ const webProjects = [
                 <span class="current-card__role">{p.role}</span>
               </div>
             </div>
-            <h4 class="current-card__name">{p.name}</h4>
+            <div class="current-card__name-row">
+              <h4 class="current-card__name">{p.name}</h4>
+              {p.completed && (
+                <span class="current-card__status">
+                  <span class="lang-en">Completed · {p.endDate}</span>
+                  <span class="lang-es" style="display:none">Completado · {p.endDateEs}</span>
+                </span>
+              )}
+            </div>
             <p class="current-card__desc" data-i18n={`current.${p.name.toLowerCase()}.desc`}>{p.description}</p>
             <div class="tags">
               {p.tech.map((t) => (
@@ -189,10 +213,30 @@ const webProjects = [
     color: var(--color-text-muted);
   }
 
+  .current-card__name-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
   .current-card__name {
     font-size: var(--font-size-lg);
     font-weight: 600;
     color: var(--color-text);
+  }
+
+  .current-card__status {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    background: rgba(148, 163, 184, 0.12);
+    border: 1px solid var(--color-border);
+    padding: 2px 8px;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
   }
 
   .current-card__desc {

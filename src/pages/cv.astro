@@ -10,10 +10,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-i18n="detail.back.cases">Back</span>
       </a>
-      <button class="cv__print-btn" onclick="window.print()" type="button">
+      <a class="cv__print-btn" href="/cv/Danny_Barahona_CV.pdf" download>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         <span data-i18n="cv.download">Download PDF</span>
-      </button>
+      </a>
     </div>
 
     <!-- Header -->
@@ -152,14 +152,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <span class="lang-es" style="display:none">Desarrollo Web</span>
         </h4>
         <ul class="cv__list lang-es" style="display:none">
+          <li><strong>Taurus</strong> (Lupio Dev): Portal corporativo gimnasio &mdash; facturaci&oacute;n, cortes de contrato, gesti&oacute;n de colaboradores y reportes. Laravel 12 + React + TypeScript sobre SQL Server (convivencia con sistema legacy ASP.NET).</li>
           <li><strong>Mydessk</strong> (Lupio Dev): Plataforma web de facturaci&oacute;n electr&oacute;nica y gesti&oacute;n de ventas. Laravel + Vue.js.</li>
-          <li><strong>Reventi</strong> (Lupio Dev): Marketplace web de compra y venta local. Laravel + Vue.js.</li>
+          <li><strong>Reventi</strong> (Lupio Dev) &mdash; <em>Completado Mayo 2026</em>: Marketplace web de compra y venta local. Laravel + Vue.js.</li>
         </ul>
         <ul class="cv__list lang-en">
+          <li><strong>Taurus</strong> (Lupio Dev): Corporate gym portal &mdash; billing, contract cuts, employee management and reports. Laravel 12 + React + TypeScript on SQL Server (coexists with legacy ASP.NET system).</li>
           <li><strong>Mydessk</strong> (Lupio Dev): Electronic invoicing and sales management web platform. Laravel + Vue.js.</li>
-          <li><strong>Reventi</strong> (Lupio Dev): Online marketplace for buying &amp; selling locally. Laravel + Vue.js.</li>
+          <li><strong>Reventi</strong> (Lupio Dev) &mdash; <em>Completed May 2026</em>: Online marketplace for buying &amp; selling locally. Laravel + Vue.js.</li>
         </ul>
-        <p class="cv__tech">Flutter, React Native, Firebase, Laravel, Vue.js</p>
+        <p class="cv__tech">Flutter, React Native, Firebase, Laravel, Vue.js, React, TypeScript, SQL Server</p>
       </div>
 
       <!-- Lupio -->

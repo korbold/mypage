@@ -34,6 +34,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'current.title': 'Current Projects',
     'current.mobile': 'Mobile Support',
     'current.web': 'Web Development',
+    'current.taurus.desc': 'Corporate gym portal for billing, contracts & employee management',
     'current.mydessk.desc': 'Electronic invoicing & sales management platform',
     'current.reventi.desc': 'Online marketplace for buying & selling locally',
 
@@ -125,6 +126,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'current.title': 'Proyectos Actuales',
     'current.mobile': 'Soporte M\u00f3vil',
     'current.web': 'Desarrollo Web',
+    'current.taurus.desc': 'Portal corporativo gimnasio para facturaci\u00f3n, contratos y gesti\u00f3n de colaboradores',
     'current.mydessk.desc': 'Plataforma de facturaci\u00f3n electr\u00f3nica y gesti\u00f3n de ventas',
     'current.reventi.desc': 'Marketplace de compra y venta local',
 
