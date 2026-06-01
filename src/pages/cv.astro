@@ -30,6 +30,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <a href="https://linkedin.com/in/korbold" target="_blank">linkedin.com/in/korbold</a>
         <a href="https://github.com/korbold" target="_blank">github.com/korbold</a>
       </div>
+      <p class="cv__meta">
+        <span class="lang-en">GMT-5 (overlaps US ET/CT 9am&ndash;5pm) &middot; Native Spanish &middot; Professional English</span>
+        <span class="lang-es" style="display:none">GMT-5 (se solapa con US ET/CT 9am&ndash;5pm) &middot; Espa&ntilde;ol nativo &middot; Ingl&eacute;s profesional</span>
+      </p>
     </header>
 
     <!-- Summary -->
@@ -85,20 +89,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <ul class="cv__list lang-es" style="display:none">
           <li>Implement&eacute; autenticaci&oacute;n OIDC con Keycloak en apps Flutter, reduciendo fallos de inicio de sesi&oacute;n y centralizando roles y permisos.</li>
           <li>Desarroll&eacute; m&oacute;dulos de negocio en Flutter (Dart) consumiendo APIs REST NestJS; arquitectura Clean y pruebas unitarias y de widgets.</li>
-          <li>Integr&eacute; Firebase Cloud Messaging para notificaciones segmentadas y Crashlytics con alta estabilidad (crash-free rate).</li>
+          <li>Integr&eacute; Firebase Cloud Messaging para notificaciones segmentadas y Crashlytics con crash-free rate &gt; 99% en releases objetivo.</li>
           <li>Optimic&eacute; rendimiento: menor tiempo de arranque (TTI) y menor tama&ntilde;o del .aab mediante lazy loading y optimizaci&oacute;n de assets.</li>
           <li>Containerice servicios con Docker y configur&eacute; pipelines de CI/CD (GitHub Actions/GitLab) para builds firmados y despliegues a QA/UAT.</li>
-          <li>Proyecto SICMER: app Flutter para gesti&oacute;n de repartidores autorizados en Corporaci&oacute;n Favorita, con APIs REST y Firebase.</li>
+          <li><strong>SICMER (Corporaci&oacute;n Favorita)</strong>: app Flutter para gesti&oacute;n de repartidores autorizados, escalada a <strong>16K+ usuarios</strong>. APIs REST NestJS y Firebase para mensajer&iacute;a y crash reporting.</li>
           <li>Proyecto actual en Corporaci&oacute;n Favorita: frontend Angular + backend Spring Boot; Jenkins, SonarQube y Kubernetes.</li>
           <li>Colabor&eacute; con producto/dise&ntilde;o y QA; revisiones de c&oacute;digo y mentoring a nuevos integrantes.</li>
         </ul>
         <ul class="cv__list lang-en">
           <li>Implemented OIDC authentication with Keycloak in Flutter apps, reducing login failures and centralizing roles/permissions.</li>
           <li>Built business modules in Flutter (Dart) consuming NestJS REST APIs; Clean Architecture with unit and widget tests.</li>
-          <li>Integrated Firebase Cloud Messaging for segmented push notifications and Crashlytics with high crash-free rate.</li>
+          <li>Integrated Firebase Cloud Messaging for segmented push notifications and Crashlytics with crash-free rate &gt; 99% on target releases.</li>
           <li>Optimized performance: reduced TTI and .aab size through lazy loading and asset optimization.</li>
           <li>Containerized services with Docker, configured CI/CD pipelines (GitHub Actions/GitLab) for signed builds and QA/UAT deployments.</li>
-          <li>SICMER project: Flutter app for authorized delivery personnel management at Corporaci&oacute;n Favorita, with REST APIs and Firebase.</li>
+          <li><strong>SICMER (Corporaci&oacute;n Favorita)</strong>: Flutter app for authorized delivery personnel management, scaled to <strong>16K+ users</strong>. NestJS REST APIs and Firebase for messaging and crash reporting.</li>
           <li>Current project at Corporaci&oacute;n Favorita: Angular frontend + Spring Boot backend; Jenkins, SonarQube, and Kubernetes.</li>
           <li>Collaborated with product/design and QA; code reviews and mentoring new team members.</li>
         </ul>
@@ -112,12 +116,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <span class="cv__period">2023 &ndash; 2025</span>
         </div>
         <ul class="cv__list lang-es" style="display:none">
-          <li><strong>REVO Rideshare</strong> (PNP Capital Ventures LLC): Dos apps Flutter (rider &amp; driver) con GPS en tiempo real, Google Maps, precios transparentes y funciones de seguridad. Publicadas en App Store y Google Play.</li>
-          <li><strong>SportYeah</strong>: App Flutter de red social deportiva con feed de noticias, scores en vivo, foros, chat, stories y monetizaci&oacute;n de creadores.</li>
+          <li>
+            <strong>REVO Rideshare</strong> <em>(cliente: PNP Capital Ventures LLC, EE.UU.)</em> &mdash; Dos apps Flutter (rider + driver) para plataforma de rideshare en EE.UU.
+            <ul>
+              <li>Tracking GPS en tiempo real + Google Maps con preview de ruta, estimaci&oacute;n de tarifa y estado del viaje en vivo.</li>
+              <li>Motor de precios transparente y funciones de seguridad en viaje (SOS, compartir viaje).</li>
+              <li>Publicadas en <strong>App Store + Google Play</strong> (ambos builds rider y driver en vivo).</li>
+              <li>Autenticaci&oacute;n, notificaciones push y anal&iacute;tica con Firebase; APIs REST para backend.</li>
+            </ul>
+          </li>
+          <li><strong>SportYeah</strong> &mdash; App Flutter de red social deportiva: feed de noticias, scores en vivo, foros, chat, stories y monetizaci&oacute;n de creadores. Entrega end-to-end sobre Flutter + Firebase.</li>
         </ul>
         <ul class="cv__list lang-en">
-          <li><strong>REVO Rideshare</strong> (PNP Capital Ventures LLC): Two Flutter apps (rider &amp; driver) with real-time GPS, Google Maps, transparent pricing, and safety features. Published on App Store and Google Play.</li>
-          <li><strong>SportYeah</strong>: Flutter sports social network app with news feed, live scores, forums, chat, stories, and creator monetization.</li>
+          <li>
+            <strong>REVO Rideshare</strong> <em>(client: PNP Capital Ventures LLC, US)</em> &mdash; Two Flutter apps (rider + driver) for a US-market rideshare platform.
+            <ul>
+              <li>Real-time GPS tracking + Google Maps integration with route preview, fare estimation, and live trip state.</li>
+              <li>Transparent pricing engine and in-trip safety features (SOS, trip sharing).</li>
+              <li>Published to <strong>App Store + Google Play</strong> (both rider and driver builds live).</li>
+              <li>Authentication, push notifications, and analytics via Firebase; REST APIs for backend.</li>
+            </ul>
+          </li>
+          <li><strong>SportYeah</strong> &mdash; Flutter sports social network app: news feed, live scores, forums, chat, stories, creator monetization. End-to-end mobile delivery on Flutter + Firebase.</li>
         </ul>
         <p class="cv__tech">Flutter, Firebase, Google Maps, REST APIs</p>
       </div>
@@ -200,43 +220,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p class="cv__tech">Flutter, Laravel 8, REST, Firebase, Play Console, MySQL</p>
       </div>
 
-      <!-- AWS Backend -->
-      <div class="cv__job">
-        <div class="cv__job-header">
-          <h3>Backend/Cloud (AWS) — <em>Backend & Cloud Engineer</em></h3>
-          <span class="cv__period">2021 &ndash; <span class="lang-en">Present</span><span class="lang-es" style="display:none">Actual</span></span>
-        </div>
-        <p class="cv__job-context"><em>Beez Delivery / Kruger Corp / Corporaci&oacute;n Favorita</em></p>
-        <ul class="cv__list lang-es" style="display:none">
-          <li>APIs serverless con API Gateway + AWS Lambda; permisos IAM y Secrets Manager/SSM.</li>
-          <li>Servicios contenizados en Amazon ECS (Fargate) con ALB, health checks y despliegues blue/green.</li>
-          <li>Microservicios en Amazon EKS (Kubernetes) con Helm, Ingress/ALB y HPA.</li>
-          <li>Amazon Aurora (Serverless v2), DynamoDB, ElastiCache (Redis), DocumentDB y OpenSearch.</li>
-          <li>VPCs con subredes p&uacute;blicas/privadas, NAT Gateways, IAM de m&iacute;nimo privilegio.</li>
-          <li>CI/CD automatizado hacia ECS/EKS/Beanstalk con artefactos Docker.</li>
-        </ul>
-        <ul class="cv__list lang-en">
-          <li>Serverless APIs with API Gateway + AWS Lambda; IAM permissions and Secrets Manager/SSM.</li>
-          <li>Containerized services on Amazon ECS (Fargate) with ALB, health checks, and blue/green deployments.</li>
-          <li>Microservices on Amazon EKS (Kubernetes) with Helm, Ingress/ALB, and HPA.</li>
-          <li>Amazon Aurora (Serverless v2), DynamoDB, ElastiCache (Redis), DocumentDB, and OpenSearch.</li>
-          <li>VPCs with public/private subnets, NAT Gateways, least-privilege IAM.</li>
-          <li>Automated CI/CD to ECS/EKS/Beanstalk with Docker artifacts.</li>
-        </ul>
-        <p class="cv__tech">AWS Lambda, ECS, EKS, EC2, Aurora, DynamoDB, ElastiCache, Route 53, ACM, ALB, ECR, Secrets Manager</p>
-      </div>
     </section>
 
-    <!-- Personal Projects -->
+    <!-- Cloud Infrastructure Highlights -->
     <section class="cv__section">
       <h2 class="cv__section-title">
-        <span class="lang-es" style="display:none">Proyectos Personales</span>
-        <span class="lang-en">Personal Projects</span>
+        <span class="lang-es" style="display:none">Cloud Infrastructure &mdash; Aportes Transversales</span>
+        <span class="lang-en">Cloud Infrastructure Highlights</span>
       </h2>
-      <ul class="cv__list">
-        <li><strong>News App</strong> (Flutter + API): Clean Architecture, Repository pattern, offline &amp; tests &mdash; github.com/korbold/NewsApp</li>
-        <li><strong>App Recaudaci&oacute;n</strong> (Flutter MVVM): geolocation, maps &amp; persistence &mdash; github.com/korbold/APPMovilGeoMAPS</li>
+      <p class="cv__job-context lang-es" style="display:none">
+        <em>Trabajo AWS transversal entregado dentro de los engagements con Beez Delivery, Kruger Corp y Corporaci&oacute;n Favorita (2021&ndash;presente).</em>
+      </p>
+      <p class="cv__job-context lang-en">
+        <em>Cross-cutting AWS work delivered within the Beez Delivery, Kruger Corp, and Corporaci&oacute;n Favorita engagements (2021&ndash;present).</em>
+      </p>
+      <ul class="cv__list lang-es" style="display:none">
+        <li>APIs serverless con <strong>API Gateway + AWS Lambda</strong>; IAM de m&iacute;nimo privilegio, Secrets Manager / SSM.</li>
+        <li>Servicios contenizados en <strong>Amazon ECS (Fargate)</strong> con ALB, health checks y despliegues blue/green.</li>
+        <li>Microservicios en <strong>Amazon EKS (Kubernetes)</strong> con Helm, Ingress/ALB y autoscaling HPA.</li>
+        <li>Datos: <strong>Aurora Serverless v2</strong>, <strong>DynamoDB</strong>, <strong>ElastiCache (Redis)</strong>, <strong>DocumentDB</strong>, <strong>OpenSearch</strong>.</li>
+        <li>Redes: VPCs con subredes p&uacute;blicas/privadas, NAT Gateways, IAM de m&iacute;nimo privilegio.</li>
+        <li><strong>CI/CD</strong> automatizado hacia ECS / EKS / Beanstalk con artefactos Docker y releases firmados.</li>
       </ul>
+      <ul class="cv__list lang-en">
+        <li>Serverless APIs on <strong>API Gateway + AWS Lambda</strong> with IAM least-privilege, Secrets Manager / SSM.</li>
+        <li>Containerized services on <strong>Amazon ECS (Fargate)</strong> with ALB, health checks, blue/green deploys.</li>
+        <li>Microservices on <strong>Amazon EKS (Kubernetes)</strong> with Helm, Ingress/ALB, and HPA autoscaling.</li>
+        <li>Data: <strong>Aurora Serverless v2</strong>, <strong>DynamoDB</strong>, <strong>ElastiCache (Redis)</strong>, <strong>DocumentDB</strong>, <strong>OpenSearch</strong>.</li>
+        <li>Networking: VPCs with public/private subnets, NAT Gateways, least-privilege IAM.</li>
+        <li>Automated <strong>CI/CD</strong> to ECS / EKS / Beanstalk with Docker artifacts and signed releases.</li>
+      </ul>
+      <p class="cv__tech">AWS Lambda, ECS, EKS, EC2, Aurora, DynamoDB, ElastiCache, Route 53, ACM, ALB, ECR, Secrets Manager</p>
     </section>
 
     <!-- Certificates -->
@@ -261,6 +275,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <span>PDF</span>
         </a>
       </div>
+    </section>
+
+    <!-- Education -->
+    <section class="cv__section">
+      <h2 class="cv__section-title">
+        <span class="lang-es" style="display:none">Educaci&oacute;n</span>
+        <span class="lang-en">Education</span>
+      </h2>
+      <ul class="cv__list lang-es" style="display:none">
+        <li>Ingenier&iacute;a de Software &mdash; formaci&oacute;n autodirigida y en el trabajo desde 2021. <em>(Disponible para conversar sobre formaci&oacute;n formal a solicitud.)</em></li>
+      </ul>
+      <ul class="cv__list lang-en">
+        <li>Software Engineering &mdash; self-directed and on-the-job since 2021. <em>(Open to discuss formal background on request.)</em></li>
+      </ul>
     </section>
   </div>
 </BaseLayout>
@@ -344,6 +372,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     gap: var(--space-sm) var(--space-lg);
     font-size: var(--font-size-sm);
     color: var(--color-text-muted);
+  }
+
+  .cv__meta {
+    margin-top: var(--space-sm);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    opacity: 0.85;
   }
 
   .cv__contact a {
