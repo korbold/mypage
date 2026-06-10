@@ -13,7 +13,6 @@ result: "6 apps shipped (5 B2B on Google Play with 16,500+ active users + AkíCl
 resultEs: "6 apps publicadas (5 B2B en Google Play con 16,500+ usuarios activos + AkíClub B2C en Google Play y App Store). En Percha (10K+), Flux (5K+), Flux Proveedores (1K+), Analitix (500+), SICMER (logística), AkíClub (fidelización consumidor)."
 tech: ["Flutter", "Dart", "NestJS", "Keycloak", "OIDC", "Firebase", "Clean Architecture", "Biometric Auth", "REST APIs", "Offline Sync", "GitHub Actions", "GitLab CI"]
 order: 1
-logo: "/logos/corp-favorita.png"
 links:
   - label: "En Percha (Google Play)"
     url: "https://play.google.com/store/apps/details?id=ec.com.smx.enpercha2"

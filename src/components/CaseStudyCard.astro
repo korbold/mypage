@@ -10,96 +10,266 @@ interface Props {
   tech: string[];
   slug: string;
   logo?: string;
+  period?: string;
+  index: number;
 }
 
-const { title, titleEs, client, role, roleEs, result, resultEs, tech, slug, logo } = Astro.props;
+const { title, titleEs, client, role, roleEs, result, resultEs, tech, slug, logo, period, index } = Astro.props;
+
+const num = String(index + 1).padStart(2, '0');
+const techShort = tech.slice(0, 3);
+const extra = tech.length - techShort.length;
 ---
 
-<a href={`/case-studies/${slug}`} class="case-card card">
-  <div class="case-card__header">
-    {logo && <img src={logo} alt={`${client} logo`} class="case-card__logo" />}
-    <div class="case-card__meta">
-      <span class="case-card__client">{client}</span>
-      <span class="case-card__role lang-en">{role}</span>
-      {roleEs && <span class="case-card__role lang-es" style="display:none;">{roleEs}</span>}
+<a
+  href={`/case-studies/${slug}`}
+  class="case-row reveal"
+  style={`transition-delay: ${index * 60}ms;`}
+  aria-label={`${client}: ${title}`}
+>
+  <span class="case-row__num" aria-hidden="true">{num}</span>
+
+  <div class="case-row__body">
+    <div class="case-row__meta">
+      <span class="case-row__client">{client}</span>
+      {period && <>
+        <span class="case-row__dot" aria-hidden="true">·</span>
+        <span class="case-row__period">{period}</span>
+      </>}
+      <span class="case-row__dot" aria-hidden="true">·</span>
+      <span class="case-row__role lang-en">{role}</span>
+      {roleEs && <span class="case-row__role lang-es" style="display:none;">{roleEs}</span>}
     </div>
+
+    <h3 class="case-row__title lang-en">{title}</h3>
+    {titleEs && <h3 class="case-row__title lang-es" style="display:none;">{titleEs}</h3>}
+
+    <p class="case-row__result lang-en">{result}</p>
+    {resultEs && <p class="case-row__result lang-es" style="display:none;">{resultEs}</p>}
+
+    <ul class="case-row__tech" aria-label="Tech stack">
+      {techShort.map((t) => <li>{t}</li>)}
+      {extra > 0 && <li class="case-row__tech-more">+{extra}</li>}
+    </ul>
   </div>
-  <h3 class="case-card__title lang-en">{title}</h3>
-  {titleEs && <h3 class="case-card__title lang-es" style="display:none;">{titleEs}</h3>}
-  <p class="case-card__result lang-en">{result}</p>
-  {resultEs && <p class="case-card__result lang-es" style="display:none;">{resultEs}</p>}
-  <div class="tags">
-    {tech.slice(0, 4).map((t) => (
-      <span class="badge">{t}</span>
-    ))}
-    {tech.length > 4 && <span class="badge">+{tech.length - 4}</span>}
-  </div>
-  <span class="case-card__link" data-i18n="cases.view">View case study &rarr;</span>
+
+  <span class="case-row__arrow" aria-hidden="true">
+    <svg width="28" height="14" viewBox="0 0 28 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M21 1L27 7L21 13M27 7H0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </span>
+
+  {logo && <img src={logo} alt="" class="case-row__logo" loading="lazy" />}
 </a>
 
 <style>
-  .case-card {
+  .case-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: clamp(2.5rem, 6vw, 4.5rem) 1fr auto;
+    gap: clamp(1rem, 4vw, 3rem);
+    align-items: baseline;
+    padding-block: clamp(1.5rem, 3vw, 2.25rem);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      opacity 600ms var(--ease-out-quart),
+      transform 600ms var(--ease-out-quart),
+      background-color 240ms var(--ease-out-quart),
+      padding-inline 320ms var(--ease-out-expo);
+  }
+
+  .case-row:last-of-type {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .case-row:hover,
+  .case-row:focus-visible {
+    background-color: color-mix(in oklch, var(--color-accent) 5%, transparent);
+    padding-inline: clamp(0.5rem, 2vw, 1.25rem);
+    outline: none;
+  }
+
+  .case-row:active {
+    transform: translateY(0) scale(0.997);
+    transition-duration: 80ms;
+  }
+
+  /* Number */
+  .case-row__num {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: var(--color-text-muted);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum", "cv11";
+    transition: color 240ms var(--ease-out-quart);
+  }
+
+  .case-row:hover .case-row__num,
+  .case-row:focus-visible .case-row__num {
+    color: var(--color-accent);
+  }
+
+  /* Body */
+  .case-row__body {
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
-    text-decoration: none;
-    color: inherit;
+    gap: 0.4rem;
+    min-width: 0;
   }
 
-  .case-card__header {
+  .case-row__meta {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    gap: var(--space-md);
+    gap: 0.5rem;
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
   }
 
-  .case-card__logo {
-    width: 48px;
-    height: 48px;
-    border-radius: var(--radius-sm);
-    object-fit: cover;
+  .case-row__client {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .case-row__dot {
+    color: var(--color-border);
+  }
+
+  .case-row__title {
+    font-size: clamp(1.25rem, 2.6vw, 1.875rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--color-text);
+    margin-block: 0.15rem 0.3rem;
+    max-width: 60ch;
+  }
+
+  .case-row__result {
+    font-size: var(--font-size-sm);
+    line-height: 1.55;
+    color: var(--color-text-muted);
+    max-width: 68ch;
+  }
+
+  .case-row__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+    list-style: none;
+    padding: 0;
+    margin-top: 0.6rem;
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    color: var(--color-text-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .case-row__tech li {
+    position: relative;
+  }
+
+  .case-row__tech li + li::before {
+    content: "·";
+    position: absolute;
+    left: -0.65rem;
+    color: var(--color-border);
+  }
+
+  .case-row__tech-more {
+    color: var(--color-text);
+    opacity: 0.7;
+  }
+
+  /* Arrow */
+  .case-row__arrow {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-text-muted);
+    align-self: center;
+    transition:
+      transform 320ms var(--ease-out-expo),
+      color 240ms var(--ease-out-quart);
     flex-shrink: 0;
   }
 
-  .case-card__meta {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-  }
-
-  .case-card__client {
-    font-size: var(--font-size-sm);
-    font-weight: 600;
+  .case-row:hover .case-row__arrow,
+  .case-row:focus-visible .case-row__arrow {
+    transform: translateX(6px);
     color: var(--color-accent);
   }
 
-  .case-card__role {
-    font-size: var(--font-size-xs);
-    color: var(--color-text-muted);
+  /* Logo: hidden ghost, becomes visible on hover (desktop) as small marker */
+  .case-row__logo {
+    position: absolute;
+    top: 50%;
+    right: clamp(3rem, 6vw, 4.5rem);
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    object-fit: cover;
+    opacity: 0;
+    transform: translate(20px, -50%);
+    transition:
+      opacity 320ms var(--ease-out-quart),
+      transform 320ms var(--ease-out-expo);
+    pointer-events: none;
   }
 
-  .case-card__title {
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    line-height: 1.3;
-    color: var(--color-text);
+  .case-row:hover .case-row__logo,
+  .case-row:focus-visible .case-row__logo {
+    opacity: 0.9;
+    transform: translate(0, -50%);
   }
 
-  .case-card__result {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-muted);
-    line-height: 1.5;
+  /* Mobile collapse */
+  @media (max-width: 640px) {
+    .case-row {
+      grid-template-columns: auto 1fr;
+      grid-template-areas:
+        "num arrow"
+        "body body";
+      row-gap: 0.6rem;
+      column-gap: 1rem;
+      align-items: center;
+    }
+
+    .case-row__num { grid-area: num; font-size: 1.5rem; }
+    .case-row__body { grid-area: body; }
+    .case-row__arrow { grid-area: arrow; justify-self: end; }
+    .case-row__logo { display: none; }
+    .case-row__title { font-size: 1.15rem; }
   }
 
-  .case-card__link {
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    color: var(--color-accent);
-    margin-top: auto;
-    transition: color var(--transition);
+  /* Touch devices: no hover */
+  @media (hover: none) {
+    .case-row:hover {
+      background-color: transparent;
+      padding-inline: 0;
+    }
+    .case-row:hover .case-row__arrow { transform: none; }
+    .case-row:hover .case-row__num { color: var(--color-text-muted); }
+    .case-row:hover .case-row__logo { opacity: 0; }
   }
 
-  .case-card:hover .case-card__link {
-    color: var(--color-secondary);
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .case-row {
+      opacity: 1;
+      transform: none;
+      transition: background-color 120ms ease, color 120ms ease;
+    }
+    .case-row:hover { padding-inline: 0; }
+    .case-row__arrow,
+    .case-row__logo {
+      transition: none;
+    }
   }
 </style>

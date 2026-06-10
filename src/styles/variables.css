@@ -42,4 +42,9 @@
   /* Transitions */
   --transition: 200ms ease;
   --transition-slow: 400ms ease;
+
+  /* Custom easing curves (Emil Kowalski set) */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 }

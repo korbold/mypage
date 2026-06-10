@@ -2,15 +2,24 @@
 import { getCollection } from 'astro:content';
 import CaseStudyCard from './CaseStudyCard.astro';
 
-const cases = (await getCollection('case-studies')).sort((a, b) => a.data.order - b.data.order);
+const cases = (await getCollection('case-studies')).sort((a, b) => {
+  const o = a.data.order - b.data.order;
+  return o !== 0 ? o : a.id.localeCompare(b.id);
+});
 ---
 
-<section id="cases" class="section">
+<section id="cases" class="section section--cases">
   <div class="container">
-    <h2 class="section-title reveal" data-i18n="cases.title">Completed Work</h2>
-    <div class="grid-3">
+    <header class="cases__header reveal">
+      <h2 class="section-title" data-i18n="cases.title">Completed Work</h2>
+      <span class="cases__count" aria-hidden="true">
+        {String(cases.length).padStart(2, '0')} <span class="cases__count-label" data-i18n="cases.count">projects</span>
+      </span>
+    </header>
+
+    <div class="cases__index" role="list">
       {cases.map((c, i) => (
-        <div class={`reveal reveal-delay-${i + 1}`}>
+        <div role="listitem">
           <CaseStudyCard
             title={c.data.title}
             titleEs={c.data.titleEs}
@@ -22,9 +31,51 @@ const cases = (await getCollection('case-studies')).sort((a, b) => a.data.order 
             tech={c.data.tech}
             slug={c.id}
             logo={c.data.logo}
+            period={c.data.period}
+            index={i}
           />
         </div>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  .section--cases {
+    padding-block: clamp(3rem, 6vw, 5.5rem);
+  }
+
+  .cases__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    margin-bottom: clamp(0.5rem, 1.5vw, 1.25rem);
+  }
+
+  .cases__header .section-title {
+    margin-bottom: 0;
+  }
+
+  .cases__count {
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+    white-space: nowrap;
+  }
+
+  .cases__count-label {
+    color: var(--color-text-muted);
+    margin-left: 0.4rem;
+    font-weight: 400;
+  }
+
+  .cases__index {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

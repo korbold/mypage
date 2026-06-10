@@ -29,6 +29,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     // Case Studies
     'cases.title': 'Completed Work',
     'cases.view': 'View case study',
+    'cases.count': 'projects',
 
     // Current Projects
     'current.title': 'Current Projects',
@@ -121,6 +122,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     // Case Studies
     'cases.title': 'Trabajos Realizados',
     'cases.view': 'Ver caso de estudio',
+    'cases.count': 'proyectos',
 
     // Current Projects
     'current.title': 'Proyectos Actuales',
