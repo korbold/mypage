@@ -5,12 +5,12 @@ client: "Corporación Favorita (via Kruger Corp)"
 role: "Senior Mobile Developer (Flutter)"
 roleEs: "Senior Mobile Developer (Flutter)"
 period: "May 2022 – Oct 2025"
-problem: "Corporación Favorita — Ecuador's largest retail conglomerate — needed a cohesive suite of B2B mobile apps for store managers, suppliers, logistics personnel, and internal analytics teams. Existing tooling was fragmented, lacked SSO, and could not scale to the 16,000+ users distributed across stores and supplier networks."
-problemEs: "Corporación Favorita — el conglomerado retail más grande de Ecuador — necesitaba una suite cohesiva de apps móviles B2B para gerentes de tienda, proveedores, personal logístico y equipos internos de analítica. Las herramientas existentes estaban fragmentadas, sin SSO, y no podían escalar a los 16,000+ usuarios distribuidos entre tiendas y redes de proveedores."
-solution: "Designed and shipped 5 production Flutter apps with shared architecture: Keycloak OIDC SSO across the suite, Clean Architecture (domain/data/presentation), offline-first sync, biometric auth (face + fingerprint), Firebase Cloud Messaging for targeted notifications, NestJS REST APIs, and fully automated CI/CD via GitHub Actions / GitLab CI."
-solutionEs: "Diseñé y publiqué 5 apps Flutter en producción con arquitectura compartida: SSO con Keycloak OIDC en toda la suite, Clean Architecture (dominio/data/presentación), sincronización offline-first, autenticación biométrica (face + fingerprint), Firebase Cloud Messaging para notificaciones segmentadas, APIs REST en NestJS y CI/CD totalmente automatizado vía GitHub Actions / GitLab CI."
-result: "5 apps shipped to Google Play with 16,500+ combined active B2B users. En Percha (10K+), Flux (5K+), Flux Proveedores (1K+), Analitix (500+), SICMER (logistics). All running on shared SSO, Clean Architecture, and CI/CD."
-resultEs: "5 apps publicadas en Google Play con 16,500+ usuarios B2B activos combinados. En Percha (10K+), Flux (5K+), Flux Proveedores (1K+), Analitix (500+), SICMER (logística). Todas corriendo sobre SSO compartido, Clean Architecture y CI/CD."
+problem: "Corporación Favorita — Ecuador's largest retail conglomerate — needed a cohesive suite of mobile apps spanning B2B (store managers, suppliers, logistics, analytics) and B2C (the AkíClub consumer loyalty program for the Akí supermarket chain). Existing tooling was fragmented, lacked SSO, and could not scale to the 16,000+ users distributed across stores and supplier networks."
+problemEs: "Corporación Favorita — el conglomerado retail más grande de Ecuador — necesitaba una suite cohesiva de apps móviles que cubriera B2B (gerentes de tienda, proveedores, logística, analítica) y B2C (el programa de fidelización consumidor AkíClub para la cadena Akí). Las herramientas existentes estaban fragmentadas, sin SSO, y no podían escalar a los 16,000+ usuarios distribuidos entre tiendas y redes de proveedores."
+solution: "Designed and shipped 6 production Flutter apps (5 B2B + 1 B2C) with shared architecture: Keycloak OIDC SSO across the B2B suite, Clean Architecture (domain/data/presentation), offline-first sync, biometric auth (face + fingerprint), Firebase Cloud Messaging for targeted notifications, NestJS REST APIs, and fully automated CI/CD via GitHub Actions / GitLab CI. Final project: AkíClub consumer loyalty app shipped to Android and iOS."
+solutionEs: "Diseñé y publiqué 6 apps Flutter en producción (5 B2B + 1 B2C) con arquitectura compartida: SSO con Keycloak OIDC en la suite B2B, Clean Architecture (dominio/data/presentación), sincronización offline-first, autenticación biométrica (face + fingerprint), Firebase Cloud Messaging para notificaciones segmentadas, APIs REST en NestJS y CI/CD totalmente automatizado vía GitHub Actions / GitLab CI. Proyecto final: app B2C de fidelización AkíClub publicada en Android e iOS."
+result: "6 apps shipped (5 B2B on Google Play with 16,500+ active users + AkíClub B2C on Google Play and App Store). En Percha (10K+), Flux (5K+), Flux Proveedores (1K+), Analitix (500+), SICMER (logistics), AkíClub (consumer loyalty)."
+resultEs: "6 apps publicadas (5 B2B en Google Play con 16,500+ usuarios activos + AkíClub B2C en Google Play y App Store). En Percha (10K+), Flux (5K+), Flux Proveedores (1K+), Analitix (500+), SICMER (logística), AkíClub (fidelización consumidor)."
 tech: ["Flutter", "Dart", "NestJS", "Keycloak", "OIDC", "Firebase", "Clean Architecture", "Biometric Auth", "REST APIs", "Offline Sync", "GitHub Actions", "GitLab CI"]
 order: 1
 logo: "/logos/corp-favorita.png"
@@ -25,18 +25,23 @@ links:
     url: "https://play.google.com/store/apps/details?id=ec.com.smx.analitix"
   - label: "SICMER (Google Play)"
     url: "https://play.google.com/store/apps/details?id=ec.com.smx.sicmer"
+  - label: "AkíClub (Google Play)"
+    url: "https://play.google.com/store/apps/details?id=ec.com.pagoplux.akiclubfav"
+  - label: "AkíClub / Supermercados Akí (App Store)"
+    url: "https://apps.apple.com/ec/app/supermercados-aki/id6503321015"
 bodyEs: |
   ## Descripción General
 
   Durante tres años y medio lideré el desarrollo móvil de cinco apps Flutter en producción para Corporación Favorita — el conglomerado retail más grande de Ecuador — vía Kruger Corp. La suite atiende a más de **16,500 usuarios B2B activos** entre gerentes de tienda, proveedores, personal de logística y equipos internos de analítica.
 
-  ## Las 5 Apps
+  ## Las 6 Apps
 
   - **En Percha** (`ec.com.smx.enpercha2`) — **10,000+ descargas**. Dashboard B2B en tiempo real para reposición y monitoreo de góndolas. Actualizada en Mar 2026.
   - **Flux** (`ec.com.smx.flux`) — **5,000+ descargas**. Gestión de flujos de trabajo internos. Actualizada en Ago 2025.
   - **Flux Proveedores** (`ec.com.smx.proflux`) — **1,000+ descargas**. Mensajería y coordinación B2B con la red de proveedores. Actualizada en Oct 2024.
   - **Analitix** (`ec.com.smx.analitix`) — **500+ descargas**. Analítica empresarial con autenticación biométrica (face + fingerprint). Actualizada en May 2026.
   - **SICMER** (`ec.com.smx.sicmer`) — Maps & Navigation para logística de entregas. Actualizada en Jul 2024.
+  - **AkíClub / Supermercados Akí** (`ec.com.pagoplux.akiclubfav` · iOS `id6503321015`) — **App B2C consumidor** del programa de fidelización Akí Club de la cadena Akí. Publicada en **Google Play y App Store**. Último proyecto entregado en Kruger Corp / Corporación Favorita (Oct 2025).
 
   ## Desafío
 
@@ -64,13 +69,14 @@ bodyEs: |
 
 Over three and a half years I led mobile development on five production Flutter apps for Corporación Favorita — Ecuador's largest retail conglomerate — through Kruger Corp. The suite serves **16,500+ active B2B users** across store managers, suppliers, logistics personnel, and internal analytics teams.
 
-## The 5 Apps
+## The 6 Apps
 
 - **En Percha** (`ec.com.smx.enpercha2`) — **10,000+ downloads**. Real-time B2B dashboard for shelf monitoring and restocking. Updated Mar 2026.
 - **Flux** (`ec.com.smx.flux`) — **5,000+ downloads**. Internal workflow management. Updated Aug 2025.
 - **Flux Proveedores** (`ec.com.smx.proflux`) — **1,000+ downloads**. B2B messaging and coordination with the supplier network. Updated Oct 2024.
 - **Analitix** (`ec.com.smx.analitix`) — **500+ downloads**. Enterprise analytics with biometric authentication (face + fingerprint). Updated May 2026.
 - **SICMER** (`ec.com.smx.sicmer`) — Maps & Navigation for delivery logistics. Updated Jul 2024.
+- **AkíClub / Supermercados Akí** (`ec.com.pagoplux.akiclubfav` · iOS `id6503321015`) — **B2C consumer app** for the Akí Club loyalty program of the Akí supermarket chain. Shipped to **Google Play and App Store**. Final project delivered at Kruger Corp / Corporación Favorita (Oct 2025).
 
 ## Challenge
 

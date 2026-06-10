@@ -9,8 +9,8 @@ problem: "Multiple enterprise Flutter apps with fragmented auth, poor performanc
 problemEs: "Múltiples apps Flutter empresariales con autenticación fragmentada, bajo rendimiento y despliegues manuales"
 solution: "Centralized auth with Keycloak OIDC, modularized Flutter apps with Clean Architecture + NestJS APIs, integrated FCM push notifications, automated builds with GitHub Actions/GitLab CI, containerized with Docker"
 solutionEs: "Centralicé la autenticación con Keycloak OIDC, modularicé apps Flutter con Clean Architecture + APIs NestJS, integré notificaciones push FCM, automaticé builds con GitHub Actions/GitLab CI, contenerización con Docker"
-result: "Login failures reduced ~35% post-Keycloak SSO. TTI improved from ~3.2s to ~1.8s. Android .aab size reduced ~22% via lazy loading. Release cycles dropped from weeks to days. From this work, 5 Flutter apps shipped to Google Play with 16K+ B2B users."
-resultEs: "Fallos de login reducidos ~35% post-Keycloak SSO. TTI mejorado de ~3.2s a ~1.8s. Tamaño del .aab Android reducido ~22% vía lazy loading. Ciclos de release pasaron de semanas a días. De este trabajo salieron 5 apps Flutter publicadas en Google Play con 16K+ usuarios B2B."
+result: "Login failures reduced ~35% post-Keycloak SSO. TTI improved from ~3.2s to ~1.8s. Android .aab size reduced ~22% via lazy loading. Release cycles dropped from weeks to days. From this work, 5 Flutter B2B apps shipped to Google Play with 16K+ users, plus the AkíClub B2C consumer app shipped to Google Play and App Store as the final project (Oct 2025)."
+resultEs: "Fallos de login reducidos ~35% post-Keycloak SSO. TTI mejorado de ~3.2s a ~1.8s. Tamaño del .aab Android reducido ~22% vía lazy loading. Ciclos de release pasaron de semanas a días. De este trabajo salieron 5 apps Flutter B2B publicadas en Google Play con 16K+ usuarios, más la app B2C consumidor AkíClub publicada en Google Play y App Store como último proyecto (Oct 2025)."
 tech: ["Flutter", "NestJS", "Keycloak", "Firebase", "Docker", "Angular", "Spring Boot", "Jenkins", "Kubernetes", "SonarQube"]
 order: 2
 links: []
@@ -39,7 +39,8 @@ bodyEs: |
   - **Tamaño del .aab Android reducido ~22%** vía componentes diferidos
   - **Ciclos de release pasaron de semanas a días** con CI/CD automatizado
   - Métricas de calidad de código mejoradas con la integración de SonarQube
-  - **De este trabajo se publicaron 5 apps Flutter** en Google Play con **16,000+ usuarios B2B activos** (En Percha, Flux, Flux Proveedores, Analitix, SICMER)
+  - **De este trabajo se publicaron 5 apps Flutter B2B** en Google Play con **16,000+ usuarios activos** (En Percha, Flux, Flux Proveedores, Analitix, SICMER)
+  - **Último proyecto entregado (Oct 2025):** app móvil **AkíClub / Supermercados Akí** — programa de fidelización B2C para la cadena Akí, publicada en **Google Play** (`ec.com.pagoplux.akiclubfav`) y **App Store** (`id6503321015`)
 ---
 
 ## Overview
@@ -66,4 +67,5 @@ The existing setup had multiple pain points: each app handled authentication dif
 - **Android .aab size reduced ~22%** via deferred components
 - **Release cycles shortened from weeks to days** with automated CI/CD
 - Code quality metrics improved through SonarQube integration
-- **From this work, 5 Flutter apps shipped** to Google Play with **16,000+ active B2B users** (En Percha, Flux, Flux Proveedores, Analitix, SICMER)
+- **From this work, 5 Flutter B2B apps shipped** to Google Play with **16,000+ active users** (En Percha, Flux, Flux Proveedores, Analitix, SICMER)
+- **Final project delivered (Oct 2025):** **AkíClub / Supermercados Akí** mobile app — B2C loyalty program for the Akí supermarket chain, shipped to **Google Play** (`ec.com.pagoplux.akiclubfav`) and **App Store** (`id6503321015`)
