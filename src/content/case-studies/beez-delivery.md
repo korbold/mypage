@@ -12,7 +12,7 @@ solutionEs: "Reconstruí las apps Flutter consumiendo APIs Laravel 8, agregué c
 result: "Significant reduction in load times and improved release cadence"
 resultEs: "Reducción significativa en tiempos de carga y mejora en la cadencia de releases"
 tech: ["Flutter", "Laravel 8", "Firebase", "MySQL"]
-order: 8
+order: 10
 links: []
 bodyEs: |
   ## Descripción General
