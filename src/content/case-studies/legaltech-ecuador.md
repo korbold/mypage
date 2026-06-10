@@ -12,7 +12,7 @@ solutionEs: "Construyendo LegalTech Ecuador como monorepo políglota: backend Sp
 result: "MVP in active development. Backend Spring Boot scaffolded with JPA + Spring Security OAuth2 JWT, Supabase Postgres connected, Gemini 2.5 Flash integrated for legal queries. Flutter cross-platform shell and Next.js admin in place."
 resultEs: "MVP en desarrollo activo. Backend Spring Boot armado con JPA + Spring Security OAuth2 JWT, Supabase Postgres conectado, Gemini 2.5 Flash integrado para consultas legales. Shell Flutter multiplataforma y admin Next.js en marcha."
 tech: ["Spring Boot 3.4", "Java 21", "JPA", "Spring Security", "OAuth2", "JWT", "Flutter", "Dart", "Next.js", "React", "TanStack Query", "Tailwind CSS", "PostgreSQL", "Supabase", "Google Gemini"]
-order: 9
+order: 8
 links: []
 bodyEs: |
   ## Descripción General
