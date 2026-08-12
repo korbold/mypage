@@ -30,7 +30,7 @@ links:
     url: "https://play.google.com/store/apps/details?id=ec.com.smx.sicmer"
   - label: "AkíClub (Google Play)"
     url: "https://play.google.com/store/apps/details?id=ec.com.pagoplux.akiclubfav"
-  - label: "AkíClub / Supermercados Akí (App Store)"
+  - label: "AkíClub (App Store)"
     url: "https://apps.apple.com/ec/app/supermercados-aki/id6503321015"
 bodyEs: |
   ## Descripción General

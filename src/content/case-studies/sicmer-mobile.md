@@ -18,7 +18,7 @@ order: 4
 featured: false
 logo: "/logos/sicmer.png"
 links:
-  - label: "Google Play"
+  - label: "SICMER (Google Play)"
     url: "https://play.google.com/store/apps/details?id=ec.com.smx.sicmer"
 bodyEs: |
   ## Descripción General

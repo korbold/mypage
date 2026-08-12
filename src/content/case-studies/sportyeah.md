@@ -18,7 +18,7 @@ order: 6
 featured: false
 logo: "/logos/sportyeah.jpg"
 links:
-  - label: "Google Play"
+  - label: "SportYeah (Google Play)"
     url: "https://play.google.com/store/apps/details?id=com.sportyeah.sportyeah_mobile_app"
 bodyEs: |
   ## Descripción General

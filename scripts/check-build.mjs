@@ -58,6 +58,41 @@ function makeAssert(failures) {
   };
 }
 
+// Every published app on this site is described by a `links` entry in a case
+// study. That frontmatter is the single source of truth for the app count, the
+// store-listing count, and the CV's published-apps table. It is parsed by regex
+// rather than by importing the collection, because this is a dependency-free
+// Node script with no Astro runtime.
+function collectStoreLinks() {
+  const dir = join(ROOT, 'src', 'content', 'case-studies');
+  const all = [];
+  for (const file of readdirSync(dir).filter((f) => f.endsWith('.md'))) {
+    const source = readFileSync(join(dir, file), 'utf8');
+    const pattern = /-\s*label:\s*"([^"]+)"\s*\n\s*url:\s*"([^"]+)"/g;
+    for (const match of source.matchAll(pattern)) {
+      all.push({ label: match[1], url: match[2], file });
+    }
+  }
+
+  const seen = new Set();
+  const unique = all.filter((l) => (seen.has(l.url) ? false : seen.add(l.url)));
+
+  // "AkíClub (Google Play)" -> app "AkíClub", store "Google Play". One app can
+  // hold several listings, which is why the site's app count (13) is smaller
+  // than its store-listing count (16).
+  const apps = new Map();
+  for (const link of unique) {
+    const match = link.label.match(/^(.+) \((.+)\)$/);
+    if (!match) continue;
+    const [, app, store] = match;
+    if (!apps.has(app)) apps.set(app, { stores: [], urls: [] });
+    apps.get(app).stores.push(store);
+    apps.get(app).urls.push(link.url);
+  }
+
+  return { all, unique, apps };
+}
+
 const CHECKS = [
   {
     name: 'reveal degrades gracefully without JS',
@@ -204,6 +239,29 @@ const CHECKS = [
         checked++;
       }
       console.log(`       (checked ${checked} data-i18n keys against ${en.size} en / ${es.size} es dictionary entries)`);
+    },
+  },
+  {
+    name: 'store link labels are shaped "App Name (Store)" and group to APP_COUNT',
+    run: ({ assert }) => {
+      const { all, unique, apps } = collectStoreLinks();
+
+      assert(all.length === 17, `found ${all.length} store links in case studies, expected 17`);
+      assert(unique.length === 16, `found ${unique.length} unique store URLs, expected 16 (SICMER's Google Play URL is listed in two case studies)`);
+
+      for (const link of all) {
+        assert(
+          /^.+ \(.+\)$/.test(link.label),
+          `${link.file}: link label "${link.label}" is not shaped "App Name (Store)" — the CV's published-apps table groups by the text before " ("`
+        );
+      }
+
+      // This is what makes APP_COUNT a derived number rather than a trusted one:
+      // publish an app, add its link, forget to bump the constant, and the build fails.
+      assert(
+        apps.size === APP_COUNT,
+        `grouping the ${unique.length} unique store links by app name yields ${apps.size} apps, but src/config/site-stats.mjs exports APP_COUNT=${APP_COUNT}`
+      );
     },
   },
 ];

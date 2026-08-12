@@ -18,11 +18,11 @@ order: 4
 featured: true
 shots: ["spectrum-2.jpg", "spectrum-3.jpg", "spectrum-4.jpg"]
 links:
-  - label: "Spectrum Aesthetics"
+  - label: "Spectrum Aesthetics (App Store)"
     url: "https://apps.apple.com/us/app/spectrum-aesthetics/id6504781797"
-  - label: "Spectrum HIPAA Portal"
+  - label: "Spectrum HIPAA Portal (App Store)"
     url: "https://apps.apple.com/us/app/spectrum-hipaa-portal/id6746419349"
-  - label: "ibody Aesthetics"
+  - label: "ibody Aesthetics (App Store)"
     url: "https://apps.apple.com/us/app/ibody-aesthetics/id6772275647"
 bodyEs: |
   Tres clínicas estéticas usan el mismo portal bajo su propia marca. Los pacientes escriben a la clínica, comparten fotos clínicas e intercambian documentos —archivos de evaluación, financiamiento, consentimientos firmados, registros pre y post operatorios— dentro de un solo canal con cumplimiento HIPAA, en vez de repartidos entre apps de chat y correo.

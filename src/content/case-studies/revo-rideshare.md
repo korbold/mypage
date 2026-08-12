@@ -19,13 +19,13 @@ featured: true
 shots: ["revo-2.png", "revo-3.png", "revo-4.png"]
 logo: "/logos/revo.jpg"
 links:
-  - label: "App Store (Rider)"
+  - label: "REVO Rider (App Store)"
     url: "https://apps.apple.com/ni/app/revo-rideshare/id6476524112"
-  - label: "App Store (Driver)"
+  - label: "REVO Driver (App Store)"
     url: "https://apps.apple.com/ni/app/revo-rideshare-driver/id6476524424"
-  - label: "Google Play (Rider)"
+  - label: "REVO Rider (Google Play)"
     url: "https://play.google.com/store/apps/details?id=com.revoride.rider"
-  - label: "Google Play (Driver)"
+  - label: "REVO Driver (Google Play)"
     url: "https://play.google.com/store/apps/details?id=com.revoride.driver"
 bodyEs: |
   ## Descripción General
