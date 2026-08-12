@@ -1,0 +1,164 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'case-studies'>;
+  index: number;
+}
+
+const { entry, index } = Astro.props;
+const { title, titleEs, client, role, roleEs, period, problem, problemEs, result, resultEs, tech, shots, links } = entry.data;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/apps/*.{jpg,png}', { eager: true });
+const resolved = shots
+  .map((name) => images[`../assets/apps/${name}`]?.default)
+  .filter((img): img is ImageMetadata => Boolean(img));
+
+const num = String(index + 1).padStart(2, '0');
+---
+
+<article class="case-card reveal">
+  <div class="case-card__text">
+    <p class="case-card__meta">
+      <span class="case-card__num" aria-hidden="true">{num}</span>
+      <span>{client}</span>
+      <span aria-hidden="true">·</span>
+      <span>{period}</span>
+      <span aria-hidden="true">·</span>
+      <span class="lang-en">{role}</span>
+      {roleEs && <span class="lang-es" style="display:none;">{roleEs}</span>}
+    </p>
+
+    <h3 class="lang-en">{title}</h3>
+    {titleEs && <h3 class="lang-es" style="display:none;">{titleEs}</h3>}
+
+    <p class="case-card__problem lang-en">{problem}</p>
+    {problemEs && <p class="case-card__problem lang-es" style="display:none;">{problemEs}</p>}
+
+    <p class="case-card__result lang-en">{result}</p>
+    {resultEs && <p class="case-card__result lang-es" style="display:none;">{resultEs}</p>}
+
+    <ul class="case-card__tech">
+      {tech.slice(0, 5).map((t) => <li>{t}</li>)}
+    </ul>
+
+    <div class="case-card__links">
+      <a href={`/case-studies/${entry.id}`} class="case-card__more" data-i18n="cases.view">View case study</a>
+      {(links ?? []).map((link) => (
+        <a href={link.url} target="_blank" rel="noopener noreferrer" class="case-card__store">{link.label}</a>
+      ))}
+    </div>
+  </div>
+
+  {resolved.length > 0 && (
+    <div class="case-card__shots">
+      {resolved.map((img, i) => (
+        <Image
+          src={img}
+          alt={`${title} screenshot ${i + 1}`}
+          widths={[140, 220]}
+          sizes="(max-width: 700px) 28vw, 150px"
+          format="avif"
+          loading="lazy"
+        />
+      ))}
+    </div>
+  )}
+</article>
+
+<style>
+  .case-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    padding-block: clamp(2rem, 4vw, 3rem);
+    border-top: 1px solid var(--color-border);
+  }
+
+  @media (min-width: 900px) {
+    .case-card {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      align-items: center;
+    }
+  }
+
+  .case-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .case-card__num {
+    color: var(--color-accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .case-card h3 {
+    font-size: var(--font-size-2xl);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-md);
+  }
+
+  .case-card__problem {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-sm);
+    max-width: 56ch;
+  }
+
+  .case-card__result {
+    color: var(--color-text);
+    font-weight: 550;
+    margin-bottom: var(--space-lg);
+    max-width: 56ch;
+  }
+
+  .case-card__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-lg);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+  }
+
+  .case-card__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    align-items: center;
+    font-size: var(--font-size-sm);
+  }
+
+  .case-card__more {
+    color: var(--color-text);
+  }
+
+  .case-card__store {
+    color: var(--color-text-muted);
+  }
+
+  .case-card__shots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    justify-content: flex-start;
+  }
+
+  .case-card__shots :global(img) {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    display: block;
+  }
+</style>

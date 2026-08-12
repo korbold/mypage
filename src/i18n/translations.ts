@@ -26,9 +26,12 @@ export const translations: Record<Lang, Record<string, string>> = {
     'services.cloud.desc': 'Production-grade AWS infrastructure: ECS, EKS, Lambda, Aurora, RDS. High availability by default.',
 
     // Case Studies
-    'cases.title': 'Completed Work',
+    'cases.title': 'Selected work',
     'cases.view': 'View case study',
     'cases.count': 'projects',
+
+    // More Work
+    'more.title': 'More work',
 
     // Current Projects
     'current.title': 'Current Projects',
@@ -117,9 +120,12 @@ export const translations: Record<Lang, Record<string, string>> = {
     'services.cloud.desc': 'Infraestructura AWS lista para producci\u00f3n: ECS, EKS, Lambda, Aurora, RDS. Alta disponibilidad por defecto.',
 
     // Case Studies
-    'cases.title': 'Trabajos Realizados',
+    'cases.title': 'Trabajo seleccionado',
     'cases.view': 'Ver caso de estudio',
     'cases.count': 'proyectos',
+
+    // More Work
+    'more.title': 'Más trabajo',
 
     // Current Projects
     'current.title': 'Proyectos Actuales',

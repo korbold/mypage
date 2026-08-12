@@ -1,42 +1,22 @@
 ---
 import { getCollection } from 'astro:content';
-import CaseStudyCard from './CaseStudyCard.astro';
+import CaseCard from './CaseCard.astro';
 
-const cases = (await getCollection('case-studies')).sort((a, b) => {
-  const o = a.data.order - b.data.order;
-  return o !== 0 ? o : a.id.localeCompare(b.id);
-});
+const featured = (await getCollection('case-studies'))
+  .filter((c) => c.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
 ---
 
 <section id="cases" class="section section--cases">
   <div class="container">
     <header class="cases__header reveal">
-      <h2 class="section-title" data-i18n="cases.title">Completed Work</h2>
+      <h2 class="section-title" data-i18n="cases.title">Selected work</h2>
       <span class="cases__count" aria-hidden="true">
-        {String(cases.length).padStart(2, '0')} <span class="cases__count-label" data-i18n="cases.count">projects</span>
+        {String(featured.length).padStart(2, '0')} <span class="cases__count-label" data-i18n="cases.count">projects</span>
       </span>
     </header>
 
-    <div class="cases__index" role="list">
-      {cases.map((c, i) => (
-        <div role="listitem">
-          <CaseStudyCard
-            title={c.data.title}
-            titleEs={c.data.titleEs}
-            client={c.data.client}
-            role={c.data.role}
-            roleEs={c.data.roleEs}
-            result={c.data.result}
-            resultEs={c.data.resultEs}
-            tech={c.data.tech}
-            slug={c.id}
-            logo={c.data.logo}
-            period={c.data.period}
-            index={i}
-          />
-        </div>
-      ))}
-    </div>
+    {featured.map((entry, i) => <CaseCard entry={entry} index={i} />)}
   </div>
 </section>
 

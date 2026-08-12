@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+
+const rest = (await getCollection('case-studies'))
+  .filter((c) => !c.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<section id="more-work" class="section section--more">
+  <div class="container">
+    <h2 class="section-title" data-i18n="more.title">More work</h2>
+    <ul class="more__list">
+      {rest.map((entry) => (
+        <li>
+          <a href={`/case-studies/${entry.id}`}>
+            <span class="more__title">{entry.data.title}</span>
+            <span class="more__client">{entry.data.client}</span>
+            <span class="more__period">{entry.data.period}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .section--more {
+    padding-block: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .more__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .more__list a {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: var(--space-md);
+    align-items: baseline;
+    padding-block: var(--space-md);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .more__list a:hover .more__title {
+    color: var(--color-accent);
+  }
+
+  .more__client,
+  .more__period {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 640px) {
+    .more__list a {
+      grid-template-columns: 1fr;
+      gap: 0.2rem;
+    }
+  }
+</style>

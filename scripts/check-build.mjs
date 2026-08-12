@@ -70,7 +70,7 @@ const CHECKS = [
       const start = html.indexOf('id="cases"');
       assert(start !== -1, 'no <section id="cases"> on the page');
       const section = html.slice(start, html.indexOf('id="more-work"'));
-      const cards = section.match(/class="case-card[^"]*"/g) || [];
+      const cards = section.match(/class="case-card(?:\s[^"]*)?"/g) || [];
       assert(cards.length === 4, `found ${cards.length} featured cases, expected 4`);
       assert(
         !/case-studies\/kruger-corp/.test(html),
