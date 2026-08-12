@@ -221,8 +221,8 @@ const CHECKS = [
       const start = html.indexOf('id="contact"');
       const section = html.slice(start, html.indexOf('</section>', start));
       assert(
-        /mailto:danny@lupio\.dev/.test(section),
-        'contact must expose a direct mailto to danny@lupio.dev'
+        /mailto:korboldev@gmail\.com/.test(section),
+        'contact must expose a direct mailto to korboldev@gmail.com'
       );
       assert(
         !/Got a project in mind/.test(html),
