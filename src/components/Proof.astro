@@ -14,10 +14,13 @@ const stores = [
 
 // Derived from distinct apps behind the store URLs in src/content/case-studies/:
 // En Percha, Flux, Flux Proveedores, Analitix, SICMER, AkíClub (corp-favorita-suite.md),
-// REVO Rideshare (rider), REVO Rideshare Driver (revo-rideshare.md), SportYeah, Turnly,
+// REVO Rider, REVO Driver (revo-rideshare.md), SportYeah, Turnly,
 // Spectrum Aesthetics, Spectrum HIPAA Portal, ibody Aesthetics (spectrum-aesthetics.md) = 13.
-// APP_COUNT itself lives in src/config/site-stats.mjs so this file and
-// scripts/check-build.mjs read the identical value and cannot drift.
+// APP_COUNT itself lives in src/config/site-stats.mjs so this file, /cv
+// (src/pages/cv.astro), and scripts/check-build.mjs read the identical value
+// and cannot drift. That grouping is no longer hand-derived by this comment
+// alone — scripts/check-build.mjs's collectStoreLinks() mechanizes it from
+// the same case-study frontmatter and fails the build if it disagrees.
 ---
 
 <section id="proof" class="proof">

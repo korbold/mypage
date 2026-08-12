@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { APP_COUNT } from '../src/config/site-stats.mjs';
@@ -22,6 +22,23 @@ function collectAstroFiles(dir) {
     if (entry.isDirectory()) {
       out.push(...collectAstroFiles(full));
     } else if (entry.name.endsWith('.astro')) {
+      out.push(full);
+    }
+  }
+  return out;
+}
+
+// Recursively collect every file under `dir`. Used by the stale-PDF check so
+// it walks the whole `dist/` output rather than assuming the PDF could only
+// ever reappear under dist/cv/ — a copy dropped anywhere under dist/ (e.g.
+// public/Danny_Barahona_CV.pdf, which Astro copies verbatim) is just as stale.
+function walkFiles(dir) {
+  const out = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const full = join(dir, entry.name);
+    if (entry.isDirectory()) {
+      out.push(...walkFiles(full));
+    } else {
       out.push(full);
     }
   }
@@ -315,16 +332,27 @@ const CHECKS = [
   {
     name: 'the stale CV PDF stays deleted',
     run: ({ assert }) => {
+      // Walk the whole dist/ tree, not just dist/cv/: a copy reintroduced at
+      // public/Danny_Barahona_CV.pdf (which Astro copies verbatim to
+      // dist/Danny_Barahona_CV.pdf) and linked from, say, the footer would
+      // pass a check scoped to dist/cv/ while still shipping a stale PDF.
+      const allFiles = walkFiles(DIST);
+      const pdfHit = allFiles.find((f) => f.endsWith('Danny_Barahona_CV.pdf'));
       assert(
-        !existsSync(join(DIST, 'cv', 'Danny_Barahona_CV.pdf')),
-        'dist/cv/Danny_Barahona_CV.pdf is back — a PDF that drifts from the page is worse than no PDF; the print button renders a current one'
+        !pdfHit,
+        `${pdfHit ? pdfHit.slice(DIST.length + 1) : ''} is back somewhere under dist/ — a PDF that drifts from the page is worse than no PDF; the print button renders a current one`
       );
 
+      const htmlFiles = allFiles.filter((f) => f.endsWith('.html'));
+      for (const file of htmlFiles) {
+        const contents = readFileSync(file, 'utf8');
+        assert(
+          !/Danny_Barahona_CV\.pdf/.test(contents),
+          `dist/${file.slice(DIST.length + 1)} references the deleted static PDF`
+        );
+      }
+
       const cvHtml = readFileSync(join(DIST, 'cv', 'index.html'), 'utf8');
-      assert(
-        !/Danny_Barahona_CV\.pdf/.test(cvHtml),
-        '/cv still references the deleted static PDF'
-      );
       assert(
         /window\.print\(\)/.test(cvHtml),
         '/cv has no window.print() handler — the download button was replaced by a print button'
@@ -358,17 +386,66 @@ const CHECKS = [
         );
       }
 
+      // The data-app-count attribute is invisible to a reader — it guards
+      // nothing a human ever sees. Assert the RENDERED figures too, in both
+      // languages independently, so the visible heading cannot say "20 apps"
+      // or "99 store listings" while the hidden attribute (and the homepage)
+      // still say the true numbers.
+      const headingBlock = section.match(/<p[^>]*\bclass="cv__job-context"[^>]*>([\s\S]*?)<\/p>/);
+      assert(headingBlock !== null, 'could not find the published-apps heading (p.cv__job-context)');
+      if (headingBlock) {
+        const langs = [
+          { code: 'en', tag: 'lang-en', listingWord: 'store listings' },
+          { code: 'es', tag: 'lang-es', listingWord: 'publicaciones en tiendas' },
+        ];
+        for (const { code, tag, listingWord } of langs) {
+          const spanMatch = headingBlock[1].match(new RegExp(`<span[^>]*\\bclass="${tag}"[^>]*>([\\s\\S]*?)<\\/span>`));
+          assert(spanMatch !== null, `the published-apps heading has no .${tag} span`);
+          if (!spanMatch) continue;
+          const text = spanMatch[1];
+          assert(
+            new RegExp(`\\b${APP_COUNT}\\s+apps\\b`).test(text),
+            `the ${code} published-apps heading does not render "${APP_COUNT} apps" (APP_COUNT) — rendered: "${text.trim()}"`
+          );
+          assert(
+            new RegExp(`\\b${unique.length}\\s+${listingWord}\\b`).test(text),
+            `the ${code} published-apps heading does not render "${unique.length} ${listingWord}" (collectStoreLinks().unique.length) — rendered: "${text.trim()}"`
+          );
+        }
+      }
+
+      // Match each app name as a COMPLETE rendered <span class="cv__app-name">
+      // value, not a substring of the section's raw text. A substring test
+      // lets "Flux" pass even when that row is missing, because "Flux"
+      // occurs inside the separately-rendered "Flux Proveedores" row.
+      const renderedAppNames = [...section.matchAll(/<span[^>]*\bclass="cv__app-name"[^>]*>([^<]+)<\/span>/g)].map(
+        (m) => m[1]
+      );
       for (const app of apps.keys()) {
         assert(
-          section.includes(app),
-          `the CV's published-apps section does not name "${app}"`
+          renderedAppNames.includes(app),
+          `the CV's published-apps section has no exact "${app}" row (cv__app-name) — a substring match would let this pass even when the row is missing`
         );
       }
 
+      // Scope this to the <p class="cv__portfolio"> element itself, not the
+      // whole document: astro.config.ts sets site: 'https://korbold.vercel.app',
+      // so that string already appears 6 times in the canonical link and the
+      // og: tags — a whole-document test cannot fail even if this block is
+      // deleted entirely. The class regex tolerates extra attributes because
+      // Astro stamps scoped-style attributes (data-astro-cid-...) onto every
+      // rendered tag.
+      const portfolioBlock = cvHtml.match(/<p[^>]*\bclass="cv__portfolio"[^>]*>([\s\S]*?)<\/p>/);
       assert(
-        /korbold\.vercel\.app/.test(cvHtml),
-        'the CV header does not spell out the portfolio URL — in a printed or forwarded PDF an <a> is dead'
+        portfolioBlock !== null,
+        'no <p class="cv__portfolio"> on /cv — in a printed or forwarded PDF an <a> is dead, so the URL must be spelled out in text'
       );
+      if (portfolioBlock) {
+        assert(
+          /korbold\.vercel\.app/.test(portfolioBlock[1]),
+          'the cv__portfolio block does not spell out the portfolio URL'
+        );
+      }
     },
   },
 ];

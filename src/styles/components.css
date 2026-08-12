@@ -104,7 +104,14 @@
 .navbar__links {
   display: none;
   list-style: none;
-  gap: var(--space-xl);
+  /* Horizontal padding moved onto each link (below) to guarantee a 44px tap
+     target in both dimensions — the shortest label ("CV") measured 20x44
+     with no padding. Gap drops from --space-xl (32px) to 0 so the added
+     padding (12px each side, 24px per link) replaces it as the source of
+     visual separation instead of stacking on top of it — 4 links x 24px
+     added width is offset by 3 gaps x 32px removed, so the nav's total
+     width does not visibly change. */
+  gap: 0;
   align-items: center;
 }
 
@@ -112,6 +119,10 @@
   display: inline-flex;
   align-items: center;
   min-height: 44px;
+  /* 12px each side is the minimum that brings the shortest link ("CV", 20px
+     of text) up to a 44px-wide tap target; applied uniformly to every link
+     here rather than special-cased to CV alone. */
+  padding-inline: 0.75rem;
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   font-weight: 500;
