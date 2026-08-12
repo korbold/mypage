@@ -251,8 +251,8 @@ const CHECKS = [
 
       for (const link of all) {
         assert(
-          /^.+ \(.+\)$/.test(link.label),
-          `${link.file}: link label "${link.label}" is not shaped "App Name (Store)" — the CV's published-apps table groups by the text before " ("`
+          /^(.+) \((App Store|Google Play)\)$/.test(link.label),
+          `${link.file}: link label "${link.label}" is not shaped "App Name (App Store)" or "App Name (Google Play)" — the CV's published-apps table groups by the text before " ("`
         );
       }
 
