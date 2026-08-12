@@ -1,5 +1,5 @@
-/* Scroll reveal */
-.reveal {
+/* Scroll reveal — only hides when JS is present to un-hide it */
+html.js .reveal {
   opacity: 0;
   transform: translateY(24px);
   transition:
@@ -7,7 +7,7 @@
     transform 600ms var(--ease-out-quart, cubic-bezier(0.25, 1, 0.5, 1));
 }
 
-.reveal.visible {
+html.js .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -19,7 +19,7 @@
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  html.js .reveal {
     opacity: 1;
     transform: none;
     transition: none;

@@ -92,6 +92,7 @@ const personSchema = {
     <!-- i18n: sync script to avoid flash -->
     <script is:inline>
       (function() {
+        document.documentElement.classList.add('js');
         var saved = localStorage.getItem('lang');
         if (!saved) {
           var browserLang = (navigator.language || '').slice(0, 2);

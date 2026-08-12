@@ -7,7 +7,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "cv:pdf": "bash scripts/build-cv-pdf.sh"
+    "cv:pdf": "bash scripts/build-cv-pdf.sh",
+    "check": "node scripts/check-build.mjs"
   },
   "dependencies": {
     "astro": "^6.0.0",
