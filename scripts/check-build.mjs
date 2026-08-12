@@ -99,6 +99,21 @@ const CHECKS = [
       );
     },
   },
+  {
+    name: 'contact tells the reader exactly who should write',
+    run: ({ html }) => {
+      const start = html.indexOf('id="contact"');
+      const section = html.slice(start, html.indexOf('</section>', start));
+      assert(
+        /mailto:danny@lupio\.dev/.test(section),
+        'contact must expose a direct mailto to danny@lupio.dev'
+      );
+      assert(
+        !/Got a project in mind/.test(html),
+        'the old generic contact headline is still in place'
+      );
+    },
+  },
 ];
 
 let failed = 0;

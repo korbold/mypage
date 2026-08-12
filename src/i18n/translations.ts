@@ -46,8 +46,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     'blog.title': 'Latest Posts',
 
     // Contact
-    'contact.title': 'Got a project in mind? Let\'s build it.',
-    'contact.subtitle': "I'm available for freelance projects \u2014 mobile apps, backends, cloud infrastructure, or all three.",
+    'contact.title': 'Tell me what you are building.',
+    'contact.subtitle': 'Write me if you have an app to ship and a date it needs to be live. One paragraph is enough: what it does, who it is for, and where it stands today. I reply within a day.',
     'contact.email': 'Email',
     'contact.linkedin': 'LinkedIn',
     'contact.github': 'GitHub',
@@ -115,8 +115,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     'blog.title': 'Últimos Posts',
 
     // Contact
-    'contact.title': '\u00bfTienes un proyecto? Construy\u00e1moslo juntos.',
-    'contact.subtitle': 'Estoy disponible para proyectos freelance \u2014 apps m\u00f3viles, backends, infraestructura cloud, o los tres.',
+    'contact.title': 'Cu\u00e9ntame qu\u00e9 est\u00e1s construyendo.',
+    'contact.subtitle': 'Escr\u00edbeme si tienes una app que enviar y una fecha en la que debe estar viva. Con un p\u00e1rrafo basta: qu\u00e9 hace, para qui\u00e9n es, y en qu\u00e9 punto est\u00e1 hoy. Respondo en menos de un d\u00eda.',
     'contact.email': 'Email',
     'contact.linkedin': 'LinkedIn',
     'contact.github': 'GitHub',
