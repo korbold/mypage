@@ -48,6 +48,10 @@ const contacts = [
         </a>
       ))}
     </div>
+    <p class="contact-hiring reveal">
+      <a href="/cv" data-i18n="contact.hiring">Hiring full-time? See the CV</a>
+      <span aria-hidden="true">&#8599;</span>
+    </p>
   </div>
 </section>
 
@@ -107,6 +111,31 @@ const contacts = [
   }
 
   .contact-card:hover .contact-card__value {
+    color: var(--color-accent);
+  }
+
+  .contact-hiring {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+
+  .contact-hiring a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--color-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--transition);
+  }
+
+  .contact-hiring a:hover {
     color: var(--color-accent);
   }
 </style>

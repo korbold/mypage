@@ -53,6 +53,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'contact.linkedin': 'LinkedIn',
     'contact.github': 'GitHub',
     'contact.whatsapp': 'WhatsApp',
+    'contact.hiring': 'Hiring full-time? See the CV',
 
     // Footer
     'footer.rights': 'All rights reserved.',
@@ -123,6 +124,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'contact.linkedin': 'LinkedIn',
     'contact.github': 'GitHub',
     'contact.whatsapp': 'WhatsApp',
+    'contact.hiring': '¿Contratando a tiempo completo? Mira el CV',
 
     // Footer
     'footer.rights': 'Todos los derechos reservados.',

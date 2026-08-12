@@ -264,6 +264,26 @@ const CHECKS = [
       );
     },
   },
+  {
+    name: 'the recruiter route is reachable from the homepage',
+    run: ({ html, assert }) => {
+      const links = html.match(/href="\/cv"/g) || [];
+      assert(
+        links.length >= 2,
+        `homepage has ${links.length} links to /cv, expected at least 2 (navbar and contact) — a CV nobody can find is the same as no CV`
+      );
+
+      const contactStart = html.indexOf('id="contact"');
+      const contact = html.slice(contactStart, html.indexOf('</section>', contactStart));
+      assert(
+        /href="\/cv"/.test(contact),
+        'the contact section does not link to /cv'
+      );
+
+      const nav = html.slice(0, html.indexOf('</nav>'));
+      assert(/href="\/cv"/.test(nav), 'the navbar does not link to /cv');
+    },
+  },
 ];
 
 let failed = 0;
