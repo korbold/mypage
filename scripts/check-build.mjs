@@ -280,8 +280,36 @@ const CHECKS = [
         'the contact section does not link to /cv'
       );
 
-      const nav = html.slice(0, html.indexOf('</nav>'));
-      assert(/href="\/cv"/.test(nav), 'the navbar does not link to /cv');
+      // Scope each menu separately rather than testing the whole <nav>: a
+      // single blanket assertion over the entire <nav>...</nav> block passes
+      // as long as /cv appears ANYWHERE inside it, so dropping the link from
+      // one menu while keeping it in the other still reports green. The
+      // class-attribute regex tolerates extra attributes (Astro stamps
+      // scoped-style attributes like data-astro-cid-... onto rendered tags),
+      // so it does not assume the tag ends immediately after the class.
+      const desktopTag = html.match(/<ul[^>]*\bclass="navbar__links"[^>]*>/);
+      assert(desktopTag !== null, 'could not find <ul class="navbar__links"> on the page');
+      if (desktopTag) {
+        const start = desktopTag.index + desktopTag[0].length;
+        const end = html.indexOf('</ul>', start);
+        const desktopMenu = html.slice(start, end);
+        assert(
+          /href="\/cv"/.test(desktopMenu),
+          'the desktop navbar menu (.navbar__links) does not link to /cv'
+        );
+      }
+
+      const mobileTag = html.match(/<div[^>]*\bclass="navbar__mobile-menu"[^>]*>/);
+      assert(mobileTag !== null, 'could not find <div class="navbar__mobile-menu"> on the page');
+      if (mobileTag) {
+        const start = mobileTag.index + mobileTag[0].length;
+        const end = html.indexOf('</div>', start);
+        const mobileMenu = html.slice(start, end);
+        assert(
+          /href="\/cv"/.test(mobileMenu),
+          'the mobile navbar menu (.navbar__mobile-menu) does not link to /cv'
+        );
+      }
     },
   },
 ];
