@@ -82,6 +82,23 @@ const CHECKS = [
       );
     },
   },
+  {
+    name: 'homepage is six sections, generic ones gone',
+    run: ({ html }) => {
+      const ids = [...html.matchAll(/<section[^>]*id="([^"]+)"/g)].map((m) => m[1]);
+      const expected = ['proof', 'cases', 'more-work', 'how', 'contact'];
+      for (const id of expected) {
+        assert(ids.includes(id), `missing <section id="${id}">`);
+      }
+      for (const gone of ['services', 'tech', 'current', 'blog']) {
+        assert(!ids.includes(gone), `section #${gone} should have been removed`);
+      }
+      assert(
+        !/What people say|testimonial/i.test(html),
+        'the anonymous testimonial is still on the page'
+      );
+    },
+  },
 ];
 
 let failed = 0;

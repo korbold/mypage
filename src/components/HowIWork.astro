@@ -1,0 +1,108 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../assets/danny.jpg';
+---
+
+<section id="how" class="section section--how">
+  <div class="container how__inner">
+    <div class="how__text">
+      <h2 class="section-title" data-i18n="how.title">How I work</h2>
+
+      <p class="how__lead" data-i18n="how.lead">
+        I take a project from the first screen to a signed build in the store. No subcontractors, no handoffs — you talk to the person writing the code.
+      </p>
+
+      <dl class="how__points">
+        <div>
+          <dt data-i18n="how.point1.title">You see it running every week</dt>
+          <dd data-i18n="how.point1.desc">A build on your phone, not a status update.</dd>
+        </div>
+        <div>
+          <dt data-i18n="how.point2.title">I own the store submission</dt>
+          <dd data-i18n="how.point2.desc">Review rejections are my problem, not yours.</dd>
+        </div>
+        <div>
+          <dt data-i18n="how.point3.title">The backend comes with it</dt>
+          <dd data-i18n="how.point3.desc">NestJS, Laravel, Spring Boot, AWS — the app does not stop at the API boundary.</dd>
+        </div>
+      </dl>
+
+      <p class="how__fit" data-i18n="how.fit">
+        Good fit: a founder or product team with a real app to ship. Bad fit: a two-day fix, an unpaid trial, or a project that needs a designer more than an engineer.
+      </p>
+
+      <p class="how__stack">Flutter · Dart · React Native · TypeScript · NestJS · Laravel · Spring Boot · Firebase · AWS</p>
+    </div>
+
+    <figure class="how__portrait">
+      <Image src={portrait} alt="Danny Barahona" widths={[280, 420]} sizes="(max-width: 900px) 60vw, 320px" format="avif" loading="lazy" />
+    </figure>
+  </div>
+</section>
+
+<style>
+  .section--how {
+    padding-block: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .how__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  @media (min-width: 900px) {
+    .how__inner {
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
+    }
+  }
+
+  .how__lead {
+    font-size: var(--font-size-lg);
+    max-width: 54ch;
+    margin-bottom: var(--space-xl);
+  }
+
+  .how__points {
+    margin: 0 0 var(--space-xl);
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .how__points dt {
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  .how__points dd {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+
+  .how__fit {
+    color: var(--color-text-muted);
+    max-width: 60ch;
+    padding-left: var(--space-lg);
+    border-left: 2px solid var(--color-accent);
+    margin-bottom: var(--space-lg);
+  }
+
+  .how__stack {
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+  }
+
+  .how__portrait {
+    margin: 0;
+  }
+
+  .how__portrait :global(img) {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+    display: block;
+  }
+</style>

@@ -3,9 +3,8 @@ export type Lang = 'en' | 'es';
 export const translations: Record<Lang, Record<string, string>> = {
   en: {
     // Nav
-    'nav.services': 'Services',
     'nav.work': 'Work',
-    'nav.tech': 'Tech',
+    'nav.how': 'How I work',
     'nav.blog': 'Blog',
     'nav.contact': 'Contact',
 
@@ -16,15 +15,6 @@ export const translations: Record<Lang, Record<string, string>> = {
     'hero.cta.contact': 'Start a project',
     'hero.badge': 'Available for new projects',
 
-    // Services
-    'services.title': 'What I do',
-    'services.mobile.title': 'Mobile Apps',
-    'services.mobile.desc': 'End-to-end Flutter apps for iOS & Android. Clean architecture, Firebase, App Store deployment.',
-    'services.backend.title': 'Backend & APIs',
-    'services.backend.desc': 'Scalable APIs with NestJS/Node.js. Auth with OAuth2/Keycloak, Docker, CI/CD pipelines.',
-    'services.cloud.title': 'Cloud & DevOps (AWS)',
-    'services.cloud.desc': 'Production-grade AWS infrastructure: ECS, EKS, Lambda, Aurora, RDS. High availability by default.',
-
     // Case Studies
     'cases.title': 'Selected work',
     'cases.view': 'View case study',
@@ -33,24 +23,16 @@ export const translations: Record<Lang, Record<string, string>> = {
     // More Work
     'more.title': 'More work',
 
-    // Current Projects
-    'current.title': 'Current Projects',
-    'current.mobile': 'Mobile Support',
-    'current.web': 'Web Development',
-    'current.taurus.desc': 'Corporate gym portal for billing, contracts & employee management',
-    'current.mydessk.desc': 'Electronic invoicing & sales management platform',
-    'current.reventi.desc': 'Online marketplace for buying & selling locally',
-
-    // Tech Stack
-    'tech.title': 'Tech Stack',
-    'tech.mobile': 'Mobile',
-    'tech.backend': 'Backend',
-    'tech.frontend': 'Frontend',
-    'tech.architecture': 'Architecture',
-    'tech.auth': 'Auth & Security',
-    'tech.cloud': 'Cloud AWS',
-    'tech.devops': 'DevOps',
-    'tech.databases': 'Databases',
+    // How I work
+    'how.title': 'How I work',
+    'how.lead': 'I take a project from the first screen to a signed build in the store. No subcontractors, no handoffs — you talk to the person writing the code.',
+    'how.point1.title': 'You see it running every week',
+    'how.point1.desc': 'A build on your phone, not a status update.',
+    'how.point2.title': 'I own the store submission',
+    'how.point2.desc': 'Review rejections are my problem, not yours.',
+    'how.point3.title': 'The backend comes with it',
+    'how.point3.desc': 'NestJS, Laravel, Spring Boot, AWS — the app does not stop at the API boundary.',
+    'how.fit': 'Good fit: a founder or product team with a real app to ship. Bad fit: a two-day fix, an unpaid trial, or a project that needs a designer more than an engineer.',
 
     // Proof
     'proof.users': 'Active users',
@@ -60,15 +42,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     // Companies
     'companies.label': 'Worked with',
 
-    // Blog
+    // Blog (used by /blog page)
     'blog.title': 'Latest Posts',
-    'blog.readall': 'Read all posts',
-    'blog.readmore': 'Read more',
-
-    // Testimonials
-    'testimonials.title': 'What people say',
-    'testimonials.quote': 'Danny delivered the Flutter modules on time, with clean code and great communication throughout the project.',
-    'testimonials.author': 'Tech Lead, Kruger Corp',
 
     // Contact
     'contact.title': 'Got a project in mind? Let\'s build it.',
@@ -97,9 +72,8 @@ export const translations: Record<Lang, Record<string, string>> = {
   },
   es: {
     // Nav
-    'nav.services': 'Servicios',
     'nav.work': 'Trabajo',
-    'nav.tech': 'Tech',
+    'nav.how': 'Cómo trabajo',
     'nav.blog': 'Blog',
     'nav.contact': 'Contacto',
 
@@ -110,15 +84,6 @@ export const translations: Record<Lang, Record<string, string>> = {
     'hero.cta.contact': 'Empezar un proyecto',
     'hero.badge': 'Disponible para nuevos proyectos',
 
-    // Services
-    'services.title': 'Lo que hago',
-    'services.mobile.title': 'Apps M\u00f3viles',
-    'services.mobile.desc': 'Apps Flutter completas para iOS y Android. Arquitectura limpia, Firebase y despliegue en tiendas.',
-    'services.backend.title': 'Backend & APIs',
-    'services.backend.desc': 'APIs escalables con NestJS/Node.js. Auth con OAuth2/Keycloak, Docker y pipelines CI/CD.',
-    'services.cloud.title': 'Cloud & DevOps (AWS)',
-    'services.cloud.desc': 'Infraestructura AWS lista para producci\u00f3n: ECS, EKS, Lambda, Aurora, RDS. Alta disponibilidad por defecto.',
-
     // Case Studies
     'cases.title': 'Trabajo seleccionado',
     'cases.view': 'Ver caso de estudio',
@@ -127,24 +92,16 @@ export const translations: Record<Lang, Record<string, string>> = {
     // More Work
     'more.title': 'Más trabajo',
 
-    // Current Projects
-    'current.title': 'Proyectos Actuales',
-    'current.mobile': 'Soporte M\u00f3vil',
-    'current.web': 'Desarrollo Web',
-    'current.taurus.desc': 'Portal corporativo gimnasio para facturaci\u00f3n, contratos y gesti\u00f3n de colaboradores',
-    'current.mydessk.desc': 'Plataforma de facturaci\u00f3n electr\u00f3nica y gesti\u00f3n de ventas',
-    'current.reventi.desc': 'Marketplace de compra y venta local',
-
-    // Tech Stack
-    'tech.title': 'Stack Tecnol\u00f3gico',
-    'tech.mobile': 'M\u00f3vil',
-    'tech.backend': 'Backend',
-    'tech.frontend': 'Frontend',
-    'tech.architecture': 'Arquitectura',
-    'tech.auth': 'Auth y Seguridad',
-    'tech.cloud': 'Cloud AWS',
-    'tech.devops': 'DevOps',
-    'tech.databases': 'Bases de Datos',
+    // How I work
+    'how.title': 'Cómo trabajo',
+    'how.lead': 'Llevo el proyecto de la primera pantalla al build firmado en la store. Sin subcontratistas, sin traspasos — hablas con quien escribe el código.',
+    'how.point1.title': 'Lo ves corriendo cada semana',
+    'how.point1.desc': 'Un build en tu teléfono, no un reporte de avance.',
+    'how.point2.title': 'Yo me encargo del envío a la store',
+    'how.point2.desc': 'Los rechazos de revisión son mi problema, no el tuyo.',
+    'how.point3.title': 'El backend viene incluido',
+    'how.point3.desc': 'NestJS, Laravel, Spring Boot, AWS — la app no se detiene en el borde de la API.',
+    'how.fit': 'Buen encaje: un fundador o equipo de producto con una app real que enviar. Mal encaje: un arreglo de dos días, una prueba no pagada, o un proyecto que necesita más un diseñador que un ingeniero.',
 
     // Proof
     'proof.users': 'Usuarios activos',
@@ -154,15 +111,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     // Companies
     'companies.label': 'He trabajado con',
 
-    // Blog
-    'blog.title': '\u00daltimos Posts',
-    'blog.readall': 'Ver todos los posts',
-    'blog.readmore': 'Leer m\u00e1s',
-
-    // Testimonials
-    'testimonials.title': 'Lo que dicen',
-    'testimonials.quote': 'Danny entreg\u00f3 los m\u00f3dulos Flutter a tiempo, con c\u00f3digo limpio y excelente comunicaci\u00f3n durante todo el proyecto.',
-    'testimonials.author': 'Tech Lead, Kruger Corp',
+    // Blog (used by /blog page)
+    'blog.title': 'Últimos Posts',
 
     // Contact
     'contact.title': '\u00bfTienes un proyecto? Construy\u00e1moslo juntos.',
