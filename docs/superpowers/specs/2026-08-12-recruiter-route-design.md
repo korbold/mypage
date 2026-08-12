@@ -111,10 +111,11 @@ name the app (`"AkíClub (Google Play)"`), the rest name only the store (`"Googl
 `"App Store (Rider)"`). Rendered as-is, the CV would print rows like "Google Play —
 SportYeah".
 
-So this work first rewrites every label to the form `App Name (Store)`, across
-`corp-favorita-suite.md`, `revo-rideshare.md`, `spectrum-aesthetics.md`, `sportyeah.md`,
-`sicmer-mobile.md` and `turnly.md`. Six labels actually change. The app name is then the text
-before ` (`, and the store is the text inside the parentheses.
+So this work first rewrites every label to the form `App Name (Store)`. Ten of the seventeen
+change: four in `revo-rideshare.md`, three in `spectrum-aesthetics.md`, and one each in
+`corp-favorita-suite.md`, `sportyeah.md` and `sicmer-mobile.md`. The six correct labels in
+`corp-favorita-suite.md` and the one in `turnly.md` stay as they are. The app name is then
+the text before ` (`, and the store is the text inside the parentheses.
 
 Two consequences beyond the CV:
 
