@@ -14,7 +14,7 @@ resultEs: "6 apps publicadas (5 B2B en Google Play con 16,500+ usuarios activos 
 tech: ["Flutter", "Dart", "NestJS", "Keycloak", "OIDC", "Firebase", "Clean Architecture", "Biometric Auth", "REST APIs", "Offline Sync", "GitHub Actions", "GitLab CI"]
 order: 1
 featured: true
-shots: ["akiclub-1.png", "akiclub-2.png", "analitix-ss-1.png"]
+shots: ["akiclub-ss-1.png", "analitix-ss-1.png"]
 links:
   - label: "En Percha (Google Play)"
     url: "https://play.google.com/store/apps/details?id=ec.com.smx.enpercha2"
