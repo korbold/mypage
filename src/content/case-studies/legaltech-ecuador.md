@@ -13,6 +13,7 @@ result: "MVP in active development. Backend Spring Boot scaffolded with JPA + Sp
 resultEs: "MVP en desarrollo activo. Backend Spring Boot armado con JPA + Spring Security OAuth2 JWT, Supabase Postgres conectado, Gemini 2.5 Flash integrado para consultas legales. Shell Flutter multiplataforma y admin Next.js en marcha."
 tech: ["Spring Boot 3.4", "Java 21", "JPA", "Spring Security", "OAuth2", "JWT", "Flutter", "Dart", "Next.js", "React", "TanStack Query", "Tailwind CSS", "PostgreSQL", "Supabase", "Google Gemini"]
 order: 8
+featured: false
 links: []
 bodyEs: |
   ## Descripción General

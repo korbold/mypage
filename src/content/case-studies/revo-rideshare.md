@@ -12,7 +12,9 @@ solutionEs: "Construí dos apps Flutter (pasajero y conductor) con seguimiento G
 result: "Full rideshare platform launched on App Store and Google Play with 4 published apps"
 resultEs: "Plataforma de rideshare completa lanzada en App Store y Google Play con 4 apps publicadas"
 tech: ["Flutter", "Firebase", "Google Maps", "REST APIs"]
-order: 5
+order: 3
+featured: true
+shots: ["revo-2.png", "revo-3.png", "revo-4.png"]
 logo: "/logos/revo.jpg"
 links:
   - label: "App Store (Rider)"

@@ -13,6 +13,7 @@ result: "Streamlined delivery personnel operations with real-time digital workfl
 resultEs: "Optimización de operaciones de personal de entregas con flujos de trabajo digitales en tiempo real"
 tech: ["Flutter", "Firebase", "REST APIs"]
 order: 4
+featured: false
 logo: "/logos/sicmer.png"
 links:
   - label: "Google Play"

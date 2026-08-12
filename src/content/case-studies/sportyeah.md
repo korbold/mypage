@@ -13,6 +13,7 @@ result: "Launched a full-featured sports social network on iOS and Android"
 resultEs: "Lanzamiento de una red social deportiva completa en iOS y Android"
 tech: ["Flutter", "Firebase", "REST APIs"]
 order: 6
+featured: false
 logo: "/logos/sportyeah.jpg"
 links:
   - label: "Google Play"

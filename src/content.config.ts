@@ -19,6 +19,8 @@ const caseStudies = defineCollection({
     resultEs: z.string().optional(),
     tech: z.array(z.string()),
     order: z.number(),
+    featured: z.boolean().default(false),
+    shots: z.array(z.string()).default([]),
     logo: z.string().optional(),
     bodyEs: z.string().optional(),
     links: z.array(z.object({

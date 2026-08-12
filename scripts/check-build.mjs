@@ -64,6 +64,24 @@ const CHECKS = [
       assert(!/class="stats"/.test(html), 'the old stats section is still rendered');
     },
   },
+  {
+    name: 'exactly four featured cases, no duplicate Kruger or 360io entry',
+    run: ({ html }) => {
+      const start = html.indexOf('id="cases"');
+      assert(start !== -1, 'no <section id="cases"> on the page');
+      const section = html.slice(start, html.indexOf('id="more-work"'));
+      const cards = section.match(/class="case-card[^"]*"/g) || [];
+      assert(cards.length === 4, `found ${cards.length} featured cases, expected 4`);
+      assert(
+        !/case-studies\/kruger-corp/.test(html),
+        'kruger-corp should be merged into corp-favorita-suite, not listed separately'
+      );
+      assert(
+        !/case-studies\/360io/.test(html),
+        '360io and Spectrum are one engagement — they must not appear as two cases'
+      );
+    },
+  },
 ];
 
 let failed = 0;

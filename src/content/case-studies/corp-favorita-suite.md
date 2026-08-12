@@ -13,6 +13,8 @@ result: "6 apps shipped (5 B2B on Google Play with 16,500+ active users + AkíCl
 resultEs: "6 apps publicadas (5 B2B en Google Play con 16,500+ usuarios activos + AkíClub B2C en Google Play y App Store). En Percha (10K+), Flux (5K+), Flux Proveedores (1K+), Analitix (500+), SICMER (logística), AkíClub (fidelización consumidor)."
 tech: ["Flutter", "Dart", "NestJS", "Keycloak", "OIDC", "Firebase", "Clean Architecture", "Biometric Auth", "REST APIs", "Offline Sync", "GitHub Actions", "GitLab CI"]
 order: 1
+featured: true
+shots: ["akiclub-1.png", "akiclub-2.png", "analitix-ss-1.png"]
 links:
   - label: "En Percha (Google Play)"
     url: "https://play.google.com/store/apps/details?id=ec.com.smx.enpercha2"
@@ -60,6 +62,9 @@ bodyEs: |
   - **16,500+ usuarios B2B activos** combinados entre las 5 apps
   - **5 apps en producción** publicadas en Google Play y verificables públicamente
   - SSO unificado eliminó cuentas y contraseñas duplicadas en toda la suite
+  - **Fallos de login reducidos ~35%** tras la migración a SSO con Keycloak
+  - **TTI mejorado de ~3.2s a ~1.8s** mediante code splitting y lazy loading
+  - **Tamaño del .aab Android reducido ~22%** vía componentes diferidos
   - Ciclos de release reducidos de semanas a días gracias al CI/CD compartido
   - Base de código modular reutilizada entre las apps, reduciendo la carga de mantenimiento
 ---
@@ -95,5 +100,8 @@ Five mobile apps for very different audiences (internal, supplier, logistics, an
 - **16,500+ active B2B users** combined across the 5 apps
 - **5 production apps** shipped on Google Play and publicly verifiable
 - Unified SSO removed duplicated accounts and passwords across the suite
+- **Login failures reduced ~35%** after the Keycloak SSO rollout
+- **Time-to-interactive improved from ~3.2s to ~1.8s** through code splitting and lazy loading
+- **Android `.aab` size reduced ~22%** via deferred components
 - Release cycles cut from weeks to days through shared CI/CD
 - Modular codebase reused across apps, lowering long-term maintenance cost
