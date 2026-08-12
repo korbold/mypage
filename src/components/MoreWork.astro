@@ -14,9 +14,11 @@ const rest = (await getCollection('case-studies'))
         <li>
           <a href={`/case-studies/${entry.id}`}>
             <span class="more__title lang-en">{entry.data.title}</span>
-            {entry.data.titleEs && <span class="more__title lang-es" style="display:none;">{entry.data.titleEs}</span>}
-            <span class="more__client">{entry.data.client}</span>
-            <span class="more__period">{entry.data.period}</span>
+            {entry.data.titleEs && <span class="more__title lang-es">{entry.data.titleEs}</span>}
+            <span class="more__client lang-en">{entry.data.client}</span>
+            {entry.data.clientEs && <span class="more__client lang-es">{entry.data.clientEs}</span>}
+            <span class="more__period lang-en">{entry.data.period}</span>
+            {entry.data.periodEs && <span class="more__period lang-es">{entry.data.periodEs}</span>}
           </a>
         </li>
       ))}

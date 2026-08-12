@@ -24,6 +24,21 @@ body {
   min-height: 100vh;
 }
 
+/* i18n visibility: the inline head script in BaseLayout stamps data-lang on
+   <html> before first paint, so the correct language shows on the very
+   first frame — no flash while a deferred script decides what to hide.
+   Only ever `display: none` the hidden side, never touch the visible
+   side's display, so each element keeps its natural block/inline/list-item
+   value. No `data-lang` attribute at all (no-JS / JS disabled) is the same
+   as `data-lang="en"`: English is the correct no-JS fallback. */
+html:not([data-lang='es']) .lang-es {
+  display: none;
+}
+
+html[data-lang='es'] .lang-en {
+  display: none;
+}
+
 img,
 svg {
   display: block;

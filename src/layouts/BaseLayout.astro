@@ -99,6 +99,11 @@ const personSchema = {
           saved = browserLang === 'es' ? 'es' : 'en';
         }
         document.documentElement.lang = saved;
+        // Stamp the language on <html> before first paint so the CSS rules
+        // in global.css (`html[data-lang="es"] .lang-en { display: none }`
+        // etc.) can show the right language on the very first frame,
+        // instead of waiting for the deferred module script below.
+        document.documentElement.setAttribute('data-lang', saved);
       })();
     </script>
   </head>
@@ -121,13 +126,11 @@ const personSchema = {
         document.documentElement.lang = lang;
         localStorage.setItem('lang', lang);
 
-        // Toggle lang-en / lang-es elements
-        document.querySelectorAll('.lang-en').forEach(el => {
-          (el as HTMLElement).style.display = lang === 'en' ? '' : 'none';
-        });
-        document.querySelectorAll('.lang-es').forEach(el => {
-          (el as HTMLElement).style.display = lang === 'es' ? '' : 'none';
-        });
+        // lang-en / lang-es visibility is driven entirely by CSS keyed off
+        // this attribute (see global.css) — no per-element style writes
+        // needed, and it paints correctly on the very first frame via the
+        // inline head script above, before this deferred script even runs.
+        document.documentElement.setAttribute('data-lang', lang);
 
         // Update active state on toggle buttons
         document.querySelectorAll('.lang-toggle__btn').forEach((btn) => {

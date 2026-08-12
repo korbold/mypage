@@ -2,15 +2,17 @@
 title: "REVO Rideshare — Rider & Driver Mobile Apps"
 titleEs: "REVO Rideshare — Apps Móviles de Pasajero y Conductor"
 client: "PNP Capital Ventures LLC"
+clientEs: "PNP Capital Ventures LLC"
 role: "Mobile Developer (Flutter)"
 roleEs: "Desarrollador Móvil (Flutter)"
 period: "2024 – 2025"
+periodEs: "2024 – 2025"
 problem: "Need for a complete rideshare platform with separate rider and driver apps on both iOS and Android"
 problemEs: "Necesidad de una plataforma de rideshare completa con apps separadas de pasajero y conductor en iOS y Android"
 solution: "Built two Flutter apps (rider and driver) with real-time GPS tracking, transparent pricing, comfort settings, and safety features including background checks and emergency support"
 solutionEs: "Construí dos apps Flutter (pasajero y conductor) con seguimiento GPS en tiempo real, precios transparentes, ajustes de confort y funciones de seguridad incluyendo verificación de antecedentes y soporte de emergencia"
-result: "Full rideshare platform launched on App Store and Google Play with 4 published apps"
-resultEs: "Plataforma de rideshare completa lanzada en App Store y Google Play con 4 apps publicadas"
+result: "Rider and driver apps launched on App Store and Google Play — 4 store listings"
+resultEs: "Apps de pasajero y conductor lanzadas en App Store y Google Play — 4 publicaciones en las tiendas"
 tech: ["Flutter", "Firebase", "Google Maps", "REST APIs"]
 order: 3
 featured: true

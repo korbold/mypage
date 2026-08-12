@@ -130,10 +130,14 @@
 .navbar__toggle {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
   padding: var(--space-sm);
 }
 
@@ -210,6 +214,11 @@
 }
 
 .lang-toggle__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
   padding: 0.25rem 0.5rem;
   font-size: var(--font-size-xs);
   font-weight: 600;

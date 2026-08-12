@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { entry, index } = Astro.props;
-const { title, titleEs, client, role, roleEs, period, problem, problemEs, result, resultEs, tech, shots, links } = entry.data;
+const { title, titleEs, client, clientEs, role, roleEs, period, periodEs, problem, problemEs, result, resultEs, tech, shots, links } = entry.data;
 
 const images = import.meta.glob<{ default: ImageMetadata }>('../assets/apps/*.{jpg,png}', { eager: true });
 const resolved = shots
@@ -22,22 +22,24 @@ const num = String(index + 1).padStart(2, '0');
   <div class="case-card__text">
     <p class="case-card__meta">
       <span class="case-card__num" aria-hidden="true">{num}</span>
-      <span>{client}</span>
+      <span class="lang-en">{client}</span>
+      {clientEs && <span class="lang-es">{clientEs}</span>}
       <span aria-hidden="true">·</span>
-      <span>{period}</span>
+      <span class="lang-en">{period}</span>
+      {periodEs && <span class="lang-es">{periodEs}</span>}
       <span aria-hidden="true">·</span>
       <span class="lang-en">{role}</span>
-      {roleEs && <span class="lang-es" style="display:none;">{roleEs}</span>}
+      {roleEs && <span class="lang-es">{roleEs}</span>}
     </p>
 
     <h3 class="lang-en">{title}</h3>
-    {titleEs && <h3 class="lang-es" style="display:none;">{titleEs}</h3>}
+    {titleEs && <h3 class="lang-es">{titleEs}</h3>}
 
     <p class="case-card__problem lang-en">{problem}</p>
-    {problemEs && <p class="case-card__problem lang-es" style="display:none;">{problemEs}</p>}
+    {problemEs && <p class="case-card__problem lang-es">{problemEs}</p>}
 
     <p class="case-card__result lang-en">{result}</p>
-    {resultEs && <p class="case-card__result lang-es" style="display:none;">{resultEs}</p>}
+    {resultEs && <p class="case-card__result lang-es">{resultEs}</p>}
 
     <ul class="case-card__tech">
       {tech.slice(0, 5).map((t) => <li>{t}</li>)}
@@ -46,7 +48,10 @@ const num = String(index + 1).padStart(2, '0');
     <div class="case-card__links">
       <a href={`/case-studies/${entry.id}`} class="case-card__more" data-i18n="cases.view">View case study</a>
       {(links ?? []).map((link) => (
-        <a href={link.url} target="_blank" rel="noopener noreferrer" class="case-card__store">{link.label}</a>
+        <a href={link.url} target="_blank" rel="noopener noreferrer" class="case-card__store">
+          {link.label}
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </a>
       ))}
     </div>
   </div>
@@ -57,8 +62,8 @@ const num = String(index + 1).padStart(2, '0');
         <Image
           src={img}
           alt={`${title} screenshot ${i + 1}`}
-          widths={[140, 220]}
-          sizes="(max-width: 700px) 28vw, 150px"
+          widths={[150, 300, 450]}
+          sizes="150px"
           format="avif"
           loading="lazy"
         />
@@ -139,11 +144,37 @@ const num = String(index + 1).padStart(2, '0');
   }
 
   .case-card__more {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--transition);
   }
 
+  .case-card__more:hover {
+    color: var(--color-accent);
+  }
+
+  /* Store links are the case card's only third-party validation — they must
+     read as clickable, same treatment as the Proof band chips. */
   .case-card__store {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 44px;
+    padding: 0.35rem 0.7rem;
     color: var(--color-text-muted);
+    text-decoration: none;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    transition: color var(--transition), border-color var(--transition);
+  }
+
+  .case-card__store:hover {
+    color: var(--color-text);
+    border-color: var(--color-accent);
   }
 
   .case-card__shots {

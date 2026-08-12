@@ -7,6 +7,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'nav.how': 'How I work',
     'nav.blog': 'Blog',
     'nav.contact': 'Contact',
+    'nav.cv': 'CV',
 
     // Hero
     'hero.headline': 'Real apps. Real stores. Real users.',
@@ -76,6 +77,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'nav.how': 'Cómo trabajo',
     'nav.blog': 'Blog',
     'nav.contact': 'Contacto',
+    'nav.cv': 'CV',
 
     // Hero
     'hero.headline': 'Apps reales. Stores reales. Usuarios reales.',
