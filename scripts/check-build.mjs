@@ -41,8 +41,8 @@ const CHECKS = [
         'every hero image must ship a srcset — import it via astro:assets, not a /public path'
       );
       assert(
-        imgs.filter((img) => /fetchpriority="high"/.test(img)).length === 1,
-        'exactly one hero image must carry fetchpriority="high" for LCP'
+        imgs.filter((img) => /fetchpriority="high"/.test(img) && /srcset=/.test(img)).length === 1,
+        'exactly one optimized hero image (with srcset) must carry fetchpriority="high" for LCP'
       );
       assert(
         !/danny\.jpg/.test(hero),
