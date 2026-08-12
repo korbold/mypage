@@ -177,7 +177,7 @@ Adds scripts/check-build.mjs as the assertion harness for this redesign."
 
 **Interfaces:**
 - Consumes: `npm run check` harness from Task 1.
-- Produces: `src/assets/apps/{turnly,spectrum,360io,sportyeah,revo}-1.{jpg,png}`, imported by `Hero.astro`. Later tasks import from the same directory.
+- Produces: `src/assets/apps/{turnly,spectrum,akiclub-ss,sportyeah,revo}-1.{jpg,png}`, imported by `Hero.astro`. Later tasks import from the same directory.
 
 - [ ] **Step 1: Write the failing check**
 
@@ -217,7 +217,7 @@ Expected: FAIL — the hero still renders the portrait, not five screenshots.
 mkdir -p src/assets/apps
 git mv public/upwork-portfolio/turnly-1.jpg src/assets/apps/turnly-1.jpg
 git mv public/upwork-portfolio/spectrum-1.jpg src/assets/apps/spectrum-1.jpg
-git mv public/upwork-portfolio/360io-1.jpg src/assets/apps/360io-1.jpg
+git mv public/upwork-portfolio/akiclub-ss-1.png src/assets/apps/akiclub-ss-1.png
 git mv public/upwork-portfolio/sportyeah-1.png src/assets/apps/sportyeah-1.png
 git mv public/upwork-portfolio/revo-1.png src/assets/apps/revo-1.png
 ```
@@ -233,7 +233,7 @@ Replace `src/components/Hero.astro` entirely. The mosaic sits behind a gradient 
 import { Image } from 'astro:assets';
 import turnly from '../assets/apps/turnly-1.jpg';
 import spectrum from '../assets/apps/spectrum-1.jpg';
-import io360 from '../assets/apps/360io-1.jpg';
+import akiclub from '../assets/apps/akiclub-ss-1.png';
 import sportyeah from '../assets/apps/sportyeah-1.png';
 import revo from '../assets/apps/revo-1.png';
 
@@ -242,7 +242,7 @@ const shots = [
   { src: revo, alt: 'REVO Rideshare app' },
   { src: spectrum, alt: 'Spectrum Aesthetics app' },
   { src: turnly, alt: 'Turnly booking app' },
-  { src: io360, alt: '360io IoT app' },
+  { src: akiclub, alt: 'AkiClub loyalty app' },
   { src: sportyeah, alt: 'SportYeah app' },
 ];
 ---
@@ -671,15 +671,18 @@ the distinct apps behind the store URLs rather than the old copy."
 
 ---
 
-### Task 4: Case-study data — merge the duplicate, add the two missing cases
+### Task 4: Case-study data — merge the duplicates, add the missing case
 
-`kruger-corp` and `corp-favorita-suite` describe the same client over the same period and currently render as cases 01 and 02, which reads as padding. Spectrum and 360io have six screenshots each and no case study at all.
+Two separate merges happen here.
+
+`kruger-corp` and `corp-favorita-suite` describe the same client over the same period and currently render as cases 01 and 02, which reads as padding.
+
+**Revised 2026-08-11, mid-execution:** `spectrum-*` and `360io-*` turned out to be *the same App Store screenshot set* — both show 360 Integrations branding over Spectrum Aesthetics content. Danny confirmed they are one engagement: 360 Integrations built the Spectrum Aesthetics portal. So this task creates **one** case study, not two, and the featured set is **four**, not five: `corp-favorita-suite`, `turnly`, `revo-rideshare`, `spectrum-aesthetics`. SportYeah stays in More work. Every count in Tasks 4 and 5 reflects four.
 
 **Files:**
 - Modify: `src/content/case-studies/corp-favorita-suite.md`
 - Delete: `src/content/case-studies/kruger-corp.md`
 - Create: `src/content/case-studies/spectrum-aesthetics.md`
-- Create: `src/content/case-studies/360io.md`
 - Modify: `src/content/case-studies/*.md` (`order` and `featured` fields)
 - Modify: `src/content.config.ts`
 
@@ -689,11 +692,11 @@ the distinct apps behind the store URLs rather than the old copy."
 
 - [ ] **Step 1: Ask Danny for the facts this task cannot invent**
 
-Before writing either new case study, get from Danny:
-- the App Store and/or Google Play URL for **Spectrum Aesthetics** and for **360io**
-- one sentence each on the problem the client had and what shipped
+Before writing the new case study, get from Danny:
+- the App Store and/or Google Play URL for the **Spectrum Aesthetics / 360 Integrations** app
+- one sentence on the problem the client had, and one on what shipped
 
-If a store URL does not exist or cannot be found, omit the `links` field for that case entirely. Do not write a placeholder URL, and do not state a user count, rating, or download figure for either app — none is known.
+If the store URL does not exist or cannot be found, omit the `links` field for that case entirely. Do not write a placeholder URL, and do not state a user count, rating, or download figure — none is known.
 
 - [ ] **Step 2: Extend the schema**
 
@@ -710,16 +713,20 @@ Append to `CHECKS` in `scripts/check-build.mjs`:
 
 ```js
   {
-    name: 'exactly five featured cases, no duplicate Kruger entry',
+    name: 'exactly four featured cases, no duplicate Kruger or 360io entry',
     run: ({ html }) => {
       const start = html.indexOf('id="cases"');
       assert(start !== -1, 'no <section id="cases"> on the page');
       const section = html.slice(start, html.indexOf('id="more-work"'));
       const cards = section.match(/class="case-card[^"]*"/g) || [];
-      assert(cards.length === 5, `found ${cards.length} featured cases, expected 5`);
+      assert(cards.length === 4, `found ${cards.length} featured cases, expected 4`);
       assert(
         !/case-studies\/kruger-corp/.test(html),
         'kruger-corp should be merged into corp-favorita-suite, not listed separately'
+      );
+      assert(
+        !/case-studies\/360io/.test(html),
+        '360io and Spectrum are one engagement — they must not appear as two cases'
       );
     },
   },
@@ -735,20 +742,20 @@ The Kruger case holds the engineering metrics worth keeping — login failures d
 git rm src/content/case-studies/kruger-corp.md
 ```
 
-- [ ] **Step 5: Create the two new case studies**
+- [ ] **Step 5: Create the one new case study**
 
-Create `src/content/case-studies/spectrum-aesthetics.md`, filling `problem`, `solution`, and `result` from Danny's answers in Step 1. Omit `links` if no URL was supplied.
+Create `src/content/case-studies/spectrum-aesthetics.md`, filling `problem`, `solution`, and `result` from Danny's answers in Step 1. Omit `links` if no URL was supplied. The screenshots are App Store marketing images for a HIPAA-compliant client portal; Danny has confirmed they are cleared for use on the site.
 
 ```markdown
 ---
-title: "Spectrum Aesthetics — Wellness Booking App"
-client: "Spectrum Aesthetics"
-role: "Mobile Developer (Flutter)"
+title: "Spectrum Aesthetics — HIPAA-Compliant Client Portal"
+client: "Spectrum Aesthetics (via 360 Integrations)"
+role: "Mobile Developer"
 period: "2024"
 problem: "<one sentence from Danny — what was broken>"
 solution: "<one sentence from Danny — what shipped>"
 result: "Published to the App Store."
-tech: ["Flutter", "Dart", "Firebase", "iOS"]
+tech: ["React Native", "TypeScript", "iOS"]
 order: 4
 featured: true
 shots: ["spectrum-2.jpg", "spectrum-3.jpg", "spectrum-4.jpg"]
@@ -757,29 +764,17 @@ shots: ["spectrum-2.jpg", "spectrum-3.jpg", "spectrum-4.jpg"]
 <body paragraphs from Danny's answers>
 ```
 
-Create `src/content/case-studies/360io.md` the same way:
+Confirm the `tech` list with Danny before committing — the framework for this app has not been verified from the repo.
 
-```markdown
----
-title: "360io — IoT Device Integrations"
-client: "360io"
-role: "Mobile Developer (React Native)"
-period: "2023"
-problem: "<one sentence from Danny — what was broken>"
-solution: "<one sentence from Danny — what shipped>"
-result: "Published to the App Store."
-tech: ["React Native", "TypeScript", "BLE", "iOS"]
-order: 5
-featured: true
-shots: ["360io-2.jpg", "360io-3.jpg", "360io-4.jpg"]
----
+Delete the now-redundant `360io-*` screenshots rather than leaving a duplicate set on disk:
 
-<body paragraphs from Danny's answers>
+```bash
+rm public/upwork-portfolio/360io-*.jpg
 ```
 
 - [ ] **Step 6: Set `featured`, `order`, and `shots` across all cases**
 
-Featured, in order: `corp-favorita-suite` (1), `turnly` (2), `revo-rideshare` (3), `spectrum-aesthetics` (4), `360io` (5) — each `featured: true`.
+Featured, in order: `corp-favorita-suite` (1), `turnly` (2), `revo-rideshare` (3), `spectrum-aesthetics` (4) — each `featured: true`.
 
 Not featured, keeping their relative order: `sportyeah`, `aws-backend`, `beez-delivery`, `legaltech-ecuador`, `sicmer-mobile` — each `featured: false` (or the field omitted, since it defaults to false).
 
@@ -795,7 +790,6 @@ mv public/upwork-portfolio/{akiclub-1.png,akiclub-2.png,analitix-ss-1.png} src/a
 mv public/upwork-portfolio/{turnly-2.jpg,turnly-3.jpg,turnly-4.jpg} src/assets/apps/
 mv public/upwork-portfolio/{revo-2.png,revo-3.png,revo-4.png} src/assets/apps/
 mv public/upwork-portfolio/{spectrum-2.jpg,spectrum-3.jpg,spectrum-4.jpg} src/assets/apps/
-mv public/upwork-portfolio/{360io-2.jpg,360io-3.jpg,360io-4.jpg} src/assets/apps/
 git add src/assets/apps
 ```
 
@@ -808,11 +802,11 @@ Expected: exit 0. A schema error here means a `featured` or `shots` value is mal
 
 ```bash
 git add -A src/content src/content.config.ts scripts/check-build.mjs src/assets/apps
-git commit -m "content: merge Kruger into Corp. Favorita, add Spectrum and 360io
+git commit -m "content: merge duplicate cases, add Spectrum
 
 Kruger and Corp. Favorita covered the same client and period and read as
-padding at positions 01 and 02. Spectrum and 360io had six screenshots each
-and no written case. Adds featured/shots frontmatter for the new work grid."
+padding at positions 01 and 02. Spectrum and 360io turned out to be one
+engagement sharing a single App Store screenshot set, and had no written case. Adds featured/shots frontmatter for the new work grid."
 ```
 
 ---
@@ -1547,6 +1541,6 @@ git push
 
 These block Task 4 and cannot be resolved from the repo:
 
-1. Store URLs for **Spectrum Aesthetics** and **360io**. Without them, those two cases ship with no store link while the other three have one.
+1. Store URL for the **Spectrum Aesthetics / 360 Integrations** app. Without it, that case ships with no store link while the other three have one.
 2. One sentence each on the problem and the solution for those two projects.
 3. Confirmation of the published-app count derived in Task 3 Step 1.
