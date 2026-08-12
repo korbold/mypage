@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { APP_COUNT } from '../src/config/site-stats.mjs';
@@ -310,6 +310,25 @@ const CHECKS = [
           'the mobile navbar menu (.navbar__mobile-menu) does not link to /cv'
         );
       }
+    },
+  },
+  {
+    name: 'the stale CV PDF stays deleted',
+    run: ({ assert }) => {
+      assert(
+        !existsSync(join(DIST, 'cv', 'Danny_Barahona_CV.pdf')),
+        'dist/cv/Danny_Barahona_CV.pdf is back — a PDF that drifts from the page is worse than no PDF; the print button renders a current one'
+      );
+
+      const cvHtml = readFileSync(join(DIST, 'cv', 'index.html'), 'utf8');
+      assert(
+        !/Danny_Barahona_CV\.pdf/.test(cvHtml),
+        '/cv still references the deleted static PDF'
+      );
+      assert(
+        /window\.print\(\)/.test(cvHtml),
+        '/cv has no window.print() handler — the download button was replaced by a print button'
+      );
     },
   },
 ];

@@ -59,7 +59,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'footer.rights': 'All rights reserved.',
 
     // CV
-    'cv.download': 'Download PDF',
+    'cv.print': 'Print / Save as PDF',
 
     // Detail pages
     'detail.back.cases': 'Back to work',
@@ -130,7 +130,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     'footer.rights': 'Todos los derechos reservados.',
 
     // CV
-    'cv.download': 'Descargar PDF',
+    'cv.print': 'Imprimir / Guardar como PDF',
 
     // Detail pages
     'detail.back.cases': 'Volver al trabajo',
