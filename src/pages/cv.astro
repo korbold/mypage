@@ -1,5 +1,40 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { APP_COUNT, ACTIVE_USERS } from '../config/site-stats.mjs';
+
+// The published-apps table is derived from the `links` frontmatter of the case
+// studies, which is the site's single source of truth for what shipped and
+// where. Adding a link to a case study is all it takes to appear here, on the
+// homepage, and in the counts.
+const cases = await getCollection('case-studies');
+
+const seen = new Set();
+const apps = new Map();
+for (const entry of cases) {
+  for (const link of entry.data.links ?? []) {
+    if (seen.has(link.url)) continue;
+    seen.add(link.url);
+
+    // "AkíClub (Google Play)" -> app "AkíClub", store "Google Play"
+    const match = link.label.match(/^(.+) \((.+)\)$/);
+    if (!match) continue;
+    const [, name, store] = match;
+
+    if (!apps.has(name)) {
+      apps.set(name, {
+        name,
+        client: entry.data.client,
+        clientEs: entry.data.clientEs ?? entry.data.client,
+        stores: [],
+      });
+    }
+    apps.get(name).stores.push({ store, url: link.url });
+  }
+}
+
+const publishedApps = [...apps.values()];
+const listingCount = seen.size;
 ---
 
 <BaseLayout title="CV — Danny Barahona" description="Curriculum Vitae de Danny Barahona — Flutter, NestJS, AWS">
@@ -23,6 +58,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="cv__open-to">
         <span class="lang-en">&#128233; Open to senior remote roles &amp; freelance projects</span>
         <span class="lang-es">&#128233; Disponible para roles senior remotos &amp; proyectos freelance</span>
+      </p>
+      <p class="cv__portfolio">
+        <span class="lang-en">Portfolio with screenshots and store links &rarr; </span>
+        <span class="lang-es">Portfolio con capturas y links a tiendas &rarr; </span>
+        <a href="https://korbold.vercel.app">korbold.vercel.app</a>
       </p>
       <div class="cv__contact">
         <span>+593 999 280 376</span>
@@ -224,6 +264,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     </section>
 
+    <!-- Published apps -->
+    <section id="published-apps" class="cv__section">
+      <h2 class="cv__section-title">
+        <span class="lang-es">Apps Publicadas</span>
+        <span class="lang-en">Published Apps</span>
+      </h2>
+      <p class="cv__job-context" data-app-count={APP_COUNT}>
+        <span class="lang-en">{ACTIVE_USERS} active users &middot; {APP_COUNT} apps &middot; {listingCount} store listings across the US and Ecuador</span>
+        <span class="lang-es">{ACTIVE_USERS} usuarios activos &middot; {APP_COUNT} apps &middot; {listingCount} publicaciones en tiendas de EE.UU. y Ecuador</span>
+      </p>
+      <ul class="cv__apps">
+        {publishedApps.map((app) => (
+          <li class="cv__app">
+            <span class="cv__app-name">{app.name}</span>
+            <span class="cv__app-stores">
+              {app.stores.map((s, i) => (
+                <Fragment>
+                  {i > 0 && <span aria-hidden="true"> &middot; </span>}
+                  <a href={s.url} target="_blank" rel="noopener noreferrer">{s.store}</a>
+                </Fragment>
+              ))}
+            </span>
+            <span class="cv__app-client lang-en">{app.client}</span>
+            <span class="cv__app-client lang-es">{app.clientEs}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
     <!-- Cloud Infrastructure Highlights -->
     <section class="cv__section">
       <h2 class="cv__section-title">
@@ -370,6 +439,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-bottom: var(--space-md);
   }
 
+  .cv__portfolio {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .cv__portfolio a {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
   .cv__contact {
     display: flex;
     flex-wrap: wrap;
@@ -477,6 +557,48 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: var(--font-size-sm);
     color: var(--color-text-muted);
     margin-bottom: var(--space-sm);
+  }
+
+  .cv__apps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .cv__app {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--font-size-sm);
+  }
+
+  .cv__app-name {
+    font-weight: 600;
+  }
+
+  .cv__app-client {
+    color: var(--color-text-muted);
+  }
+
+  @media (min-width: 700px) {
+    .cv__app {
+      grid-template-columns: 1fr auto 1fr;
+      align-items: baseline;
+      gap: var(--space-md);
+    }
+
+    .cv__app-client {
+      text-align: right;
+    }
+  }
+
+  @media print {
+    .cv__app {
+      break-inside: avoid;
+      border-bottom: 1px solid #ddd;
+    }
   }
 
   .cv__list {
@@ -604,6 +726,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       text-decoration: none;
     }
 
+    .cv__portfolio {
+      color: #444;
+    }
+
     .cv__section-title {
       font-size: 13px;
       color: #111;
@@ -647,6 +773,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
 
     .cv__job-context {
+      color: #555;
+    }
+
+    .cv__app-name {
+      color: #111;
+    }
+
+    .cv__app-client {
       color: #555;
     }
 

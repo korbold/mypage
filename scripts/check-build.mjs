@@ -331,6 +331,46 @@ const CHECKS = [
       );
     },
   },
+  {
+    name: 'the CV cannot contradict the homepage',
+    run: ({ assert }) => {
+      const cvHtml = readFileSync(join(DIST, 'cv', 'index.html'), 'utf8');
+      const { unique, apps } = collectStoreLinks();
+
+      const start = cvHtml.indexOf('id="published-apps"');
+      assert(start !== -1, 'no published-apps section on /cv');
+      const section = cvHtml.slice(start, cvHtml.indexOf('</section>', start));
+
+      // Every unique store listing must appear as a link in the section — this
+      // is what makes the block self-maintaining rather than hand-typed.
+      const rendered = section.match(/href="https:\/\/(apps\.apple\.com|play\.google\.com)[^"]*"/g) || [];
+      assert(
+        rendered.length === unique.length,
+        `the CV renders ${rendered.length} store links, but the case studies hold ${unique.length} unique ones`
+      );
+
+      const appsFigure = section.match(/data-app-count="(\d+)"/);
+      assert(appsFigure !== null, 'the published-apps heading carries no data-app-count');
+      if (appsFigure) {
+        assert(
+          Number(appsFigure[1]) === APP_COUNT,
+          `the CV renders an app count of ${appsFigure[1]}, but APP_COUNT=${APP_COUNT}`
+        );
+      }
+
+      for (const app of apps.keys()) {
+        assert(
+          section.includes(app),
+          `the CV's published-apps section does not name "${app}"`
+        );
+      }
+
+      assert(
+        /korbold\.vercel\.app/.test(cvHtml),
+        'the CV header does not spell out the portfolio URL — in a printed or forwarded PDF an <a> is dead'
+      );
+    },
+  },
 ];
 
 let failed = 0;
