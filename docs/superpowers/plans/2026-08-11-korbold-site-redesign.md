@@ -1542,5 +1542,5 @@ git push
 These block Task 4 and cannot be resolved from the repo:
 
 1. Store URL for the **Spectrum Aesthetics / 360 Integrations** app. Without it, that case ships with no store link while the other three have one.
-2. One sentence each on the problem and the solution for those two projects.
+2. One sentence on the problem and one on the solution for that project, plus confirmation of its framework (the `tech` list is unverified).
 3. Confirmation of the published-app count derived in Task 3 Step 1.
