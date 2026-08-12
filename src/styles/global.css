@@ -50,13 +50,13 @@ a:hover {
 
 /* Section */
 .section {
-  padding-block: clamp(2.5rem, 6vw, 4rem);
+  padding-block: clamp(2.5rem, 6vw, var(--space-3xl));
 }
 
 .section-title {
   font-size: var(--font-size-3xl);
   font-weight: 700;
-  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+  margin-bottom: clamp(1.25rem, 3vw, var(--space-xl));
   color: var(--color-text);
 }
 

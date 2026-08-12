@@ -6,8 +6,8 @@ const year = new Date().getFullYear();
   <div class="container footer__inner">
     <p class="footer__text">
       &copy; {year} Danny Barahona. <span data-i18n="footer.rights">All rights reserved.</span>
-      <a href="/blog" class="footer__link" data-i18n="nav.blog">Blog</a>
     </p>
+    <a href="/blog" class="footer__link" data-i18n="nav.blog">Blog</a>
   </div>
 </footer>
 
@@ -27,7 +27,8 @@ const year = new Date().getFullYear();
   }
 
   .footer__link {
-    margin-inline-start: var(--space-md);
+    display: inline-block;
+    margin-top: var(--space-sm);
     color: var(--color-text-muted);
     text-decoration: underline;
   }
