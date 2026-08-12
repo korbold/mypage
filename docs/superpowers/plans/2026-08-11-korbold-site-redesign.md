@@ -690,13 +690,23 @@ Two separate merges happen here.
 - Consumes: the existing frontmatter schema in `src/content.config.ts`.
 - Produces: a `featured: boolean` frontmatter field and a `shots: string[]` field holding screenshot filenames relative to `src/assets/apps/`. Task 5 reads both.
 
-- [ ] **Step 1: Ask Danny for the facts this task cannot invent**
+- [ ] **Step 1: Facts already gathered — no need to ask again**
 
-Before writing the new case study, get from Danny:
-- the App Store and/or Google Play URL for the **Spectrum Aesthetics / 360 Integrations** app
-- one sentence on the problem the client had, and one on what shipped
+**Resolved 2026-08-12.** Danny could not retrieve the links himself because the apps are published in the US App Store and he browses the Ecuadorian one. They were found through the iTunes lookup API and confirmed by an exact image match: screenshot 1 of the `id6504781797` listing is pixel-identical to the local `spectrum-1.jpg`.
 
-If the store URL does not exist or cannot be found, omit the `links` field for that case entirely. Do not write a placeholder URL, and do not state a user count, rating, or download figure — none is known.
+All three of these are Danny's work, built on one white-label Flutter codebase — he confirmed this. They are three distinct published apps: different App Store IDs, different bundle IDs, different sellers.
+
+| App | Bundle | Store URL |
+|---|---|---|
+| Spectrum Aesthetics | `com.spectrum-aesthetics.portal` | `https://apps.apple.com/us/app/spectrum-aesthetics/id6504781797` |
+| Spectrum HIPAA Portal | `com.integrations.io.app360` | `https://apps.apple.com/us/app/spectrum-hipaa-portal/id6746419349` |
+| ibody Aesthetics | `com.360io.ibody` | `https://apps.apple.com/us/app/ibody-aesthetics/id6772275647` |
+
+Framework: **Flutter** (confirmed by Danny).
+
+**This raises the published-app count from 10 to 13.** None of these three appeared among the 13 store URLs already in the repo — those covered Corp. Favorita (6), REVO (4), SportYeah, Turnly, and AkíClub. Update `APP_COUNT` in `src/components/Proof.astro` from 10 to 13 as part of this task, so the count stays consistent with the global constraint. Do not add store-link chips to the proof band — Danny chose to keep that row at six.
+
+Do not state a user count, rating, or download figure for any of the three — none is known.
 
 - [ ] **Step 2: Extend the schema**
 
@@ -744,27 +754,38 @@ git rm src/content/case-studies/kruger-corp.md
 
 - [ ] **Step 5: Create the one new case study**
 
-Create `src/content/case-studies/spectrum-aesthetics.md`, filling `problem`, `solution`, and `result` from Danny's answers in Step 1. Omit `links` if no URL was supplied. The screenshots are App Store marketing images for a HIPAA-compliant client portal; Danny has confirmed they are cleared for use on the site.
+Create `src/content/case-studies/spectrum-aesthetics.md` exactly as below. The screenshots are App Store marketing images for a HIPAA-compliant client portal; Danny has confirmed they are cleared for use on the site.
 
 ```markdown
 ---
-title: "Spectrum Aesthetics — HIPAA-Compliant Client Portal"
-client: "Spectrum Aesthetics (via 360 Integrations)"
-role: "Mobile Developer"
-period: "2024"
-problem: "<one sentence from Danny — what was broken>"
-solution: "<one sentence from Danny — what shipped>"
-result: "Published to the App Store."
-tech: ["React Native", "TypeScript", "iOS"]
+title: "White-Label HIPAA Client Portal — 3 Apps on the App Store"
+client: "360 Integrations / Spectrum Aesthetics"
+role: "Mobile Developer (Flutter)"
+period: "2024 – 2026"
+problem: "Patients and practice staff coordinated consultations across consumer chat apps and email, leaving clinical photos and signed documents scattered across channels with no HIPAA guarantees."
+solution: "A white-label Flutter client portal: secure messaging with the practice, media sharing, and a document library covering evaluation, financing, consent, and pre/post-op files."
+result: "Three apps published on the US App Store from one white-label Flutter codebase — Spectrum Aesthetics, Spectrum HIPAA Portal, and ibody Aesthetics."
+tech: ["Flutter", "Dart", "iOS"]
 order: 4
 featured: true
 shots: ["spectrum-2.jpg", "spectrum-3.jpg", "spectrum-4.jpg"]
+links:
+  - label: "Spectrum Aesthetics"
+    url: "https://apps.apple.com/us/app/spectrum-aesthetics/id6504781797"
+  - label: "Spectrum HIPAA Portal"
+    url: "https://apps.apple.com/us/app/spectrum-hipaa-portal/id6746419349"
+  - label: "ibody Aesthetics"
+    url: "https://apps.apple.com/us/app/ibody-aesthetics/id6772275647"
 ---
 
-<body paragraphs from Danny's answers>
+Three aesthetic practices run the same portal under their own branding. Patients message the practice, share clinical photos, and exchange documents — evaluation files, financing, signed consents, pre-op and post-op records — inside one HIPAA-compliant channel instead of across chat apps and email.
+
+The `result` line is the only claim in this case study with a number in it, and it is verifiable: three distinct App Store listings, three distinct bundle IDs.
 ```
 
-Confirm the `tech` list with Danny before committing — the framework for this app has not been verified from the repo.
+**The `problem` and `solution` lines are a draft written from the App Store listing and the screenshots, at Danny's request** — he chose "draft it from the listing" over writing them himself. They assert only what the listing and screenshots support. Flag them in your report as copy Danny should read and correct; do not add any metric, rating, or download figure to them.
+
+Remove the trailing explanatory sentence about the `result` line from the committed markdown body — it is a note to you, not site copy.
 
 Delete the now-redundant `360io-*` screenshots rather than leaving a duplicate set on disk:
 
@@ -1539,8 +1560,10 @@ git push
 
 ## Open items for Danny
 
-These block Task 4 and cannot be resolved from the repo:
+All resolved as of 2026-08-12. Nothing blocks execution.
 
-1. Store URL for the **Spectrum Aesthetics / 360 Integrations** app. Without it, that case ships with no store link while the other three have one.
-2. One sentence on the problem and one on the solution for that project, plus confirmation of its framework (the `tech` list is unverified).
-3. Confirmation of the published-app count derived in Task 3 Step 1.
+1. ~~Store URL for the Spectrum / 360 Integrations app~~ — found via the iTunes lookup API and confirmed by exact image match; three apps, not one. See Task 4 Step 1.
+2. ~~Problem and solution sentences, and the framework~~ — framework is Flutter, confirmed. The problem and solution lines are drafted from the store listing at Danny's request and still need his read-through.
+3. ~~Published-app count~~ — Danny confirmed 10, then the three Spectrum apps raised it to **13**. Task 4 updates `APP_COUNT`.
+
+Remaining for Danny, non-blocking: read the drafted Spectrum problem/solution copy, and decide whether the ES hero subheadline should say `lanzar`/`publicar` instead of `enviar` (a reviewer flagged `enviar` as reading like "send" rather than "ship").
