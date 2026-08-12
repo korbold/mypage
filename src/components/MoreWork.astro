@@ -13,7 +13,8 @@ const rest = (await getCollection('case-studies'))
       {rest.map((entry) => (
         <li>
           <a href={`/case-studies/${entry.id}`}>
-            <span class="more__title">{entry.data.title}</span>
+            <span class="more__title lang-en">{entry.data.title}</span>
+            {entry.data.titleEs && <span class="more__title lang-es" style="display:none;">{entry.data.titleEs}</span>}
             <span class="more__client">{entry.data.client}</span>
             <span class="more__period">{entry.data.period}</span>
           </a>
