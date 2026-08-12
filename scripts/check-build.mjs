@@ -50,6 +50,20 @@ const CHECKS = [
       );
     },
   },
+  {
+    name: 'proof band links out to the stores',
+    run: ({ html }) => {
+      const start = html.indexOf('id="proof"');
+      assert(start !== -1, 'no <section id="proof"> on the page');
+      const band = html.slice(start, html.indexOf('</section>', start));
+      const storeLinks = band.match(/href="https:\/\/(apps\.apple\.com|play\.google\.com)[^"]*"/g) || [];
+      assert(
+        storeLinks.length >= 4,
+        `proof band has ${storeLinks.length} store links, expected at least 4 — store links are the only social proof on the page`
+      );
+      assert(!/id="stats"/.test(html), 'the old stats section is still rendered');
+    },
+  },
 ];
 
 let failed = 0;

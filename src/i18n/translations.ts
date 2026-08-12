@@ -49,11 +49,10 @@ export const translations: Record<Lang, Record<string, string>> = {
     'tech.devops': 'DevOps',
     'tech.databases': 'Databases',
 
-    // Stats
-    'stats.years': 'Years Flutter',
-    'stats.users': 'Active Users',
-    'stats.apps': 'Apps Shipped',
-    'stats.enterprise': 'Enterprise Apps',
+    // Proof
+    'proof.users': 'Active users',
+    'proof.apps': 'Apps published',
+    'proof.years': 'Years in production',
 
     // Companies
     'companies.label': 'Worked with',
@@ -141,11 +140,10 @@ export const translations: Record<Lang, Record<string, string>> = {
     'tech.devops': 'DevOps',
     'tech.databases': 'Bases de Datos',
 
-    // Stats
-    'stats.years': 'A\u00f1os Flutter',
-    'stats.users': 'Usuarios Activos',
-    'stats.apps': 'Apps Publicadas',
-    'stats.enterprise': 'Apps Enterprise',
+    // Proof
+    'proof.users': 'Usuarios activos',
+    'proof.apps': 'Apps publicadas',
+    'proof.years': 'A\u00f1os en producci\u00f3n',
 
     // Companies
     'companies.label': 'He trabajado con',
