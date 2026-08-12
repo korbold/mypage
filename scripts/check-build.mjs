@@ -61,7 +61,7 @@ const CHECKS = [
         storeLinks.length >= 4,
         `proof band has ${storeLinks.length} store links, expected at least 4 — store links are the only social proof on the page`
       );
-      assert(!/id="stats"/.test(html), 'the old stats section is still rendered');
+      assert(!/class="stats"/.test(html), 'the old stats section is still rendered');
     },
   },
 ];
