@@ -582,6 +582,25 @@ const listingCount = seen.size;
     color: var(--color-text-muted);
   }
 
+  /* Store links are the only interactive element in this table — on screen
+     they need a 44px tap target. In print nothing is tappable, so the
+     @media print rule below returns them to their compact inline form
+     rather than growing the printed page. */
+  .cv__app-stores a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: var(--space-sm) 0.25rem;
+  }
+
+  @media print {
+    .cv__app-stores a {
+      display: inline;
+      min-height: auto;
+      padding: 0;
+    }
+  }
+
   @media (min-width: 700px) {
     .cv__app {
       grid-template-columns: 1fr auto 1fr;
