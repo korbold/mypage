@@ -102,7 +102,7 @@ export const translations: Record<Lang, Record<string, string>> = {
 
     // Hero
     'hero.headline': 'Apps reales. Stores reales. Usuarios reales.',
-    'hero.subheadline': 'Flutter y React Native para fundadores y equipos de producto que necesitan enviar, no prototipar.',
+    'hero.subheadline': 'Flutter y React Native para fundadores y equipos de producto que necesitan lanzar, no prototipar.',
     'hero.cta.work': 'Ver el trabajo',
     'hero.cta.contact': 'Empezar un proyecto',
     'hero.badge': 'Disponible para nuevos proyectos',
