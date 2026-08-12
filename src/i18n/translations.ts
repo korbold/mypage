@@ -10,12 +10,11 @@ export const translations: Record<Lang, Record<string, string>> = {
     'nav.contact': 'Contact',
 
     // Hero
-    'hero.headline': 'I ship enterprise mobile apps to 16K+ users.',
-    'hero.subheadline': 'Senior Mobile Developer · 5 production Flutter apps · Latam → World.',
-    'hero.cta.work': 'See my work',
-    'hero.cta.contact': "Let's talk",
-    'hero.cta.cv': 'Download CV',
-    'hero.badge': 'Available for remote roles · US/EU timezone friendly',
+    'hero.headline': 'Real apps. Real stores. Real users.',
+    'hero.subheadline': 'Flutter and React Native for founders and product teams who need to ship, not prototype.',
+    'hero.cta.work': 'See the work',
+    'hero.cta.contact': 'Start a project',
+    'hero.badge': 'Available for new projects',
 
     // Services
     'services.title': 'What I do',
@@ -103,12 +102,11 @@ export const translations: Record<Lang, Record<string, string>> = {
     'nav.contact': 'Contacto',
 
     // Hero
-    'hero.headline': 'Construyo apps m\u00f3viles enterprise que llegan a 16K+ usuarios.',
-    'hero.subheadline': 'Senior Mobile Developer \u00b7 5 apps Flutter en producci\u00f3n \u00b7 Latam \u2192 Mundo.',
-    'hero.cta.work': 'Ver mi trabajo',
-    'hero.cta.contact': 'Hablemos',
-    'hero.cta.cv': 'Descargar CV',
-    'hero.badge': 'Disponible para roles remotos \u00b7 Compatible US/EU',
+    'hero.headline': 'Apps reales. Stores reales. Usuarios reales.',
+    'hero.subheadline': 'Flutter y React Native para fundadores y equipos de producto que necesitan enviar, no prototipar.',
+    'hero.cta.work': 'Ver el trabajo',
+    'hero.cta.contact': 'Empezar un proyecto',
+    'hero.badge': 'Disponible para nuevos proyectos',
 
     // Services
     'services.title': 'Lo que hago',

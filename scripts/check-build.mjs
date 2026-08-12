@@ -30,6 +30,26 @@ const CHECKS = [
       );
     },
   },
+  {
+    name: 'hero renders 5 optimized app screenshots',
+    run: ({ html }) => {
+      const hero = html.split('</section>')[0];
+      const imgs = hero.match(/<img[^>]*>/g) || [];
+      assert(imgs.length === 5, `hero has ${imgs.length} <img> tags, expected 5`);
+      assert(
+        imgs.every((img) => /srcset=/.test(img)),
+        'every hero image must ship a srcset — import it via astro:assets, not a /public path'
+      );
+      assert(
+        imgs.filter((img) => /fetchpriority="high"/.test(img)).length === 1,
+        'exactly one hero image must carry fetchpriority="high" for LCP'
+      );
+      assert(
+        !/danny\.jpg/.test(hero),
+        'the portrait belongs in the How I work section, not the hero'
+      );
+    },
+  },
 ];
 
 let failed = 0;
