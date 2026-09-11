@@ -25,3 +25,36 @@ npm-debug.log*
 
 # Brainstorm companion
 .superpowers/
+
+# === Artefactos de busqueda de empleo — NUNCA en este repo publico ===
+# CVs generados (contienen telefono, email e historial laboral)
+Danny_Barahona_CV_*.pdf
+cv-*.pdf
+cv-*.html
+Prompt-Claude-Code-CV*.md
+
+# Capturas de formularios de postulacion ya llenados
+*_form*.png
+*_edit*.png
+*_after_edit.png
+*_review.png
+*_state.png
+netby_*.png
+netby_*.txt
+devsu_*.png
+tracsis_*.png
+bairesdev_*.png
+fullstack_*.png
+cases-*.png
+hero-*.png
+
+# Scraping de portales (datos de terceros)
+linkedin_*.json
+indeed_*.json
+li_*.json
+li_*.txt
+grupogrip_jd.json
+*.ics
+
+# Material de portafolio sin publicar
+public/upwork-portfolio/
